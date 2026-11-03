@@ -4531,6 +4531,17 @@
       "confidence": 0.2,
       "notes": "Initial implementation snapshot. Not source-verified; source code remains current authority if later iteration changes.",
       "reference_version": null
+    },
+    {
+      "property": "pickups.clover.luckBonus",
+      "value": 0.1,
+      "status": "estimated",
+      "source": "src/gameplay/engine.js collect(clover); original reference access unavailable",
+      "source_type": "implementation_hypothesis",
+      "date": "2026-11-03",
+      "confidence": 0.35,
+      "notes": "Run-scoped Luck increment persists through recomputation. Prior gold grant corrected; magnitude and lifetime require source verification.",
+      "reference_version": null
     }
   ]
 }

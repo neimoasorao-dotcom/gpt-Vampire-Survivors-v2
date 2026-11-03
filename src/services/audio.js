@@ -71,7 +71,7 @@ export class AudioService {
   event(type) {
     const ctx = this.context;
     if (!ctx || ctx.state !== 'running') return;
-    const limits = { xp: .045, hit: .07, death: .1, attack: .08, coin: .06, crit: .06 };
+    const limits = { xp: .045, hit: .07, death: .1, enemyDeath: .1, attack: .08, coin: .06, crit: .06 };
     const now = ctx.currentTime;
     if (now - (this.cooldowns.get(type) ?? -Infinity) < (limits[type] || .02)) return;
     this.cooldowns.set(type, now);
@@ -84,6 +84,7 @@ export class AudioService {
       case 'attack': note(125, .075, { gain: .12, wave: 'sawtooth', end: 42 }); break;
       case 'hit': note(150, .04, { gain: .07, wave: 'triangle', end: 60 }); break;
       case 'crit': note(1000, .07, { gain: .07, wave: 'triangle', end: 450 }); break;
+      case 'enemyDeath':
       case 'death': note(95, .08, { gain: .045, wave: 'square', end: 35 }); break;
       case 'coin': note(1175, .08, { gain: .07, wave: 'sine' }); note(1568, .12, { gain: .06, delay: .06, wave: 'sine' }); break;
       case 'levelup':
@@ -95,6 +96,7 @@ export class AudioService {
       case 'playerHit': note(120, .22, { gain: .23, wave: 'sawtooth', end: 40 }); note(75, .16, { gain: .12, wave: 'triangle' }); break;
       case 'gameover': [57, 55, 52, 45].forEach((m, i) => note(NOTE(m), .48, { gain: .14, delay: i * .24, wave: 'triangle' })); break;
       case 'results': [57, 60, 64, 69].forEach((m, i) => note(NOTE(m), .35, { gain: .1, delay: i * .13, wave: 'triangle' })); break;
+      case 'heal':
       case 'pickup': note(660, .13, { gain: .08, wave: 'triangle', end: 990 }); break;
       default: break;
     }

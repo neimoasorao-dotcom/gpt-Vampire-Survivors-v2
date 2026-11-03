@@ -1,0 +1,694 @@
+{
+  "date": "2026-11-03T03:12:29.303Z",
+  "artifact": "dist/vampire_survivors.html",
+  "bytes": 112870,
+  "sha256": "53ad505852d66fa81888e6c7c77bcf1d0bae4e3b381649505356221b9c131302",
+  "tests": [
+    {
+      "name": "file: boot offline artifact",
+      "status": "blocked",
+      "message": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\", waiting until \"load\"\u001b[22m\n",
+      "stack": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\", waiting until \"load\"\u001b[22m\n\n    at newPage (/workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:45:11)\n    at async file:///workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:52:14\n    at async check (/workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:22:22)\n    at async file:///workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:51:5"
+    },
+    {
+      "name": "http: boot offline artifact",
+      "status": "passed",
+      "ms": 3333,
+      "data": {
+        "viewport": "1920x1080",
+        "initialScreen": "main"
+      }
+    },
+    {
+      "name": "http: language toggles Japanese and English",
+      "status": "passed",
+      "ms": 83
+    },
+    {
+      "name": "http: character and stage selection navigation",
+      "status": "passed",
+      "ms": 2107
+    },
+    {
+      "name": "http: keyboard moves, diagonal is normalized",
+      "status": "passed",
+      "ms": 286,
+      "data": {
+        "before": {
+          "x": 0,
+          "y": 0
+        },
+        "after": {
+          "x": 21,
+          "y": 0
+        },
+        "diagonal": {
+          "input": {
+            "x": 0.7071067811865475,
+            "y": 0.7071067811865475
+          },
+          "distance": 90,
+          "expected": 90
+        }
+      }
+    },
+    {
+      "name": "http: pause freezes world and resumes",
+      "status": "passed",
+      "ms": 536
+    },
+    {
+      "name": "http: pause options returns to pause, main options returns main",
+      "status": "passed",
+      "ms": 602
+    },
+    {
+      "name": "http: visibility loss pauses and clears held input",
+      "status": "passed",
+      "ms": 37
+    },
+    {
+      "name": "http: gamepad stick, deadzone, D-pad, pause",
+      "status": "passed",
+      "ms": 592,
+      "data": {
+        "input": "mocked Gamepad API; physical hardware untested"
+      }
+    },
+    {
+      "name": "http: WebAudio unlock and bounded voices",
+      "status": "passed",
+      "ms": 31,
+      "data": {
+        "state": "running",
+        "suspended": "suspended",
+        "voices": 20,
+        "max": 24,
+        "scheduledBeats": 0
+      }
+    },
+    {
+      "name": "http: XP opens actual level choice and upgrades",
+      "status": "passed",
+      "ms": 471
+    },
+    {
+      "name": "http: reroll, skip, banish have real effects",
+      "status": "passed",
+      "ms": 113
+    },
+    {
+      "name": "http: queued chest survives level-up and multiple XP thresholds",
+      "status": "passed",
+      "ms": 45,
+      "data": {
+        "level": 5,
+        "state": "chest",
+        "chests": 1,
+        "queued": 0,
+        "xp": 20,
+        "next": 45
+      }
+    },
+    {
+      "name": "http: eligible chest evolves Whip and replaces slot",
+      "status": "passed",
+      "ms": 727
+    },
+    {
+      "name": "http: death records result and meta-progression",
+      "status": "passed",
+      "ms": 1011
+    },
+    {
+      "name": "http: volume/settings persist through reload",
+      "status": "passed",
+      "ms": 696
+    },
+    {
+      "name": "http: resize keeps canvas bounded",
+      "status": "passed",
+      "ms": 600
+    },
+    {
+      "name": "http: oversized laboratory density clamps without freezing",
+      "status": "passed",
+      "ms": 570,
+      "data": {
+        "enemies": 2500,
+        "density": 2500,
+        "ms": 11.400000000139698
+      }
+    },
+    {
+      "name": "HTTP: golden assisted run screenshots 00:30 through 29:00",
+      "status": "passed",
+      "ms": 87052,
+      "data": {
+        "seed": 413,
+        "assisted": true,
+        "invincible": true,
+        "referenceCompared": false,
+        "snapshots": [
+          {
+            "time": 30,
+            "level": 1,
+            "xp": 1,
+            "kills": 1,
+            "player_hp": 120,
+            "enemy_alive": 58,
+            "enemy_spawned_total": 59,
+            "projectile_count": 0,
+            "pickup_count": 0,
+            "dps": 0.33351862145636463,
+            "damage": 10,
+            "gold": 0,
+            "chests": 0,
+            "evolutionTime": null,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 23,
+            "hits": 1,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 12,
+            "collisionDiscCoverage": 0.004031635802469136,
+            "meanLuminance": 53.379448800642024,
+            "renderer": {
+              "renderMs": 0.30000000004656613,
+              "drawCalls": 42,
+              "visibleEnemies": 18,
+              "visiblePickups": 0,
+              "render_ms": 0.30000000004656613,
+              "draw_calls": 42
+            }
+          },
+          {
+            "time": 300,
+            "level": 9,
+            "xp": 84,
+            "kills": 594,
+            "player_hp": 168,
+            "enemy_alive": 302,
+            "enemy_spawned_total": 896,
+            "projectile_count": 0,
+            "pickup_count": 299,
+            "dps": 111.66666666666667,
+            "damage": 19420,
+            "gold": 74,
+            "chests": 1,
+            "evolutionTime": null,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 228,
+            "hits": 1204,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 159,
+            "collisionDiscCoverage": 0.038204089506172836,
+            "meanLuminance": 55.82206137704942,
+            "renderer": {
+              "renderMs": 1.0999999998603016,
+              "drawCalls": 229,
+              "visibleEnemies": 190,
+              "visiblePickups": 18,
+              "render_ms": 1.0999999998603016,
+              "draw_calls": 229
+            }
+          },
+          {
+            "time": 600.02,
+            "level": 25,
+            "xp": 35,
+            "kills": 2196,
+            "player_hp": 240,
+            "enemy_alive": 565,
+            "enemy_spawned_total": 2761,
+            "projectile_count": 0,
+            "pickup_count": 405,
+            "dps": 1324,
+            "damage": 153503,
+            "gold": 178,
+            "chests": 2,
+            "evolutionTime": null,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 504,
+            "hits": 4549,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 538,
+            "collisionDiscCoverage": 0.1570505401234568,
+            "meanLuminance": 54.76397240676267,
+            "renderer": {
+              "renderMs": 2,
+              "drawCalls": 610,
+              "visibleEnemies": 560,
+              "visiblePickups": 27,
+              "render_ms": 2,
+              "draw_calls": 610
+            }
+          },
+          {
+            "time": 900,
+            "level": 46,
+            "xp": 469,
+            "kills": 5573,
+            "player_hp": 240,
+            "enemy_alive": 126,
+            "enemy_spawned_total": 5699,
+            "projectile_count": 0,
+            "pickup_count": 151,
+            "dps": 985.4666666666667,
+            "damage": 645336,
+            "gold": 556,
+            "chests": 2,
+            "evolutionTime": null,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 871,
+            "hits": 11750,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 89,
+            "collisionDiscCoverage": 0.03729552469135802,
+            "meanLuminance": 55.90639508575336,
+            "renderer": {
+              "renderMs": 0.5,
+              "drawCalls": 311,
+              "visibleEnemies": 107,
+              "visiblePickups": 120,
+              "render_ms": 0.5,
+              "draw_calls": 311
+            }
+          },
+          {
+            "time": 1200,
+            "level": 50,
+            "xp": 463,
+            "kills": 8984,
+            "player_hp": 240,
+            "enemy_alive": 631,
+            "enemy_spawned_total": 9615,
+            "projectile_count": 0,
+            "pickup_count": 378,
+            "dps": 2205.3333333333335,
+            "damage": 1532076,
+            "gold": 691,
+            "chests": 2,
+            "evolutionTime": null,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 1238,
+            "hits": 23314,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 190,
+            "collisionDiscCoverage": 0.04736304012345679,
+            "meanLuminance": 54.15945660082014,
+            "renderer": {
+              "renderMs": 1.1999999999534339,
+              "drawCalls": 367,
+              "visibleEnemies": 269,
+              "visiblePickups": 71,
+              "render_ms": 1.1999999999534339,
+              "draw_calls": 367
+            }
+          },
+          {
+            "time": 1500,
+            "level": 69,
+            "xp": 498,
+            "kills": 13300,
+            "player_hp": 240,
+            "enemy_alive": 977,
+            "enemy_spawned_total": 14277,
+            "projectile_count": 0,
+            "pickup_count": 409,
+            "dps": 7528,
+            "damage": 3171996,
+            "gold": 1184,
+            "chests": 2,
+            "evolutionTime": null,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 1606,
+            "hits": 43813,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 868,
+            "collisionDiscCoverage": 0.17219328703703704,
+            "meanLuminance": 55.02842844493489,
+            "renderer": {
+              "renderMs": 2.1000000000931323,
+              "drawCalls": 992,
+              "visibleEnemies": 905,
+              "visiblePickups": 37,
+              "render_ms": 2.1000000000931323,
+              "draw_calls": 992
+            }
+          },
+          {
+            "time": 1740.02,
+            "level": 86,
+            "xp": 348,
+            "kills": 17703,
+            "player_hp": 240,
+            "enemy_alive": 848,
+            "enemy_spawned_total": 18551,
+            "projectile_count": 0,
+            "pickup_count": 413,
+            "dps": 10066.666666666666,
+            "damage": 4986636,
+            "gold": 1678,
+            "chests": 3,
+            "evolutionTime": 1538.2833333333333,
+            "seed": 413,
+            "state": "playing",
+            "attacks": 1989,
+            "hits": 64425,
+            "fps": null,
+            "frame_ms": null,
+            "visibleEnemies": 773,
+            "collisionDiscCoverage": 0.22560185185185186,
+            "meanLuminance": 55.87291282773404,
+            "renderer": {
+              "renderMs": 4.800000000046566,
+              "drawCalls": 1277,
+              "visibleEnemies": 827,
+              "visiblePickups": 186,
+              "render_ms": 4.800000000046566,
+              "draw_calls": 1277
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "HTTP: high-density actual RAF frame telemetry",
+      "status": "passed",
+      "ms": 2124,
+      "data": {
+        "frames": 118,
+        "fps": 56.640906254500386,
+        "medianFrameMs": 16.69999999999709,
+        "p95FrameMs": 16.80000000000291,
+        "maxFrameMs": 66.69999999999709,
+        "meanUpdateMs": 1.8383333333321692,
+        "meanRenderMs": 4.450833333328289,
+        "enemies": 855,
+        "environment": "headless Linux Chromium 1920x1080, invincible autoplay"
+      }
+    },
+    {
+      "name": "no external runtime network requests",
+      "status": "passed",
+      "ms": 0
+    },
+    {
+      "name": "no browser console errors",
+      "status": "passed",
+      "ms": 0
+    },
+    {
+      "name": "artifact remained unchanged during test",
+      "status": "passed",
+      "ms": 3
+    }
+  ],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "reports/screenshots/http-main-ja.png",
+    "reports/screenshots/http-characters.png",
+    "reports/screenshots/http-stages.png",
+    "reports/screenshots/http-pause.png",
+    "reports/screenshots/http-levelup.png",
+    "reports/screenshots/http-evolution.png",
+    "reports/screenshots/http-results.png",
+    "reports/screenshots/golden_0030.png",
+    "reports/screenshots/golden_0500.png",
+    "reports/screenshots/golden_1000.png",
+    "reports/screenshots/golden_1500.png",
+    "reports/screenshots/golden_2000.png",
+    "reports/screenshots/golden_2500.png",
+    "reports/screenshots/golden_2900.png"
+  ],
+  "limitations": [
+    "Chrome on Linux automation; physical Windows hardware and physical gamepads are not validated.",
+    "Reference comparison blocked by unavailable reference captures; no fidelity pass is inferred from smoke tests."
+  ],
+  "golden": {
+    "seed": 413,
+    "assisted": true,
+    "invincible": true,
+    "referenceCompared": false,
+    "snapshots": [
+      {
+        "time": 30,
+        "level": 1,
+        "xp": 1,
+        "kills": 1,
+        "player_hp": 120,
+        "enemy_alive": 58,
+        "enemy_spawned_total": 59,
+        "projectile_count": 0,
+        "pickup_count": 0,
+        "dps": 0.33351862145636463,
+        "damage": 10,
+        "gold": 0,
+        "chests": 0,
+        "evolutionTime": null,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 23,
+        "hits": 1,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 12,
+        "collisionDiscCoverage": 0.004031635802469136,
+        "meanLuminance": 53.379448800642024,
+        "renderer": {
+          "renderMs": 0.30000000004656613,
+          "drawCalls": 42,
+          "visibleEnemies": 18,
+          "visiblePickups": 0,
+          "render_ms": 0.30000000004656613,
+          "draw_calls": 42
+        }
+      },
+      {
+        "time": 300,
+        "level": 9,
+        "xp": 84,
+        "kills": 594,
+        "player_hp": 168,
+        "enemy_alive": 302,
+        "enemy_spawned_total": 896,
+        "projectile_count": 0,
+        "pickup_count": 299,
+        "dps": 111.66666666666667,
+        "damage": 19420,
+        "gold": 74,
+        "chests": 1,
+        "evolutionTime": null,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 228,
+        "hits": 1204,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 159,
+        "collisionDiscCoverage": 0.038204089506172836,
+        "meanLuminance": 55.82206137704942,
+        "renderer": {
+          "renderMs": 1.0999999998603016,
+          "drawCalls": 229,
+          "visibleEnemies": 190,
+          "visiblePickups": 18,
+          "render_ms": 1.0999999998603016,
+          "draw_calls": 229
+        }
+      },
+      {
+        "time": 600.02,
+        "level": 25,
+        "xp": 35,
+        "kills": 2196,
+        "player_hp": 240,
+        "enemy_alive": 565,
+        "enemy_spawned_total": 2761,
+        "projectile_count": 0,
+        "pickup_count": 405,
+        "dps": 1324,
+        "damage": 153503,
+        "gold": 178,
+        "chests": 2,
+        "evolutionTime": null,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 504,
+        "hits": 4549,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 538,
+        "collisionDiscCoverage": 0.1570505401234568,
+        "meanLuminance": 54.76397240676267,
+        "renderer": {
+          "renderMs": 2,
+          "drawCalls": 610,
+          "visibleEnemies": 560,
+          "visiblePickups": 27,
+          "render_ms": 2,
+          "draw_calls": 610
+        }
+      },
+      {
+        "time": 900,
+        "level": 46,
+        "xp": 469,
+        "kills": 5573,
+        "player_hp": 240,
+        "enemy_alive": 126,
+        "enemy_spawned_total": 5699,
+        "projectile_count": 0,
+        "pickup_count": 151,
+        "dps": 985.4666666666667,
+        "damage": 645336,
+        "gold": 556,
+        "chests": 2,
+        "evolutionTime": null,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 871,
+        "hits": 11750,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 89,
+        "collisionDiscCoverage": 0.03729552469135802,
+        "meanLuminance": 55.90639508575336,
+        "renderer": {
+          "renderMs": 0.5,
+          "drawCalls": 311,
+          "visibleEnemies": 107,
+          "visiblePickups": 120,
+          "render_ms": 0.5,
+          "draw_calls": 311
+        }
+      },
+      {
+        "time": 1200,
+        "level": 50,
+        "xp": 463,
+        "kills": 8984,
+        "player_hp": 240,
+        "enemy_alive": 631,
+        "enemy_spawned_total": 9615,
+        "projectile_count": 0,
+        "pickup_count": 378,
+        "dps": 2205.3333333333335,
+        "damage": 1532076,
+        "gold": 691,
+        "chests": 2,
+        "evolutionTime": null,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 1238,
+        "hits": 23314,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 190,
+        "collisionDiscCoverage": 0.04736304012345679,
+        "meanLuminance": 54.15945660082014,
+        "renderer": {
+          "renderMs": 1.1999999999534339,
+          "drawCalls": 367,
+          "visibleEnemies": 269,
+          "visiblePickups": 71,
+          "render_ms": 1.1999999999534339,
+          "draw_calls": 367
+        }
+      },
+      {
+        "time": 1500,
+        "level": 69,
+        "xp": 498,
+        "kills": 13300,
+        "player_hp": 240,
+        "enemy_alive": 977,
+        "enemy_spawned_total": 14277,
+        "projectile_count": 0,
+        "pickup_count": 409,
+        "dps": 7528,
+        "damage": 3171996,
+        "gold": 1184,
+        "chests": 2,
+        "evolutionTime": null,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 1606,
+        "hits": 43813,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 868,
+        "collisionDiscCoverage": 0.17219328703703704,
+        "meanLuminance": 55.02842844493489,
+        "renderer": {
+          "renderMs": 2.1000000000931323,
+          "drawCalls": 992,
+          "visibleEnemies": 905,
+          "visiblePickups": 37,
+          "render_ms": 2.1000000000931323,
+          "draw_calls": 992
+        }
+      },
+      {
+        "time": 1740.02,
+        "level": 86,
+        "xp": 348,
+        "kills": 17703,
+        "player_hp": 240,
+        "enemy_alive": 848,
+        "enemy_spawned_total": 18551,
+        "projectile_count": 0,
+        "pickup_count": 413,
+        "dps": 10066.666666666666,
+        "damage": 4986636,
+        "gold": 1678,
+        "chests": 3,
+        "evolutionTime": 1538.2833333333333,
+        "seed": 413,
+        "state": "playing",
+        "attacks": 1989,
+        "hits": 64425,
+        "fps": null,
+        "frame_ms": null,
+        "visibleEnemies": 773,
+        "collisionDiscCoverage": 0.22560185185185186,
+        "meanLuminance": 55.87291282773404,
+        "renderer": {
+          "renderMs": 4.800000000046566,
+          "drawCalls": 1277,
+          "visibleEnemies": 827,
+          "visiblePickups": 186,
+          "render_ms": 4.800000000046566,
+          "draw_calls": 1277
+        }
+      }
+    ]
+  },
+  "frameTelemetry": {
+    "frames": 118,
+    "fps": 56.640906254500386,
+    "medianFrameMs": 16.69999999999709,
+    "p95FrameMs": 16.80000000000291,
+    "maxFrameMs": 66.69999999999709,
+    "meanUpdateMs": 1.8383333333321692,
+    "meanRenderMs": 4.450833333328289,
+    "enemies": 855,
+    "environment": "headless Linux Chromium 1920x1080, invincible autoplay"
+  },
+  "passed": 22,
+  "failed": 0,
+  "blocked": 1
+}

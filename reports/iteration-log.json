@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-03",
+  "release": false,
+  "iterations": [
+    {
+      "id": "SIM-001",
+      "observed": "Variable dt desynchronized the tick clock from movement and cooldowns",
+      "correction": "Enforce exactly 1/60 tick; reject other dt",
+      "regressionEvidence": "tests/engine.test.mjs"
+    },
+    {
+      "id": "EVO-001",
+      "observed": "Consumed Whip reappeared in level choices after Bloody Tear evolution",
+      "correction": "Exclude consumed base whenever its evolution is owned",
+      "regressionEvidence": "tests/engine.test.mjs; reports/browser-smoke-results.json; reports/screenshots/golden_2900.png"
+    },
+    {
+      "id": "ENDLESS-001",
+      "observed": "Second cycle missed reset at exactly 1800 seconds",
+      "correction": "Track cycle index before evaluating local wave times",
+      "regressionEvidence": "tests/engine.test.mjs; reports/telemetry_soak.json"
+    },
+    {
+      "id": "LAB-001",
+      "observed": "Unbounded lab density could loop after hitting entity cap",
+      "correction": "Clamp finite density, health, speed and debug loop inputs",
+      "regressionEvidence": "reports/browser-smoke-results.json; tests/engine.test.mjs"
+    },
+    {
+      "id": "PICKUP-001",
+      "observed": "Clover granted coins",
+      "correction": "Apply run Luck modifier and retain through recomputation; source magnitude/lifetime still estimated",
+      "regressionEvidence": "tests/engine.test.mjs; evidence.json"
+    },
+    {
+      "id": "UI-001",
+      "observed": "Options opened from pause returned to main",
+      "correction": "Preserve options return screen for mouse and cancel actions",
+      "regressionEvidence": "reports/ui-layout.json; reports/browser-smoke-results.json"
+    },
+    {
+      "id": "AUDIO-001",
+      "observed": "Enemy death/heal event names had no audio alias",
+      "correction": "Route existing engine names into bounded original SFX voices",
+      "regressionEvidence": "tests/services.test.mjs; reports/browser-smoke-results.json"
+    }
+  ]
+}

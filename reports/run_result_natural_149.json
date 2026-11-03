@@ -1,0 +1,183 @@
+{
+  "seed": 149,
+  "assisted": false,
+  "endless": false,
+  "requestedSeconds": 1801,
+  "completedRequestedTime": false,
+  "outcome": "dead",
+  "final": {
+    "time": 589.67,
+    "level": 22,
+    "xp": 61.03999999999897,
+    "kills": 2151,
+    "player_hp": 0,
+    "enemy_alive": 496,
+    "enemy_spawned_total": 2647,
+    "projectile_count": 0,
+    "pickup_count": 361,
+    "dps": 679.6,
+    "damage": 136571,
+    "gold": 76,
+    "chests": 1,
+    "evolutionTime": null,
+    "seed": 149,
+    "state": "dead",
+    "attacks": 508,
+    "hits": 2852,
+    "fps": null,
+    "frame_ms": null
+  },
+  "snapshots": [
+    {
+      "time": 30,
+      "level": 1,
+      "xp": 0,
+      "kills": 0,
+      "player_hp": 120,
+      "enemy_alive": 59,
+      "enemy_spawned_total": 59,
+      "projectile_count": 0,
+      "pickup_count": 0,
+      "dps": 0,
+      "damage": 0,
+      "gold": 0,
+      "chests": 0,
+      "evolutionTime": null,
+      "seed": 149,
+      "state": "playing",
+      "attacks": 23,
+      "hits": 0,
+      "fps": null,
+      "frame_ms": null
+    },
+    {
+      "time": 60,
+      "level": 1,
+      "xp": 3,
+      "kills": 3,
+      "player_hp": 120,
+      "enemy_alive": 118,
+      "enemy_spawned_total": 121,
+      "projectile_count": 0,
+      "pickup_count": 0,
+      "dps": 1,
+      "damage": 30,
+      "gold": 1,
+      "chests": 0,
+      "evolutionTime": null,
+      "seed": 149,
+      "state": "playing",
+      "attacks": 45,
+      "hits": 3,
+      "fps": null,
+      "frame_ms": null
+    },
+    {
+      "time": 180,
+      "level": 3,
+      "xp": 4,
+      "kills": 24,
+      "player_hp": 106,
+      "enemy_alive": 256,
+      "enemy_spawned_total": 280,
+      "projectile_count": 0,
+      "pickup_count": 0,
+      "dps": 17.5,
+      "damage": 565,
+      "gold": 3,
+      "chests": 0,
+      "evolutionTime": null,
+      "seed": 149,
+      "state": "playing",
+      "attacks": 134,
+      "hits": 56,
+      "fps": null,
+      "frame_ms": null
+    },
+    {
+      "time": 300,
+      "level": 13,
+      "xp": 107,
+      "kills": 663,
+      "player_hp": 98,
+      "enemy_alive": 101,
+      "enemy_spawned_total": 764,
+      "projectile_count": 0,
+      "pickup_count": 121,
+      "dps": 299.6666666666667,
+      "damage": 18955,
+      "gold": 71,
+      "chests": 1,
+      "evolutionTime": null,
+      "seed": 149,
+      "state": "playing",
+      "attacks": 227,
+      "hits": 836,
+      "fps": null,
+      "frame_ms": null
+    }
+  ],
+  "elapsedMs": 17068.135199999997,
+  "updateMs": {
+    "mean": 0.4813710477388314,
+    "p50": 0.24197199999980512,
+    "p95": 1.0946989999993093,
+    "p99": 4.384173000000374,
+    "max": 202.9018240000005,
+    "over100ms": 5
+  },
+  "finalInventory": {
+    "weapons": {
+      "whip": 8
+    },
+    "passives": {
+      "spinach": 4,
+      "tome": 4,
+      "armor": 1,
+      "heart": 5,
+      "crown": 1
+    }
+  },
+  "memorySamples": [
+    {
+      "time": 300,
+      "heapMB": 8.872856140136719,
+      "live": {
+        "enemies": 101,
+        "pickups": 121,
+        "effects": 0,
+        "texts": 0,
+        "particles": 0
+      },
+      "pooled": {
+        "enemies": 167,
+        "pickups": 254,
+        "effects": 4,
+        "texts": 120,
+        "particles": 600
+      },
+      "replay": 17943,
+      "telemetry": 11
+    }
+  ],
+  "finalMemory": {
+    "heapMB": 11.002677917480469,
+    "live": {
+      "enemies": 496,
+      "pickups": 361,
+      "effects": 1,
+      "texts": 14,
+      "particles": 0
+    },
+    "pooled": {
+      "enemies": 0,
+      "pickups": 45,
+      "effects": 3,
+      "texts": 106,
+      "particles": 600
+    },
+    "replay": 35192,
+    "telemetry": 20
+  },
+  "sourceHash": "4fc33cac7228328cd783f619bc0ab3693317dc784669d3dbe082cbfab4409557"
+}

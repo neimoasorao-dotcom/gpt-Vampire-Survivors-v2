@@ -1,0 +1,7 @@
+{
+  "baselineSource": "4fc33cac7228328cd783f619bc0ab3693317dc784669d3dbe082cbfab4409557",
+  "currentSource": "4fc33cac7228328cd783f619bc0ab3693317dc784669d3dbe082cbfab4409557",
+  "identicalMetrics": true,
+  "differences": [],
+  "note": "Initial accepted implementation baseline. No independent repeated full current-source run yet; deterministic behavior tested separately in unit tests."
+}

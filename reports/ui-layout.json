@@ -1,0 +1,478 @@
+{
+  "date": "2026-11-03T03:14:49.176Z",
+  "artifact": "dist/vampire_survivors.html",
+  "checks": [
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "main",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "characters",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "stages",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "powerups",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "collection",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "unlocks",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "secrets",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "options",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "ja",
+      "screen": "lab",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "main",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "characters",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "stages",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "powerups",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "collection",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "unlocks",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "secrets",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "options",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "language": "en",
+      "screen": "lab",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "name": "pause/options/back",
+      "status": "passed"
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "name": "pause/options/Escape",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "main",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "characters",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "stages",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "powerups",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "collection",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "unlocks",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "secrets",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "options",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "ja",
+      "screen": "lab",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "main",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "characters",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "stages",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "powerups",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "collection",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "unlocks",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "secrets",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "options",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "language": "en",
+      "screen": "lab",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "name": "pause/options/back",
+      "status": "passed"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "name": "pause/options/Escape",
+      "status": "passed"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "main",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "characters",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "stages",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "powerups",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "collection",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "unlocks",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "secrets",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "options",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "ja",
+      "screen": "lab",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "main",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "characters",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "stages",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "powerups",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "collection",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "unlocks",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "secrets",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "options",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "language": "en",
+      "screen": "lab",
+      "status": "passed",
+      "overflow": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "name": "pause/options/back",
+      "status": "passed"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "name": "pause/options/Escape",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Layout checks validate this implementation; reference UI measurements remain unavailable."
+  ]
+}

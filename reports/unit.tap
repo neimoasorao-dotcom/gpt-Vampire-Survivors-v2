@@ -1,0 +1,232 @@
+TAP version 13
+# Subtest: distribution is one offline document with bundled script and restrictive network CSP
+ok 1 - distribution is one offline document with bundled script and restrictive network CSP
+  ---
+  duration_ms: 10.307635
+  type: 'test'
+  ...
+# Subtest: seeded simulation reproduces fixed inputs, combat, drops and menu selections
+ok 2 - seeded simulation reproduces fixed inputs, combat, drops and menu selections
+  ---
+  duration_ms: 2211.16015
+  type: 'test'
+  ...
+# Subtest: fixed tick clock, normalized diagonals and immediate movement preserve speed
+ok 3 - fixed tick clock, normalized diagonals and immediate movement preserve speed
+  ---
+  duration_ms: 2.288416
+  type: 'test'
+  ...
+# Subtest: invalid simulation dt is rejected rather than desynchronizing the fixed clock
+ok 4 - invalid simulation dt is rejected rather than desynchronizing the fixed clock
+  ---
+  duration_ms: 1.359548
+  type: 'test'
+  ...
+# Subtest: level-two whip alternates forward then rear with a measurable interval
+ok 5 - level-two whip alternates forward then rear with a measurable interval
+  ---
+  duration_ms: 1.334411
+  type: 'test'
+  ...
+# Subtest: whip pierces every eligible target but excludes rear and out-of-height targets
+ok 6 - whip pierces every eligible target but excludes rear and out-of-height targets
+  ---
+  duration_ms: 1.51046
+  type: 'test'
+  ...
+# Subtest: weapon level table accumulates sparse deltas and retains cooldown
+ok 7 - weapon level table accumulates sparse deltas and retains cooldown
+  ---
+  duration_ms: 0.428678
+  type: 'test'
+  ...
+# Subtest: stats combine character, bounded powerups and passive modifiers once
+ok 8 - stats combine character, bounded powerups and passive modifiers once
+  ---
+  duration_ms: 0.63461
+  type: 'test'
+  ...
+# Subtest: large XP grants queue every level-up and preserve remainder
+ok 9 - large XP grants queue every level-up and preserve remainder
+  ---
+  duration_ms: 2.113191
+  type: 'test'
+  ...
+# Subtest: level-up choices exclude maxed and banished items, unique weighted sampling
+ok 10 - level-up choices exclude maxed and banished items, unique weighted sampling
+  ---
+  duration_ms: 0.802626
+  type: 'test'
+  ...
+# Subtest: six passive slots block new choices while existing items remain upgradeable
+ok 11 - six passive slots block new choices while existing items remain upgradeable
+  ---
+  duration_ms: 1.308019
+  type: 'test'
+  ...
+# Subtest: chest eligibility depends on drop time, maximum weapon and passive requirement
+ok 12 - chest eligibility depends on drop time, maximum weapon and passive requirement
+  ---
+  duration_ms: 1.188252
+  type: 'test'
+  ...
+# Subtest: chest collected during level up is queued and processed after selection
+ok 13 - chest collected during level up is queued and processed after selection
+  ---
+  duration_ms: 0.588122
+  type: 'test'
+  ...
+# Subtest: contact damage respects armor and invulnerability interval, then death stops simulation
+ok 14 - contact damage respects armor and invulnerability interval, then death stops simulation
+  ---
+  duration_ms: 0.607969
+  type: 'test'
+  ...
+# Subtest: XP merges without loss at pickup cap and effect pools remain bounded
+ok 15 - XP merges without loss at pickup cap and effect pools remain bounded
+  ---
+  duration_ms: 19.74008
+  type: 'test'
+  ...
+# Subtest: enemy cap rejects extra spawns and dead objects are recycled with fresh identity
+ok 16 - enemy cap rejects extra spawns and dead objects are recycled with fresh identity
+  ---
+  duration_ms: 3.860892
+  type: 'test'
+  ...
+# Subtest: death records once and late queued rewards cannot resume the dead run
+ok 17 - death records once and late queued rewards cannot resume the dead run
+  ---
+  duration_ms: 0.952043
+  type: 'test'
+  ...
+# Subtest: spatial combat rejects NaN input and periodically checks entity coordinates
+ok 18 - spatial combat rejects NaN input and periodically checks entity coordinates
+  ---
+  duration_ms: 0.268499
+  type: 'test'
+  ...
+# Subtest: seeded weighted sampler handles skew and never selects zero-weight entries
+ok 19 - seeded weighted sampler handles skew and never selects zero-weight entries
+  ---
+  duration_ms: 3.397191
+  type: 'test'
+  ...
+# Subtest: stationary target TTK reflects whip cadence and per-hit damage
+ok 20 - stationary target TTK reflects whip cadence and per-hit damage
+  ---
+  duration_ms: 0.980501
+  type: 'test'
+  ...
+# Subtest: endless first cycle boundary schedules second-cycle bosses with local time
+ok 21 - endless first cycle boundary schedules second-cycle bosses with local time
+  ---
+  duration_ms: 0.295694
+  type: 'test'
+  ...
+# Subtest: evolution excludes consumed base weapon from subsequent reward candidates
+ok 22 - evolution excludes consumed base weapon from subsequent reward candidates
+  ---
+  duration_ms: 1.19539
+  type: 'test'
+  ...
+# Subtest: Little Clover increases run luck and persists through stat recomputation instead of granting coins
+ok 23 - Little Clover increases run luck and persists through stat recomputation instead of granting coins
+  ---
+  duration_ms: 0.198501
+  type: 'test'
+  ...
+# Subtest: weapon lab validates density and numeric fields before spawning
+ok 24 - weapon lab validates density and numeric fields before spawning
+  ---
+  duration_ms: 6.573402
+  type: 'test'
+  ...
+# Subtest: invalid weapon levels cannot propagate NaN damage into combat
+ok 25 - invalid weapon levels cannot propagate NaN damage into combat
+  ---
+  duration_ms: 0.352159
+  type: 'test'
+  ...
+# Subtest: exact tick input and menu replay reproduces combat and RNG output
+ok 26 - exact tick input and menu replay reproduces combat and RNG output
+  ---
+  duration_ms: 403.05774
+  type: 'test'
+  ...
+# Subtest: replay rejects invalid event order and nonfinite positions
+ok 27 - replay rejects invalid event order and nonfinite positions
+  ---
+  duration_ms: 0.376163
+  type: 'test'
+  ...
+# Subtest: save reload and export/import persist all supported progression
+ok 28 - save reload and export/import persist all supported progression
+  ---
+  duration_ms: 9.324532
+  type: 'test'
+  ...
+# Subtest: malformed primary and interrupted primary write recover latest checked backup
+ok 29 - malformed primary and interrupted primary write recover latest checked backup
+  ---
+  duration_ms: 1.77472
+  type: 'test'
+  ...
+# Subtest: checksum detects corruption and fallback preserves progression
+ok 30 - checksum detects corruption and fallback preserves progression
+  ---
+  duration_ms: 0.399588
+  type: 'test'
+  ...
+# Subtest: old partial save migrates, bounds numeric values and restores settings defaults
+ok 31 - old partial save migrates, bounds numeric values and restores settings defaults
+  ---
+  duration_ms: 0.639527
+  type: 'test'
+  ...
+# Subtest: invalid import rejects unsafe/future data without overwriting current save
+ok 32 - invalid import rejects unsafe/future data without overwriting current save
+  ---
+  duration_ms: 1.051795
+  type: 'test'
+  ...
+# Subtest: unavailable browser storage safely retains current-session save
+ok 33 - unavailable browser storage safely retains current-session save
+  ---
+  duration_ms: 1.402924
+  type: 'test'
+  ...
+# Subtest: keyboard movement is normalized and text editing is not intercepted
+ok 34 - keyboard movement is normalized and text editing is not intercepted
+  ---
+  duration_ms: 1.277084
+  type: 'test'
+  ...
+# Subtest: gamepad deadzone, analog movement, dpad normalization and edge-triggered buttons
+ok 35 - gamepad deadzone, analog movement, dpad normalization and edge-triggered buttons
+  ---
+  duration_ms: 0.917909
+  type: 'test'
+  ...
+# Subtest: audio degrades safely when AudioContext is unsupported
+ok 36 - audio degrades safely when AudioContext is unsupported
+  ---
+  duration_ms: 0.984413
+  type: 'test'
+  ...
+# Subtest: audio limits live voices, routes gains, resumes suspension, and frees stopped nodes
+ok 37 - audio limits live voices, routes gains, resumes suspension, and frees stopped nodes
+  ---
+  duration_ms: 7.511241
+  type: 'test'
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2394.44791

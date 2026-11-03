@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-11-03T03:21:47.627Z",
+  "artifact": "dist/vampire_survivors.html",
+  "bytes": 112912,
+  "sha256": "e2f511cd1353d568601828c00e056ba0b9849cb66f1a500e24210d1a52c354a3",
+  "requiredFilesMissing": [],
+  "productionSourceMarkers": [],
+  "referenceVersion": null,
+  "p1GapRows": 12,
+  "browserSmokeArtifactHash": "e2f511cd1353d568601828c00e056ba0b9849cb66f1a500e24210d1a52c354a3",
+  "status": "blocked",
+  "release": false,
+  "reason": "Reference target/comparison and significant full-scope systems remain unresolved. Functional test success does not waive the fidelity gate."
+}

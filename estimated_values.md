@@ -30,3 +30,5 @@ Only actual source reading or reproducible reference measurement can upgrade an 
 `reference/implementation_baseline.json` snapshots CONFIG, Antonio stats/bonuses, both weapon level tables, all nine passive modifiers, eight enemy archetypes, every minute wave/boss/event/stage pickup, evolution and powerup data. Each numerical leaf is indexed in `evidence.json` under `implementation.content.*` as `estimated` with source type `authored_engineering_baseline`. The XP formula and selected combat constants are also ledger entries. This captures reasons/uncertainty and prevents a local data table being mistaken for extracted original data. No arbitrary confidence upgrade follows test success.
 
 Additional engine estimates include sweep range 95 units, half-height 24, extra-strike interval 0.16s, 0.5s contact immunity, Bloody Tear heal 8 with 1s local cooldown, consumable effect duration 10s, and authored chest threshold/gold formulas. These require reference verification before a fidelity release.
+
+- `pickups.clover.luckBonus = 0.1`, run-scoped local modifier, estimated. Source/lifetime not acquired. Regression prevents a return to the incorrect coin reward.

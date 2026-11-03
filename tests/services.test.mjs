@@ -112,5 +112,6 @@ test('audio limits live voices, routes gains, resumes suspension, and frees stop
     audio.stop(); assert.equal(audio.voices.size, 0);
     audio.context.currentTime += 600; audio.tick(600); assert.ok(audio.voices.size <= 4, 'scheduling must skip missed wall-clock beats');
     audio.stop(); assert.equal(audio.voices.size, 0);
+    audio.event('enemyDeath'); audio.event('heal'); assert.equal(audio.voices.size, 2); audio.stop();
   } finally { if (prior) globalThis.AudioContext = prior; else delete globalThis.AudioContext; }
 });

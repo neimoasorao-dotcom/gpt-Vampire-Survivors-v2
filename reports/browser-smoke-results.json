@@ -1,0 +1,178 @@
+{
+  "mode": "smoke",
+  "date": "2026-11-03T03:15:08.885Z",
+  "artifact": "dist/vampire_survivors.html",
+  "bytes": 112912,
+  "sha256": "e2f511cd1353d568601828c00e056ba0b9849cb66f1a500e24210d1a52c354a3",
+  "tests": [
+    {
+      "name": "file: boot offline artifact",
+      "status": "blocked",
+      "message": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\", waiting until \"load\"\u001b[22m\n",
+      "stack": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\nCall log:\n\u001b[2m  - navigating to \"file:///workspace/gpt-Vampire-Survivors-v2/dist/vampire_survivors.html\", waiting until \"load\"\u001b[22m\n\n    at newPage (/workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:46:11)\n    at async file:///workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:53:14\n    at async check (/workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:23:22)\n    at async file:///workspace/gpt-Vampire-Survivors-v2/tools/browser-test.mjs:52:5"
+    },
+    {
+      "name": "http: boot offline artifact",
+      "status": "passed",
+      "ms": 2520,
+      "data": {
+        "viewport": "1920x1080",
+        "initialScreen": "main"
+      }
+    },
+    {
+      "name": "http: language toggles Japanese and English",
+      "status": "passed",
+      "ms": 209
+    },
+    {
+      "name": "http: character and stage selection navigation",
+      "status": "passed",
+      "ms": 1789
+    },
+    {
+      "name": "http: keyboard moves, diagonal is normalized",
+      "status": "passed",
+      "ms": 318,
+      "data": {
+        "before": {
+          "x": 0,
+          "y": 0
+        },
+        "after": {
+          "x": 21,
+          "y": 0
+        },
+        "diagonal": {
+          "input": {
+            "x": 0.7071067811865475,
+            "y": 0.7071067811865475
+          },
+          "distance": 90,
+          "expected": 90
+        }
+      }
+    },
+    {
+      "name": "http: pause freezes world and resumes",
+      "status": "passed",
+      "ms": 584
+    },
+    {
+      "name": "http: pause options returns to pause, main options returns main",
+      "status": "passed",
+      "ms": 445
+    },
+    {
+      "name": "http: visibility loss pauses and clears held input",
+      "status": "passed",
+      "ms": 130
+    },
+    {
+      "name": "http: gamepad stick, deadzone, D-pad, pause",
+      "status": "passed",
+      "ms": 563,
+      "data": {
+        "input": "mocked Gamepad API; physical hardware untested"
+      }
+    },
+    {
+      "name": "http: WebAudio unlock and bounded voices",
+      "status": "passed",
+      "ms": 26,
+      "data": {
+        "state": "running",
+        "suspended": "suspended",
+        "voices": 21,
+        "max": 24,
+        "scheduledBeats": 0
+      }
+    },
+    {
+      "name": "http: XP opens actual level choice and upgrades",
+      "status": "passed",
+      "ms": 467
+    },
+    {
+      "name": "http: reroll, skip, banish have real effects",
+      "status": "passed",
+      "ms": 129
+    },
+    {
+      "name": "http: queued chest survives level-up and multiple XP thresholds",
+      "status": "passed",
+      "ms": 73,
+      "data": {
+        "level": 5,
+        "state": "chest",
+        "chests": 1,
+        "queued": 0,
+        "xp": 20,
+        "next": 45
+      }
+    },
+    {
+      "name": "http: eligible chest evolves Whip and replaces slot",
+      "status": "passed",
+      "ms": 671
+    },
+    {
+      "name": "http: death records result and meta-progression",
+      "status": "passed",
+      "ms": 1239
+    },
+    {
+      "name": "http: volume/settings persist through reload",
+      "status": "passed",
+      "ms": 724
+    },
+    {
+      "name": "http: resize keeps canvas bounded",
+      "status": "passed",
+      "ms": 685
+    },
+    {
+      "name": "http: oversized laboratory density clamps without freezing",
+      "status": "passed",
+      "ms": 444,
+      "data": {
+        "enemies": 2500,
+        "density": 2500,
+        "ms": 7.699999999953434
+      }
+    },
+    {
+      "name": "no external runtime network requests",
+      "status": "passed",
+      "ms": 0
+    },
+    {
+      "name": "no browser console errors",
+      "status": "passed",
+      "ms": 0
+    },
+    {
+      "name": "artifact remained unchanged during test",
+      "status": "passed",
+      "ms": 13
+    }
+  ],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "screenshots": [
+    "reports/screenshots/http-main-ja.png",
+    "reports/screenshots/http-characters.png",
+    "reports/screenshots/http-stages.png",
+    "reports/screenshots/http-pause.png",
+    "reports/screenshots/http-levelup.png",
+    "reports/screenshots/http-evolution.png",
+    "reports/screenshots/http-results.png"
+  ],
+  "limitations": [
+    "Chrome on Linux automation; physical Windows hardware and physical gamepads are not validated.",
+    "Reference comparison blocked by unavailable reference captures; no fidelity pass is inferred from smoke tests."
+  ],
+  "passed": 20,
+  "failed": 0,
+  "blocked": 1
+}

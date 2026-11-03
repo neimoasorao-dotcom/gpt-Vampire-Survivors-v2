@@ -13,3 +13,5 @@ Development modules are bundled with esbuild into an offline inline script. Simu
 - `src/main.js`: app state machine, Input abstraction, browser loop, debug bridge `window.__VS` exposing {app,Engine,runFrames(n,input),snapshot(),start(opts),debug(action,value)} for automated browser checks. `?debug=1` enables developer panel. F3 toggles debug.
 
 Known fidelity blockers are explicitly tracked; no unverified reference values are labelled confirmed. Existing checkout is isolated: do not create worktrees.
+
+Replay records exact input changes and menu decisions on simulation ticks; `ReplayRunner` reuses deterministic steps. Recording is capped at 260,000 events (more than one hour of 60Hz changing inputs); subsequent events set an explicit truncation flag. Truncated recordings are rejected for exact playback, while gameplay continues. Debug warp on the application bridge is sliced into at most 8ms of simulation work per animation callback; laboratory inputs and developer spawn loops are bounded and finite.
