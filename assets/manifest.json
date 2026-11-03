@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "policy": "No protected Vampire Survivors files extracted or redistributed. Original procedural sprites and WebAudio synthesis; system font fallback.",
+  "assets": [
+    {
+      "id": "procedural-pixel-atlas",
+      "source": "src/render/renderer.js",
+      "provenance": "Original ASCII sprite definitions and deterministic procedural terrain authored in src/render/renderer.js; no external files",
+      "license": "Repository-authored material; no third-party asset licence claim",
+      "compressedSize": null,
+      "dimensions": "16–24 px original entity sprites; 256×256 px cached terrain chunks",
+      "status": "generated at runtime; bundle size measured by build report"
+    },
+    {
+      "id": "music-and-sfx",
+      "source": "src/services/audio.js",
+      "provenance": "original algorithmic composition and synthesis",
+      "license": "Repository-authored material; no original-game recording",
+      "compressedSize": null,
+      "dimensions": null,
+      "status": "WebAudio synthesis; no external audio file"
+    },
+    {
+      "id": "japanese-font-fallback",
+      "source": "operating system fonts",
+      "provenance": "Yu Gothic UI, Yu Gothic, Meiryo, sans-serif; fonts are not bundled",
+      "license": "Use installed OS fonts under the user operating system licence",
+      "compressedSize": 0,
+      "dimensions": null,
+      "status": "fallback stack; exact glyph metrics platform-dependent"
+    }
+  ],
+  "externalRuntimeRequests": false
+}

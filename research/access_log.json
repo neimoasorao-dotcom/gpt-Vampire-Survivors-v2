@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-03",
+  "attempts": [
+    {
+      "id": "official-site",
+      "url": "https://poncle.games/vampire-survivors",
+      "status": null,
+      "result": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "steam-news",
+      "url": "https://store.steampowered.com/news/app/1794680",
+      "status": null,
+      "result": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "steam-news-api",
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=1794680&count=10&maxlength=3000",
+      "status": null,
+      "result": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "whip-wiki",
+      "url": "https://vampire-survivors.fandom.com/wiki/Whip",
+      "status": null,
+      "result": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "id": "mad-forest-wiki",
+      "url": "https://vampire-survivors.wiki.gg/wiki/Mad_Forest",
+      "status": null,
+      "result": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ]
+}

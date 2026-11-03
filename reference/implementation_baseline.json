@@ -1,0 +1,761 @@
+{
+  "warning": "LOCAL ESTIMATED IMPLEMENTATION, NOT ORIGINAL GAME DATA",
+  "date": "2026-11-03",
+  "data": {
+    "CONFIG": {
+      "hz": 60,
+      "width": 960,
+      "height": 540,
+      "moveSpeed": 90,
+      "playerRadius": 7,
+      "enemyLimit": 2500,
+      "pickupLimit": 400,
+      "particleLimit": 600,
+      "textLimit": 120,
+      "spawnRadius": 570,
+      "cell": 48,
+      "duration": 1800,
+      "sourceStatus": "estimated"
+    },
+    "CHARACTERS": {
+      "antonio": {
+        "id": "antonio",
+        "name": {
+          "ja": "アントニオ",
+          "en": "Antonio"
+        },
+        "description": {
+          "ja": "10レベルごとに与ダメージが10%増加（最大50%）。",
+          "en": "Gains 10% Might every 10 levels, up to 50%."
+        },
+        "startingWeapon": "whip",
+        "baseStats": {
+          "maxHp": 120,
+          "moveSpeed": 1,
+          "might": 1,
+          "armor": 1,
+          "recovery": 0,
+          "cooldown": 1,
+          "area": 1,
+          "amount": 0,
+          "magnet": 30,
+          "growth": 1,
+          "luck": 1,
+          "greed": 1
+        },
+        "levelBonuses": [
+          {
+            "every": 10,
+            "stat": "might",
+            "value": 0.1,
+            "cap": 0.5
+          }
+        ],
+        "cost": 0,
+        "unlock": {
+          "type": "default"
+        },
+        "specialBehaviors": []
+      }
+    },
+    "WEAPONS": {
+      "whip": {
+        "id": "whip",
+        "name": {
+          "ja": "ムチ",
+          "en": "Whip"
+        },
+        "description": {
+          "ja": "横方向に攻撃し、敵を貫通する。",
+          "en": "Attacks horizontally and passes through enemies."
+        },
+        "maxLevel": 8,
+        "rarity": 100,
+        "behavior": "meleeSweep",
+        "levels": [
+          {
+            "damage": 10,
+            "cooldown": 1.35,
+            "amount": 1,
+            "area": 1
+          },
+          {
+            "amount": 2
+          },
+          {
+            "damage": 15
+          },
+          {
+            "damage": 20,
+            "area": 1.1
+          },
+          {
+            "damage": 25
+          },
+          {
+            "damage": 30,
+            "area": 1.2
+          },
+          {
+            "damage": 35
+          },
+          {
+            "damage": 40,
+            "area": 1.3
+          }
+        ]
+      },
+      "bloody": {
+        "id": "bloody",
+        "name": {
+          "ja": "ブラッディー・ティア",
+          "en": "Bloody Tear"
+        },
+        "description": {
+          "ja": "クリティカルで大ダメージ。体力を吸収する。",
+          "en": "Critical hits and life steal."
+        },
+        "maxLevel": 1,
+        "rarity": 0,
+        "behavior": "meleeSweep",
+        "levels": [
+          {
+            "damage": 40,
+            "cooldown": 1,
+            "amount": 2,
+            "area": 1.3,
+            "crit": 0.1,
+            "critMultiplier": 2,
+            "heal": 8
+          }
+        ]
+      }
+    },
+    "PASSIVES": {
+      "heart": {
+        "id": "heart",
+        "name": {
+          "ja": "命の器",
+          "en": "Hollow Heart"
+        },
+        "description": {
+          "ja": "最大体力が20%増加する。",
+          "en": "Raises maximum health by 20%."
+        },
+        "stat": "maxHp",
+        "perLevel": 0.2,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "spinach": {
+        "id": "spinach",
+        "name": {
+          "ja": "ほうれん草",
+          "en": "Spinach"
+        },
+        "description": {
+          "ja": "与ダメージが10%増加する。",
+          "en": "Raises inflicted damage by 10%."
+        },
+        "stat": "might",
+        "perLevel": 0.1,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "armor": {
+        "id": "armor",
+        "name": {
+          "ja": "アーマー",
+          "en": "Armor"
+        },
+        "description": {
+          "ja": "受けるダメージを1軽減する。",
+          "en": "Reduces incoming damage by 1."
+        },
+        "stat": "armor",
+        "perLevel": 1,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "pummarola": {
+        "id": "pummarola",
+        "name": {
+          "ja": "命のトマト",
+          "en": "Pummarola"
+        },
+        "description": {
+          "ja": "毎秒の体力回復量が0.2増加する。",
+          "en": "Recovers 0.2 health per second."
+        },
+        "stat": "recovery",
+        "perLevel": 0.2,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "wings": {
+        "id": "wings",
+        "name": {
+          "ja": "翼",
+          "en": "Wings"
+        },
+        "description": {
+          "ja": "移動速度が10%増加する。",
+          "en": "Raises movement speed by 10%."
+        },
+        "stat": "moveSpeed",
+        "perLevel": 0.1,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "attractorb": {
+        "id": "attractorb",
+        "name": {
+          "ja": "磁石",
+          "en": "Attractorb"
+        },
+        "description": {
+          "ja": "アイテムの取得範囲が広がる。",
+          "en": "Increases pickup range."
+        },
+        "stat": "magnet",
+        "perLevel": 18,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "crown": {
+        "id": "crown",
+        "name": {
+          "ja": "王冠",
+          "en": "Crown"
+        },
+        "description": {
+          "ja": "獲得する経験値が8%増加する。",
+          "en": "Grants 8% more experience."
+        },
+        "stat": "growth",
+        "perLevel": 0.08,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "tome": {
+        "id": "tome",
+        "name": {
+          "ja": "白紙の学術書",
+          "en": "Empty Tome"
+        },
+        "description": {
+          "ja": "武器のクールダウンが8%減少する。",
+          "en": "Reduces weapon cooldown by 8%."
+        },
+        "stat": "cooldown",
+        "perLevel": -0.08,
+        "maxLevel": 5,
+        "rarity": 100
+      },
+      "candelabrador": {
+        "id": "candelabrador",
+        "name": {
+          "ja": "燭台",
+          "en": "Candelabrador"
+        },
+        "description": {
+          "ja": "攻撃範囲が10%拡大する。",
+          "en": "Raises attack area by 10%."
+        },
+        "stat": "area",
+        "perLevel": 0.1,
+        "maxLevel": 5,
+        "rarity": 100
+      }
+    },
+    "ENEMIES": {
+      "bat": {
+        "hp": 1,
+        "damage": 5,
+        "speed": 36,
+        "r": 7,
+        "xp": 1,
+        "knockback": 1.3
+      },
+      "skeleton": {
+        "hp": 10,
+        "damage": 10,
+        "speed": 24,
+        "r": 8,
+        "xp": 1,
+        "knockback": 1
+      },
+      "zombie": {
+        "hp": 25,
+        "damage": 15,
+        "speed": 16,
+        "r": 9,
+        "xp": 2,
+        "knockback": 0.8
+      },
+      "ghost": {
+        "hp": 20,
+        "damage": 10,
+        "speed": 33,
+        "r": 8,
+        "xp": 2,
+        "knockback": 1
+      },
+      "plant": {
+        "hp": 40,
+        "damage": 15,
+        "speed": 0,
+        "r": 13,
+        "xp": 3,
+        "knockback": 0
+      },
+      "mantis": {
+        "hp": 500,
+        "damage": 25,
+        "speed": 23,
+        "r": 22,
+        "xp": 30,
+        "knockback": 0.1,
+        "boss": true
+      },
+      "werewolf": {
+        "hp": 150,
+        "damage": 20,
+        "speed": 38,
+        "r": 11,
+        "xp": 4,
+        "knockback": 0.5
+      },
+      "reaper": {
+        "hp": 655350,
+        "damage": 65535,
+        "speed": 170,
+        "r": 15,
+        "xp": 0,
+        "knockback": 0
+      }
+    },
+    "STAGES": {
+      "forest": {
+        "id": "forest",
+        "name": {
+          "ja": "狂乱の森",
+          "en": "Mad Forest"
+        },
+        "description": {
+          "ja": "夜の森を30分間生き延びる。",
+          "en": "Survive thirty minutes in the forest."
+        },
+        "duration": 1800,
+        "boundary": "infinite",
+        "music": "forest",
+        "environment": "forest",
+        "modifiers": {},
+        "obstacles": [],
+        "secrets": [],
+        "events": [
+          {
+            "time": 180,
+            "type": "plantRing"
+          },
+          {
+            "time": 600,
+            "type": "plantRing"
+          }
+        ],
+        "pickups": [
+          {
+            "id": "spinach",
+            "x": 900,
+            "y": 0
+          },
+          {
+            "id": "heart",
+            "x": -1100,
+            "y": 300
+          }
+        ],
+        "waves": [
+          {
+            "start": 0,
+            "end": 60,
+            "enemy": "bat",
+            "spawnRate": 2,
+            "maxAlive": 120,
+            "pattern": "ring",
+            "hpScale": 1
+          },
+          {
+            "start": 60,
+            "end": 120,
+            "enemy": "skeleton",
+            "spawnRate": 2.65,
+            "maxAlive": 165,
+            "pattern": "ring",
+            "hpScale": 1.12
+          },
+          {
+            "start": 120,
+            "end": 180,
+            "enemy": "zombie",
+            "spawnRate": 3.3,
+            "maxAlive": 210,
+            "pattern": "ring",
+            "hpScale": 1.24
+          },
+          {
+            "start": 180,
+            "end": 240,
+            "enemy": "skeleton",
+            "spawnRate": 3.95,
+            "maxAlive": 255,
+            "pattern": "ring",
+            "hpScale": 1.3599999999999999
+          },
+          {
+            "start": 240,
+            "end": 300,
+            "enemy": "ghost",
+            "spawnRate": 4.6,
+            "maxAlive": 300,
+            "pattern": "ring",
+            "hpScale": 1.48
+          },
+          {
+            "start": 300,
+            "end": 360,
+            "enemy": "zombie",
+            "spawnRate": 5.25,
+            "maxAlive": 345,
+            "pattern": "ring",
+            "hpScale": 1.6
+          },
+          {
+            "start": 360,
+            "end": 420,
+            "enemy": "skeleton",
+            "spawnRate": 5.9,
+            "maxAlive": 390,
+            "pattern": "ring",
+            "hpScale": 1.72
+          },
+          {
+            "start": 420,
+            "end": 480,
+            "enemy": "ghost",
+            "spawnRate": 6.55,
+            "maxAlive": 435,
+            "pattern": "ring",
+            "hpScale": 1.8399999999999999
+          },
+          {
+            "start": 480,
+            "end": 540,
+            "enemy": "zombie",
+            "spawnRate": 7.2,
+            "maxAlive": 480,
+            "pattern": "ring",
+            "hpScale": 1.96
+          },
+          {
+            "start": 540,
+            "end": 600,
+            "enemy": "werewolf",
+            "spawnRate": 7.8500000000000005,
+            "maxAlive": 525,
+            "pattern": "ring",
+            "hpScale": 2.08
+          },
+          {
+            "start": 600,
+            "end": 660,
+            "enemy": "skeleton",
+            "spawnRate": 8.5,
+            "maxAlive": 570,
+            "pattern": "ring",
+            "hpScale": 2.2
+          },
+          {
+            "start": 660,
+            "end": 720,
+            "enemy": "ghost",
+            "spawnRate": 9.15,
+            "maxAlive": 615,
+            "pattern": "ring",
+            "hpScale": 2.32
+          },
+          {
+            "start": 720,
+            "end": 780,
+            "enemy": "werewolf",
+            "spawnRate": 9.8,
+            "maxAlive": 660,
+            "pattern": "swarm",
+            "hpScale": 2.44
+          },
+          {
+            "start": 780,
+            "end": 840,
+            "enemy": "zombie",
+            "spawnRate": 10.450000000000001,
+            "maxAlive": 705,
+            "pattern": "ring",
+            "hpScale": 2.56
+          },
+          {
+            "start": 840,
+            "end": 900,
+            "enemy": "ghost",
+            "spawnRate": 11.1,
+            "maxAlive": 750,
+            "pattern": "ring",
+            "hpScale": 2.6799999999999997
+          },
+          {
+            "start": 900,
+            "end": 960,
+            "enemy": "werewolf",
+            "spawnRate": 11.75,
+            "maxAlive": 795,
+            "pattern": "ring",
+            "hpScale": 2.8
+          },
+          {
+            "start": 960,
+            "end": 1020,
+            "enemy": "ghost",
+            "spawnRate": 12.4,
+            "maxAlive": 840,
+            "pattern": "ring",
+            "hpScale": 2.92
+          },
+          {
+            "start": 1020,
+            "end": 1080,
+            "enemy": "zombie",
+            "spawnRate": 13.05,
+            "maxAlive": 885,
+            "pattern": "ring",
+            "hpScale": 3.04
+          },
+          {
+            "start": 1080,
+            "end": 1140,
+            "enemy": "werewolf",
+            "spawnRate": 13.700000000000001,
+            "maxAlive": 930,
+            "pattern": "ring",
+            "hpScale": 3.16
+          },
+          {
+            "start": 1140,
+            "end": 1200,
+            "enemy": "skeleton",
+            "spawnRate": 14.35,
+            "maxAlive": 975,
+            "pattern": "ring",
+            "hpScale": 3.28
+          },
+          {
+            "start": 1200,
+            "end": 1260,
+            "enemy": "werewolf",
+            "spawnRate": 15,
+            "maxAlive": 1020,
+            "pattern": "ring",
+            "hpScale": 3.4
+          },
+          {
+            "start": 1260,
+            "end": 1320,
+            "enemy": "ghost",
+            "spawnRate": 15.65,
+            "maxAlive": 1065,
+            "pattern": "ring",
+            "hpScale": 3.52
+          },
+          {
+            "start": 1320,
+            "end": 1380,
+            "enemy": "werewolf",
+            "spawnRate": 16.3,
+            "maxAlive": 1110,
+            "pattern": "ring",
+            "hpScale": 3.6399999999999997
+          },
+          {
+            "start": 1380,
+            "end": 1440,
+            "enemy": "zombie",
+            "spawnRate": 16.950000000000003,
+            "maxAlive": 1155,
+            "pattern": "ring",
+            "hpScale": 3.76
+          },
+          {
+            "start": 1440,
+            "end": 1500,
+            "enemy": "werewolf",
+            "spawnRate": 17.6,
+            "maxAlive": 1200,
+            "pattern": "ring",
+            "hpScale": 3.88
+          },
+          {
+            "start": 1500,
+            "end": 1560,
+            "enemy": "ghost",
+            "spawnRate": 18.25,
+            "maxAlive": 1245,
+            "pattern": "ring",
+            "hpScale": 4
+          },
+          {
+            "start": 1560,
+            "end": 1620,
+            "enemy": "werewolf",
+            "spawnRate": 18.900000000000002,
+            "maxAlive": 1290,
+            "pattern": "ring",
+            "hpScale": 4.12
+          },
+          {
+            "start": 1620,
+            "end": 1680,
+            "enemy": "ghost",
+            "spawnRate": 19.55,
+            "maxAlive": 1335,
+            "pattern": "ring",
+            "hpScale": 4.24
+          },
+          {
+            "start": 1680,
+            "end": 1740,
+            "enemy": "werewolf",
+            "spawnRate": 20.2,
+            "maxAlive": 1380,
+            "pattern": "swarm",
+            "hpScale": 4.359999999999999
+          },
+          {
+            "start": 1740,
+            "end": 1800,
+            "enemy": "werewolf",
+            "spawnRate": 20.85,
+            "maxAlive": 1425,
+            "pattern": "ring",
+            "hpScale": 4.48
+          }
+        ],
+        "bosses": [
+          {
+            "time": 60,
+            "enemy": "mantis",
+            "chest": true
+          },
+          {
+            "time": 300,
+            "enemy": "mantis",
+            "chest": true
+          },
+          {
+            "time": 600,
+            "enemy": "mantis",
+            "chest": true
+          },
+          {
+            "time": 900,
+            "enemy": "mantis",
+            "chest": true
+          },
+          {
+            "time": 1200,
+            "enemy": "mantis",
+            "chest": true
+          },
+          {
+            "time": 1500,
+            "enemy": "mantis",
+            "chest": true
+          },
+          {
+            "time": 1740,
+            "enemy": "mantis",
+            "chest": true
+          }
+        ],
+        "evolution": {
+          "minTime": 600
+        }
+      }
+    },
+    "EVOLUTIONS": [
+      {
+        "id": "bloody",
+        "base": "whip",
+        "baseLevel": 8,
+        "passive": "heart",
+        "passiveLevel": 1,
+        "chest": true,
+        "chestMinTime": 600,
+        "stage": [
+          "forest"
+        ],
+        "consume": [
+          "whip"
+        ],
+        "replaceSlot": true,
+        "blacklist": [],
+        "characterOverride": null,
+        "type": "evolution"
+      }
+    ],
+    "POWERUPS": {
+      "might": {
+        "max": 5,
+        "cost": 200,
+        "value": 0.05
+      },
+      "maxHp": {
+        "max": 3,
+        "cost": 200,
+        "value": 0.1
+      },
+      "recovery": {
+        "max": 5,
+        "cost": 200,
+        "value": 0.1
+      },
+      "armor": {
+        "max": 3,
+        "cost": 600,
+        "value": 1
+      },
+      "moveSpeed": {
+        "max": 2,
+        "cost": 300,
+        "value": 0.05
+      },
+      "magnet": {
+        "max": 2,
+        "cost": 300,
+        "value": 15
+      },
+      "growth": {
+        "max": 5,
+        "cost": 900,
+        "value": 0.03
+      },
+      "cooldown": {
+        "max": 2,
+        "cost": 900,
+        "value": -0.025
+      },
+      "amount": {
+        "max": 1,
+        "cost": 5000,
+        "value": 1
+      }
+    }
+  }
+}
