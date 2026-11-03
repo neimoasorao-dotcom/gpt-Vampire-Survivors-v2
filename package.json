@@ -1,0 +1,1 @@
+{"name":"vampire-survivors-reconstruction","version":"0.1.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test tests/*.test.mjs","test:browser":"node tools/browser-test.mjs","benchmark":"node tools/benchmark.mjs","serve":"python3 -m http.server 8000 --directory dist"},"devDependencies":{"esbuild":"0.25.12","playwright":"1.56.1"}}

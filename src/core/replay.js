@@ -1,0 +1,6 @@
+// Tick-indexed input playback. Event payloads are data, never executable code.
+export function validateReplay(data){if(!data||data.version!==1||data.truncated===true||!Number.isInteger(data.seed)||!Array.isArray(data.events)||data.events.length>260000)throw new TypeError('Invalid replay');let previous=-1;for(const e of data.events){if(!Number.isInteger(e.tick)||e.tick<previous||e.tick>21600000)throw new TypeError('Invalid replay tick');previous=e.tick;if(e.type==='move'){if(!Number.isFinite(e.x)||!Number.isFinite(e.y)||Math.hypot(e.x,e.y)>1.001)throw new TypeError('Invalid replay direction');}else if(e.type==='choice'){if(typeof e.id!=='string'||e.id.length>64)throw new TypeError('Invalid replay choice');}else if(!['chestContinue','pause','resume'].includes(e.type))throw new TypeError('Invalid replay event');}return data;}
+export class ReplayRunner{
+ constructor(engine,record){this.record=validateReplay(record);this.engine=engine;this.cursor=0;this.direction={x:0,y:0};}
+ step(){const e=this.engine;while(this.cursor<this.record.events.length&&this.record.events[this.cursor].tick<=e.tick){const action=this.record.events[this.cursor++];if(action.type==='move')this.direction={x:action.x,y:action.y};if(action.type==='choice')e.choose(action.id);if(action.type==='chestContinue')e.closeChest();}e.step(1/60,this.direction);return e.snapshot();}
+}
