@@ -30,5 +30,12 @@
       "status": "fallback stack; exact glyph metrics platform-dependent"
     }
   ],
-  "externalRuntimeRequests": false
+  "externalRuntimeRequests": false,
+  "phase2": {
+    "projectiles": "Original code-drawn pixel projectiles and evolved variants in renderer.js",
+    "characters": "Original silhouette/palette variants; not extracted portraits",
+    "library": "Original procedural library floor/shelves; collision geometry is authored",
+    "audio": "Original weapon-specific synthesizer cadences with existing voice caps",
+    "referencePolicy": "Community documents used only for independently expressed factual observations; attribution in research/phase2_sources.md. No protected game art/audio/prose/code copied."
+  }
 }

@@ -84,3 +84,7 @@ CPU競合を止めたブラウザ再計測では、実敵500/1000/1500体で60.0
 ## 導入手順の再現
 
 最終保存前に `npm ci --ignore-scripts` → `npm run build` → 全37テストを再実行し、全成功。再生成HTMLのSHA-256は上記最終スモーク検証済みHTMLと完全一致した。環境設定の `install_script` と `start_skill` も下書き保存済みであり、公開や新タスクでの復元を確認したという意味ではない。
+
+## Phase 2 superseding report
+
+The Phase1counts/hashes above are historical. Current Phase2 evidence is in phase2_test_report.md and reports/phase2-summary.json:118unit/integration passes, finalHTML24pass/0fail/1policyblocked, UI60passes,7timestamp legacy parity and real-time normal-speed30minute run. Current raw actual-projectile performance and strict remaining flags are preserved separately; no final fidelity release is claimed.

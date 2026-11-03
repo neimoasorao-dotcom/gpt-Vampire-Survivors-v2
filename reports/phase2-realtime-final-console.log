@@ -1,0 +1,105 @@
+{"time":1.07,"wall":2.015399246,"fps":60,"level":1,"kills":0,"hp":156,"state":"playing"}
+{"time":30.52,"wall":31.478164979,"fps":52,"level":1,"kills":0,"hp":156,"state":"playing"}
+{"time":60.72,"wall":62.867367224999995,"fps":44,"level":1,"kills":0,"hp":156,"state":"playing"}
+{"time":90.52,"wall":92.66167829899999,"fps":47,"level":2,"kills":10,"hp":146.77499999999839,"state":"playing"}
+{"time":120.15,"wall":122.54317866299999,"fps":54,"level":2,"kills":14,"hp":156,"state":"playing"}
+{"time":150.57,"wall":152.92680561799997,"fps":56,"level":7,"kills":183,"hp":153.0749999999963,"state":"playing"}
+{"time":180.02,"wall":201.591095255,"fps":60,"level":9,"kills":326,"hp":156,"state":"playing"}
+{"time":210.35,"wall":231.92009021799998,"fps":60,"level":11,"kills":438,"hp":156,"state":"playing"}
+{"time":240.07,"wall":264.63165699499996,"fps":60,"level":12,"kills":568,"hp":94.31833333333554,"state":"playing"}
+{"time":270.5,"wall":295.051284512,"fps":53,"level":13,"kills":693,"hp":94.62166666667545,"state":"playing"}
+{"time":300.85,"wall":325.397462179,"fps":60,"level":13,"kills":769,"hp":108.86666666668201,"state":"playing"}
+{"time":330.4,"wall":354.946863884,"fps":60,"level":14,"kills":823,"hp":122.55166666668764,"state":"playing"}
+{"time":360.68,"wall":385.32564256,"fps":50,"level":14,"kills":860,"hp":136.75000000001685,"state":"playing"}
+{"time":390.17,"wall":414.815176613,"fps":58,"level":15,"kills":943,"hp":156,"state":"playing"}
+{"time":420.23,"wall":446.761095784,"fps":60,"level":16,"kills":1005,"hp":156,"state":"playing"}
+{"time":450.45,"wall":476.994102877,"fps":58,"level":16,"kills":1198,"hp":156,"state":"playing"}
+{"time":480.5,"wall":508.139123713,"fps":20,"level":18,"kills":1401,"hp":156,"state":"playing"}
+{"time":510.8,"wall":538.4290148750001,"fps":60,"level":19,"kills":1581,"hp":156,"state":"playing"}
+{"time":540.77,"wall":568.774653164,"fps":60,"level":20,"kills":1812,"hp":156,"state":"playing"}
+{"time":570.03,"wall":598.154984707,"fps":56,"level":21,"kills":1945,"hp":156,"state":"playing"}
+{"time":600.27,"wall":628.3751291840001,"fps":50,"level":22,"kills":2033,"hp":156,"state":"playing"}
+{"time":630.27,"wall":659.054118369,"fps":41,"level":22,"kills":2116,"hp":156,"state":"playing"}
+{"time":660.32,"wall":689.243286731,"fps":42,"level":22,"kills":2168,"hp":156,"state":"playing"}
+{"time":690.57,"wall":720.254358572,"fps":60,"level":24,"kills":2624,"hp":150.613333333338,"state":"playing"}
+{"time":720.68,"wall":750.7472015630001,"fps":56,"level":26,"kills":3418,"hp":156,"state":"playing"}
+{"time":750.42,"wall":781.5653623930001,"fps":52,"level":28,"kills":3785,"hp":156,"state":"playing"}
+{"time":780.22,"wall":812.1993731260001,"fps":52,"level":28,"kills":3893,"hp":156,"state":"playing"}
+{"time":811.12,"wall":858.5219623520001,"fps":17,"level":29,"kills":4065,"hp":140.27833333333385,"state":"playing"}
+{"time":840.83,"wall":888.382205114,"fps":56,"level":31,"kills":4382,"hp":156,"state":"playing"}
+{"time":870.25,"wall":917.7974547600002,"fps":54,"level":31,"kills":4700,"hp":156,"state":"playing"}
+{"time":900.35,"wall":948.1743182620002,"fps":60,"level":34,"kills":4998,"hp":156,"state":"playing"}
+{"time":930.2,"wall":978.0541272010001,"fps":60,"level":35,"kills":5381,"hp":156,"state":"playing"}
+{"time":960.4,"wall":1008.2592476120001,"fps":60,"level":36,"kills":5770,"hp":156,"state":"playing"}
+{"time":990.7,"wall":1038.827257418,"fps":60,"level":36,"kills":6469,"hp":156,"state":"playing"}
+{"time":1020.97,"wall":1069.0885092770002,"fps":60,"level":36,"kills":7197,"hp":156,"state":"playing"}
+{"time":1050.03,"wall":1098.290290389,"fps":60,"level":36,"kills":7311,"hp":156,"state":"playing"}
+{"time":1080.12,"wall":1128.784206834,"fps":41,"level":37,"kills":7351,"hp":156,"state":"playing"}
+{"time":1110.17,"wall":1159.3219250430002,"fps":60,"level":37,"kills":7502,"hp":156,"state":"playing"}
+{"time":1140.38,"wall":1190.0075132830002,"fps":60,"level":38,"kills":7725,"hp":156,"state":"playing"}
+{"time":1170.62,"wall":1220.7625313320002,"fps":19,"level":39,"kills":8031,"hp":156,"state":"playing"}
+{"time":1200.57,"wall":1253.005638928,"fps":60,"level":39,"kills":8359,"hp":156,"state":"playing"}
+{"time":1230.08,"wall":1282.526922961,"fps":60,"level":40,"kills":8784,"hp":156,"state":"playing"}
+{"time":1260.3,"wall":1312.754902713,"fps":60,"level":41,"kills":9243,"hp":156,"state":"playing"}
+{"time":1290.53,"wall":1342.9932289240003,"fps":60,"level":41,"kills":9942,"hp":156,"state":"playing"}
+{"time":1320.93,"wall":1373.398726082,"fps":60,"level":42,"kills":10674,"hp":156,"state":"playing"}
+{"time":1350.13,"wall":1402.585989292,"fps":60,"level":42,"kills":11158,"hp":156,"state":"playing"}
+{"time":1380.43,"wall":1433.592722849,"fps":60,"level":42,"kills":11611,"hp":156,"state":"playing"}
+{"time":1410.37,"wall":1463.793141728,"fps":60,"level":42,"kills":12582,"hp":156,"state":"playing"}
+{"time":1440.42,"wall":1495.268400866,"fps":60,"level":42,"kills":13671,"hp":156,"state":"playing"}
+{"time":1470.88,"wall":1525.7554497859999,"fps":60,"level":42,"kills":14169,"hp":156,"state":"playing"}
+{"time":1500,"wall":1557.140004752,"fps":16,"level":65,"kills":14924,"hp":156,"state":"playing"}
+{"time":1530.97,"wall":1589.2278973060002,"fps":50,"level":66,"kills":15473,"hp":156,"state":"playing"}
+{"time":1560.35,"wall":1619.5068255990002,"fps":43,"level":66,"kills":15773,"hp":156,"state":"playing"}
+{"time":1590.53,"wall":1650.4470875969998,"fps":60,"level":66,"kills":16179,"hp":156,"state":"playing"}
+{"time":1620.35,"wall":1680.293267468,"fps":58,"level":66,"kills":16677,"hp":156,"state":"playing"}
+{"time":1650.65,"wall":1711.999875025,"fps":48,"level":66,"kills":18118,"hp":156,"state":"playing"}
+{"time":1680.45,"wall":1743.599789809,"fps":9,"level":66,"kills":20014,"hp":156,"state":"playing"}
+{"time":1710.97,"wall":1774.055631234,"fps":60,"level":66,"kills":27413,"hp":156,"state":"playing"}
+{"time":1740.6,"wall":1804.120688426,"fps":46,"level":66,"kills":34867,"hp":156,"state":"playing"}
+{"time":1770.13,"wall":1836.2900302570001,"fps":4,"level":66,"kills":42081,"hp":156,"state":"playing"}
+{"time":1800.7,"wall":1868.791707086,"fps":50,"level":66,"kills":50017,"hp":156,"state":"playing"}
+REALTIME RESULT true 1870.255290434 {
+  time: 1802.18,
+  level: 66,
+  xp: 501.5899999999966,
+  kills: 50017,
+  player_hp: 156,
+  enemy_alive: 1,
+  enemy_spawned_total: 50505,
+  projectile_count: 83,
+  pickup_count: 428,
+  dps: 9578.843999999017,
+  damage: 4027989.159999921,
+  gold: 769,
+  chests: 7,
+  evolutionTime: 862.1833333333333,
+  seed: 271,
+  state: 'playing',
+  attacks: 8247,
+  hits: 128903,
+  fps: 43,
+  frame_ms: 23.25581395348837,
+  cpu_frame_ms: 0.8000000007450581,
+  weaponInventory: {
+    peachone: 6,
+    pentagram: 4,
+    whip: 8,
+    water: 8,
+    soul: 1,
+    thousand: 1
+  },
+  passiveInventory: {
+    crown: 5,
+    bracer: 4,
+    attractorb: 5,
+    tome: 5,
+    pummarola: 5,
+    candelabrador: 5
+  },
+  invincible: false,
+  gameSpeed: 1,
+  visibility: 'visible',
+  heap: 11734554,
+  wallSeconds: 1870.255105423
+}

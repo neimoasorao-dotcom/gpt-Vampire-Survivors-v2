@@ -1,0 +1,24 @@
+PASS boot Japanese final artifact
+PASS new game offers the six researched starting weapons
+PASS unlock evidence opens additional weapon pools and persists
+PASS character purchase through UI and persistent reload
+PASS library unlock applies and real selection starts horizontal stage
+PASS weapon whip inflicts damage in final bundle
+PASS weapon wand inflicts damage in final bundle
+PASS weapon knife inflicts damage in final bundle
+PASS weapon axe inflicts damage in final bundle
+PASS weapon cross inflicts damage in final bundle
+PASS weapon bible inflicts damage in final bundle
+PASS weapon fire inflicts damage in final bundle
+PASS weapon garlic inflicts damage in final bundle
+PASS weapon water inflicts damage in final bundle
+PASS weapon runetracer inflicts damage in final bundle
+PASS weapon lightning inflicts damage in final bundle
+PASS weapon pentagram inflicts damage in final bundle
+PASS weapon peachone inflicts damage in final bundle
+PASS weapon ebony inflicts damage in final bundle
+PASS level up, treasure evolution, result state and save remain usable
+PASS old save import uses the same unlock migration as reload
+PASS language, audio and save settings survive bundle reload
+PASS bundle has zero runtime external requests and errors
+PASS artifact remains unchanged during test

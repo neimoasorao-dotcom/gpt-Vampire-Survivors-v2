@@ -1,0 +1,1447 @@
+{
+  "date": "2026-11-03",
+  "attribution": "Vampire Survivors Wiki contributors; community companion Prabin Pebam. Source content declared CC BY-NC-SA3.0. Only selected factual observations, no art, prose or executable code copied.",
+  "sourceRevision": "5e345c547ebe39c429d99032aae8e688fa15bfd4",
+  "weapons": {
+    "whip": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.whip.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "40 (+30)"
+        ],
+        "Area": [
+          "100%",
+          "120% (+20%)"
+        ],
+        "Speed": [
+          "-",
+          ""
+        ],
+        "Amount": [
+          "1",
+          "2 (+1)"
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.35 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.1 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "30",
+          ""
+        ],
+        "Chance": [
+          "20%",
+          ""
+        ],
+        "Crit Multiplier": [
+          "2x",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "magic-wand": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.magic-wand.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "30 (+20)"
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          ""
+        ],
+        "Amount": [
+          "1",
+          "4 (+3)"
+        ],
+        "Pierce": [
+          "1",
+          "2 (+1)"
+        ],
+        "Cooldown": [
+          "1.2 s",
+          "1.0 s (-0.2)"
+        ],
+        "Projectile Interval": [
+          "0.1 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "60",
+          ""
+        ],
+        "Blocked by walls": [
+          "Yes",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "knife": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.knife.json",
+      "stats": {
+        "Damage": [
+          "6.5",
+          "16.5 (+10)"
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          ""
+        ],
+        "Amount": [
+          "1",
+          "6 (+5)"
+        ],
+        "Pierce": [
+          "1",
+          "3 (+2)"
+        ],
+        "Cooldown": [
+          "1.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.1 s",
+          "0.04 s (-0.06)"
+        ],
+        "Knockback": [
+          "0.5",
+          ""
+        ],
+        "Pool Limit": [
+          "70",
+          ""
+        ],
+        "Chance": [
+          "30%",
+          ""
+        ],
+        "Crit Multiplier": [
+          "3x",
+          ""
+        ],
+        "Blocked by walls": [
+          "Yes",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "axe": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.axe.json",
+      "stats": {
+        "Damage": [
+          "20",
+          "80 (+60)"
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          ""
+        ],
+        "Amount": [
+          "1",
+          "3 (+2)"
+        ],
+        "Pierce": [
+          "3",
+          "7 (+4)"
+        ],
+        "Cooldown": [
+          "4.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.2 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "70",
+          ""
+        ],
+        "Chance": [
+          "30%",
+          ""
+        ],
+        "Crit Multiplier": [
+          "2x",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "cross": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.cross.json",
+      "stats": {
+        "Damage": [
+          "5",
+          "35 (+30)"
+        ],
+        "Area": [
+          "100%",
+          "120% (+20%)"
+        ],
+        "Speed": [
+          "100%",
+          "150% (+50%)"
+        ],
+        "Amount": [
+          "1",
+          "3 (+2)"
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "2.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.1 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "100",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "king-bible": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.king-bible.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "30 (+20)"
+        ],
+        "Area": [
+          "100%",
+          "150% (+50%)"
+        ],
+        "Speed": [
+          "100%",
+          "160% (+60%)"
+        ],
+        "Amount": [
+          "1",
+          "4 (+3)"
+        ],
+        "Duration": [
+          "3.0 s",
+          "4.0 s (+1)"
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "3.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0 s",
+          ""
+        ],
+        "Hitbox Delay": [
+          "1.7 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "50",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "fire-wand": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.fire-wand.json",
+      "stats": {
+        "Damage": [
+          "20",
+          "90 (+70)"
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "75%",
+          "135% (+60%)"
+        ],
+        "Amount": [
+          "3",
+          ""
+        ],
+        "Pierce": [
+          "1",
+          ""
+        ],
+        "Cooldown": [
+          "3.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.02 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "30",
+          ""
+        ],
+        "Blocked by walls": [
+          "Yes",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "garlic": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.garlic.json",
+      "stats": {
+        "Damage": [
+          "5",
+          "15 (+10)"
+        ],
+        "Area": [
+          "100%",
+          "200% (+100%)"
+        ],
+        "Speed": [
+          "-",
+          ""
+        ],
+        "Amount": [
+          "- (w/o Blood Astronomia (XXI))\n1 (with Blood Astronomia (XXI))",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.3 s",
+          "1.0 s (-0.3)"
+        ],
+        "Projectile Interval": [
+          "0 s",
+          ""
+        ],
+        "Knockback": [
+          "0",
+          ""
+        ],
+        "Pool Limit": [
+          "50",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "santa-water": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.santa-water.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "40 (+30)"
+        ],
+        "Area": [
+          "100%",
+          "180% (+80%)"
+        ],
+        "Speed": [
+          "N/A",
+          ""
+        ],
+        "Amount": [
+          "1",
+          "4 (+3)"
+        ],
+        "Duration": [
+          "2.0 s",
+          "3.0 s (+1)"
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "4.5 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.3 s",
+          ""
+        ],
+        "Hitbox Delay": [
+          "0.5 s",
+          ""
+        ],
+        "Knockback": [
+          "N/A",
+          ""
+        ],
+        "Pool Limit": [
+          "20",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "runetracer": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.runetracer.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "30 (+20)"
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          "140% (+40%)"
+        ],
+        "Amount": [
+          "1",
+          "3 (+2)"
+        ],
+        "Duration": [
+          "2.25 s",
+          "3.25 s (+1)"
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "3.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.2 s",
+          ""
+        ],
+        "Hitbox Delay": [
+          "0.5 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "25",
+          ""
+        ],
+        "Blocked by walls": [
+          "Yes",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "lightning-ring": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.lightning-ring.json",
+      "stats": {
+        "Damage": [
+          "15",
+          "65 (+50)"
+        ],
+        "Area": [
+          "100%",
+          "400% (+300%)"
+        ],
+        "Speed": [
+          "N/A",
+          ""
+        ],
+        "Amount": [
+          "2",
+          "6 (+4)"
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "4.5 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.05 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "50",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "pentagram": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.pentagram.json",
+      "stats": {
+        "Damage": [
+          "N/A",
+          ""
+        ],
+        "Area": [
+          "N/A",
+          ""
+        ],
+        "Speed": [
+          "N/A",
+          ""
+        ],
+        "Amount": [
+          "N/A (w/o Blood Astronomia (XXI))\n1 (with Blood Astronomia (XXI))",
+          ""
+        ],
+        "Duration": [
+          "1.0 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "90 s",
+          "60 s (-30)"
+        ],
+        "Projectile Interval": [
+          "0 s",
+          ""
+        ],
+        "Knockback": [
+          "-2",
+          ""
+        ],
+        "Pool Limit": [
+          "10",
+          ""
+        ],
+        "Chance": [
+          "10%",
+          "65% (+55%)"
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "peachone": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.peachone.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "30 (+20)"
+        ],
+        "Area": [
+          "100%",
+          "220% (+120%)"
+        ],
+        "Speed": [
+          "80%",
+          ""
+        ],
+        "Amount": [
+          "4",
+          "11 (+7)"
+        ],
+        "Duration": [
+          "4.0 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.0 s",
+          "0.5 s (-0.5)"
+        ],
+        "Projectile Interval": [
+          "0.025 s",
+          ""
+        ],
+        "Knockback": [
+          "2",
+          ""
+        ],
+        "Pool Limit": [
+          "60",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "ebony-wings": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.ebony-wings.json",
+      "stats": {
+        "Damage": [
+          "10",
+          "30 (+20)"
+        ],
+        "Area": [
+          "100%",
+          "220% (+120%)"
+        ],
+        "Speed": [
+          "80%",
+          ""
+        ],
+        "Amount": [
+          "4",
+          "11 (+7)"
+        ],
+        "Duration": [
+          "4.0 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.0 s",
+          "0.5 s (-0.5)"
+        ],
+        "Projectile Interval": [
+          "0.025 s",
+          ""
+        ],
+        "Knockback": [
+          "2",
+          ""
+        ],
+        "Pool Limit": [
+          "60",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "bloody-tear": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.bloody-tear.json",
+      "stats": {
+        "Damage": [
+          "40",
+          ""
+        ],
+        "Area": [
+          "130% (+10%)",
+          ""
+        ],
+        "Speed": [
+          "-",
+          ""
+        ],
+        "Amount": [
+          "2",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.35 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.1 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "30",
+          ""
+        ],
+        "Chance": [
+          "10% (-10%)",
+          ""
+        ],
+        "Crit Multiplier": [
+          "2x",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "holy-wand": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.holy-wand.json",
+      "stats": {
+        "Damage": [
+          "30",
+          ""
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "2 (+100%)",
+          ""
+        ],
+        "Amount": [
+          "4",
+          ""
+        ],
+        "Pierce": [
+          "2",
+          ""
+        ],
+        "Cooldown": [
+          "0.5 s (-0.5)",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.1 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "60",
+          ""
+        ],
+        "Blocked by walls": [
+          "Yes",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "thousand-edge": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.thousand-edge.json",
+      "stats": {
+        "Damage": [
+          "16.5",
+          ""
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "150% (+50%)",
+          ""
+        ],
+        "Amount": [
+          "6",
+          ""
+        ],
+        "Pierce": [
+          "3",
+          ""
+        ],
+        "Cooldown": [
+          "0.35 s (-0.65)",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.05 s (+0.01)",
+          ""
+        ],
+        "Knockback": [
+          "0.5",
+          ""
+        ],
+        "Pool Limit": [
+          "70",
+          ""
+        ],
+        "Chance": [
+          "30%",
+          ""
+        ],
+        "Crit Multiplier": [
+          "3x",
+          ""
+        ],
+        "Blocked by walls": [
+          "Yes",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "death-spiral": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.death-spiral.json",
+      "stats": {
+        "Damage": [
+          "60 (-20)",
+          ""
+        ],
+        "Area": [
+          "1.2 (+20%)",
+          ""
+        ],
+        "Speed": [
+          "0.8 (-20%)",
+          ""
+        ],
+        "Amount": [
+          "9 (+6)",
+          ""
+        ],
+        "Duration": [
+          "Indefinite",
+          ""
+        ],
+        "Pierce": [
+          "1000 (+993)",
+          ""
+        ],
+        "Cooldown": [
+          "4.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.05 s (-0.15)",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "50 (-20)",
+          ""
+        ],
+        "Chance": [
+          "30%",
+          ""
+        ],
+        "Crit Multiplier": [
+          "2x",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "heaven-sword": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.heaven-sword.json",
+      "stats": {
+        "Damage": [
+          "77 (+42)",
+          ""
+        ],
+        "Area": [
+          "1.2",
+          ""
+        ],
+        "Speed": [
+          "2 (+50%)",
+          ""
+        ],
+        "Amount": [
+          "1 (-2)",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "3.3 s (+1.3)",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.5 s (+0.4)",
+          ""
+        ],
+        "Knockback": [
+          "6 (+5)",
+          ""
+        ],
+        "Pool Limit": [
+          "20 (-10)",
+          ""
+        ],
+        "Chance": [
+          "10%",
+          ""
+        ],
+        "Crit Multiplier": [
+          "2.5x",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "unholy-vespers": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.unholy-vespers.json",
+      "stats": {
+        "Damage": [
+          "30",
+          ""
+        ],
+        "Area": [
+          "1.75 (+25%)",
+          ""
+        ],
+        "Speed": [
+          "1.5 (-10%)",
+          ""
+        ],
+        "Amount": [
+          "4",
+          ""
+        ],
+        "Duration": [
+          "3.0 s (-1)",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "3.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0 s",
+          ""
+        ],
+        "Hitbox Delay": [
+          "1.7 s",
+          ""
+        ],
+        "Knockback": [
+          "4 (+3)",
+          ""
+        ],
+        "Pool Limit": [
+          "50",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "hellfire": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.hellfire.json",
+      "stats": {
+        "Damage": [
+          "100 (+10)",
+          ""
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "1 (-35%)",
+          ""
+        ],
+        "Amount": [
+          "2 (-1)",
+          ""
+        ],
+        "Duration": [
+          "0.1 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "3.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.2 s (+0.18)",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "20 (-10)",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "soul-eater": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.soul-eater.json",
+      "stats": {
+        "Damage": [
+          "20 (+5)",
+          "+60, does not increase by Might"
+        ],
+        "Area": [
+          "300% (+100%)",
+          ""
+        ],
+        "Speed": [
+          "-",
+          ""
+        ],
+        "Amount": [
+          "- (w/o Blood Astronomia (XXI))\n1 (with Blood Astronomia (XXI))",
+          ""
+        ],
+        "Duration": [
+          "1.3 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.0 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0 s",
+          ""
+        ],
+        "Knockback": [
+          "0",
+          ""
+        ],
+        "Pool Limit": [
+          "50",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "la-borra": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.la-borra.json",
+      "stats": {
+        "Damage": [
+          "40",
+          ""
+        ],
+        "Area": [
+          "200% (+20%)",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          ""
+        ],
+        "Amount": [
+          "4",
+          ""
+        ],
+        "Duration": [
+          "4.0 s (+1)",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "4.0 s (-0.5)",
+          ""
+        ],
+        "Projectile Interval": [
+          "0.3 s",
+          ""
+        ],
+        "Hitbox Delay": [
+          "0.5 s",
+          ""
+        ],
+        "Knockback": [
+          "None",
+          ""
+        ],
+        "Pool Limit": [
+          "30 (+10)",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "no-future": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.no-future.json",
+      "stats": {
+        "Damage": [
+          "30",
+          ""
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "2.8 (+140%)",
+          ""
+        ],
+        "Amount": [
+          "1 (-2)",
+          ""
+        ],
+        "Duration": [
+          "3.0 s (-0.25)",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.0 s (-2)",
+          ""
+        ],
+        "Projectile Interval": [
+          "0 s (-0.2)",
+          ""
+        ],
+        "Hitbox Delay": [
+          "0.5 s",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "40 (+15)",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "thunder-loop": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.thunder-loop.json",
+      "stats": {
+        "Damage": [
+          "65",
+          ""
+        ],
+        "Area": [
+          "4",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          ""
+        ],
+        "Amount": [
+          "6",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "4.5 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0 s (-0.05)",
+          ""
+        ],
+        "Knockback": [
+          "1",
+          ""
+        ],
+        "Pool Limit": [
+          "70 (+20)",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "gorgeous-moon": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.gorgeous-moon.json",
+      "stats": {
+        "Damage": [
+          "-",
+          ""
+        ],
+        "Area": [
+          "100%",
+          ""
+        ],
+        "Speed": [
+          "100%",
+          ""
+        ],
+        "Amount": [
+          "1",
+          ""
+        ],
+        "Duration": [
+          "1.0 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "60 s",
+          ""
+        ],
+        "Projectile Interval": [
+          "0 s",
+          ""
+        ],
+        "Knockback": [
+          "1 (+3)",
+          ""
+        ],
+        "Pool Limit": [
+          "-",
+          ""
+        ],
+        "Chance": [
+          "100% (+35%)",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    },
+    "vandalier": {
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.vandalier.json",
+      "stats": {
+        "Damage": [
+          "28 (-2)",
+          ""
+        ],
+        "Area": [
+          "2.2",
+          "3 (+80%)"
+        ],
+        "Speed": [
+          "1 (+20%)",
+          ""
+        ],
+        "Amount": [
+          "20 (-2)",
+          ""
+        ],
+        "Duration": [
+          "4.0 s",
+          ""
+        ],
+        "Pierce": [
+          "Area of Effect",
+          ""
+        ],
+        "Cooldown": [
+          "1.0 s (+0.5)",
+          "0.25 s (-0.75)"
+        ],
+        "Projectile Interval": [
+          "0.025 s",
+          ""
+        ],
+        "Knockback": [
+          "2",
+          ""
+        ],
+        "Pool Limit": [
+          "100 (+40)",
+          ""
+        ],
+        "Blocked by walls": [
+          "No",
+          ""
+        ]
+      },
+      "confidence": 0.65,
+      "status": "estimated",
+      "notes": "Selected factual stat observations from one attributed community reference; not current-PC official confirmation. Numeric percent values do not establish local world units."
+    }
+  }
+}

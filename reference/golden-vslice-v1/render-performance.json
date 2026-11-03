@@ -1,0 +1,401 @@
+{
+  "date": "2026-11-03T03:18:43.400Z",
+  "platform": "linux",
+  "architecture": "x64",
+  "browser": "154.0.8037.57",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "logicalViewport": {
+    "width": 960,
+    "height": 540
+  },
+  "measured": "Actual headless Chromium RAF render+simulation; Linux cloud instance, not representative Windows hardware. Projectiles D and particles E are synthetic persistent renderer stress objects, not full weapon-system gameplay.",
+  "errors": [],
+  "results": [
+    {
+      "id": "A",
+      "requested": {
+        "id": "A",
+        "enemies": 500
+      },
+      "frames": 150,
+      "simulationTicks": 181,
+      "wallFrameMs": {
+        "mean": 16.666442953020134,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000273,
+        "max": 16.799999999999955
+      },
+      "wallFps": 60.00080537993799,
+      "updateMs": {
+        "mean": 0.3173333333370586,
+        "p50": 0.20000000018626451,
+        "p95": 0.8999999999068677,
+        "max": 2.3999999999068677
+      },
+      "renderMs": {
+        "mean": 1.5680000000043461,
+        "p50": 1.3999999999068677,
+        "p95": 2.8999999999068677,
+        "max": 4.399999999906868
+      },
+      "combinedCpuMs": {
+        "mean": 1.8853333333414048,
+        "p50": 1.6999999999534339,
+        "p95": 3.800000000046566,
+        "max": 5.399999999906868
+      },
+      "framesOver100ms": 0,
+      "cpuFramesOver100ms": 0,
+      "entities": {
+        "enemies": 500,
+        "projectiles": 0,
+        "pickups": 0,
+        "particles": 48
+      },
+      "drawCalls": 630,
+      "memory": {
+        "before": 10000000,
+        "after": 10000000
+      },
+      "density": {
+        "method": "Union of clipped approximate sprite bounding rectangles in 960x540 logical viewport; geometric proxy, not image segmentation or reference measurement.",
+        "enemyCoverage": 0.2431520061728395,
+        "projectileCoverage": 0,
+        "pickupCoverage": 0,
+        "enemyBoundingAreaSum": 112000
+      },
+      "snapshot": {
+        "time": 3.02,
+        "level": 1,
+        "xp": 0,
+        "kills": 0,
+        "player_hp": 120,
+        "enemy_alive": 500,
+        "enemy_spawned_total": 500,
+        "projectile_count": 0,
+        "pickup_count": 0,
+        "dps": 0,
+        "damage": 480,
+        "gold": 0,
+        "chests": 0,
+        "evolutionTime": null,
+        "seed": 1024,
+        "state": "playing",
+        "attacks": 3,
+        "hits": 48,
+        "fps": null,
+        "frame_ms": null
+      }
+    },
+    {
+      "id": "B",
+      "requested": {
+        "id": "B",
+        "enemies": 1000
+      },
+      "frames": 150,
+      "simulationTicks": 181,
+      "wallFrameMs": {
+        "mean": 16.666442953020134,
+        "p50": 16.699999999999818,
+        "p95": 16.700000000000728,
+        "max": 16.800000000000182
+      },
+      "wallFps": 60.00080537993799,
+      "updateMs": {
+        "mean": 0.4613333333469927,
+        "p50": 0.39999999990686774,
+        "p95": 0.8999999999068677,
+        "max": 4.600000000093132
+      },
+      "renderMs": {
+        "mean": 2.753999999991308,
+        "p50": 2.3999999999068677,
+        "p95": 4.600000000093132,
+        "max": 7.899999999906868
+      },
+      "combinedCpuMs": {
+        "mean": 3.2153333333383003,
+        "p50": 2.800000000046566,
+        "p95": 5.300000000046566,
+        "max": 11.800000000046566
+      },
+      "framesOver100ms": 0,
+      "cpuFramesOver100ms": 0,
+      "entities": {
+        "enemies": 1000,
+        "projectiles": 0,
+        "pickups": 0,
+        "particles": 96
+      },
+      "drawCalls": 1226,
+      "memory": {
+        "before": 10000000,
+        "after": 10000000
+      },
+      "density": {
+        "method": "Union of clipped approximate sprite bounding rectangles in 960x540 logical viewport; geometric proxy, not image segmentation or reference measurement.",
+        "enemyCoverage": 0.4757445987654321,
+        "projectileCoverage": 0,
+        "pickupCoverage": 0,
+        "enemyBoundingAreaSum": 224000
+      },
+      "snapshot": {
+        "time": 3.02,
+        "level": 1,
+        "xp": 0,
+        "kills": 0,
+        "player_hp": 120,
+        "enemy_alive": 1000,
+        "enemy_spawned_total": 1000,
+        "projectile_count": 0,
+        "pickup_count": 0,
+        "dps": 0,
+        "damage": 1010,
+        "gold": 0,
+        "chests": 0,
+        "evolutionTime": null,
+        "seed": 1024,
+        "state": "playing",
+        "attacks": 3,
+        "hits": 101,
+        "fps": null,
+        "frame_ms": null
+      }
+    },
+    {
+      "id": "C",
+      "requested": {
+        "id": "C",
+        "enemies": 1500
+      },
+      "frames": 150,
+      "simulationTicks": 181,
+      "wallFrameMs": {
+        "mean": 17.225503355704696,
+        "p50": 16.69999999999891,
+        "p95": 16.800000000000182,
+        "max": 33.399999999999636
+      },
+      "wallFps": 58.05345593392037,
+      "updateMs": {
+        "mean": 0.9520000000158325,
+        "p50": 0.6000000000931323,
+        "p95": 2.199999999953434,
+        "max": 7.099999999860302
+      },
+      "renderMs": {
+        "mean": 5.26399999997889,
+        "p50": 4.699999999953434,
+        "p95": 9.5,
+        "max": 12.399999999906868
+      },
+      "combinedCpuMs": {
+        "mean": 6.215999999994723,
+        "p50": 5.300000000046566,
+        "p95": 11.399999999906868,
+        "max": 16.0999999998603
+      },
+      "framesOver100ms": 0,
+      "cpuFramesOver100ms": 0,
+      "entities": {
+        "enemies": 1500,
+        "projectiles": 0,
+        "pickups": 0,
+        "particles": 148
+      },
+      "drawCalls": 1830,
+      "memory": {
+        "before": 10000000,
+        "after": 10000000
+      },
+      "density": {
+        "method": "Union of clipped approximate sprite bounding rectangles in 960x540 logical viewport; geometric proxy, not image segmentation or reference measurement.",
+        "enemyCoverage": 0.6114834104938272,
+        "projectileCoverage": 0,
+        "pickupCoverage": 0,
+        "enemyBoundingAreaSum": 336000
+      },
+      "snapshot": {
+        "time": 3.02,
+        "level": 1,
+        "xp": 0,
+        "kills": 0,
+        "player_hp": 120,
+        "enemy_alive": 1500,
+        "enemy_spawned_total": 1500,
+        "projectile_count": 0,
+        "pickup_count": 0,
+        "dps": 0,
+        "damage": 1510,
+        "gold": 0,
+        "chests": 0,
+        "evolutionTime": null,
+        "seed": 1024,
+        "state": "playing",
+        "attacks": 3,
+        "hits": 151,
+        "fps": null,
+        "frame_ms": null
+      }
+    },
+    {
+      "id": "D",
+      "requested": {
+        "id": "D",
+        "enemies": 1000,
+        "projectiles": 500
+      },
+      "frames": 150,
+      "simulationTicks": 181,
+      "wallFrameMs": {
+        "mean": 17.113422818791943,
+        "p50": 16.69999999999891,
+        "p95": 16.799999999999272,
+        "max": 50.100000000000364
+      },
+      "wallFps": 58.433664065257474,
+      "updateMs": {
+        "mean": 0.518000000010555,
+        "p50": 0.4000000001396984,
+        "p95": 1.1999999999534339,
+        "max": 2.3999999999068677
+      },
+      "renderMs": {
+        "mean": 4.832666666666046,
+        "p50": 4,
+        "p95": 9.100000000093132,
+        "max": 13.899999999906868
+      },
+      "combinedCpuMs": {
+        "mean": 5.3506666666766005,
+        "p50": 4.5,
+        "p95": 10.099999999860302,
+        "max": 14.300000000046566
+      },
+      "framesOver100ms": 0,
+      "cpuFramesOver100ms": 0,
+      "entities": {
+        "enemies": 1000,
+        "projectiles": 500,
+        "pickups": 0,
+        "particles": 96
+      },
+      "drawCalls": 1726,
+      "memory": {
+        "before": 10000000,
+        "after": 10000000
+      },
+      "density": {
+        "method": "Union of clipped approximate sprite bounding rectangles in 960x540 logical viewport; geometric proxy, not image segmentation or reference measurement.",
+        "enemyCoverage": 0.4757445987654321,
+        "projectileCoverage": 0.1388888888888889,
+        "pickupCoverage": 0,
+        "enemyBoundingAreaSum": 224000
+      },
+      "snapshot": {
+        "time": 3.02,
+        "level": 1,
+        "xp": 0,
+        "kills": 0,
+        "player_hp": 120,
+        "enemy_alive": 1000,
+        "enemy_spawned_total": 1000,
+        "projectile_count": 500,
+        "pickup_count": 0,
+        "dps": 0,
+        "damage": 1010,
+        "gold": 0,
+        "chests": 0,
+        "evolutionTime": null,
+        "seed": 1024,
+        "state": "playing",
+        "attacks": 3,
+        "hits": 101,
+        "fps": null,
+        "frame_ms": null
+      }
+    },
+    {
+      "id": "E",
+      "requested": {
+        "id": "E",
+        "enemies": 1500,
+        "pickups": 400,
+        "particles": 600
+      },
+      "frames": 150,
+      "simulationTicks": 181,
+      "wallFrameMs": {
+        "mean": 16.66577181208053,
+        "p50": 16.69999999999891,
+        "p95": 16.700000000000728,
+        "max": 16.80000000000109
+      },
+      "wallFps": 60.003221649484566,
+      "updateMs": {
+        "mean": 0.6973333333230888,
+        "p50": 0.6000000000931323,
+        "p95": 1.1999999999534339,
+        "max": 3.0999999998603016
+      },
+      "renderMs": {
+        "mean": 4.685333333332092,
+        "p50": 4.399999999906868,
+        "p95": 7,
+        "max": 12.300000000046566
+      },
+      "combinedCpuMs": {
+        "mean": 5.38266666665518,
+        "p50": 5,
+        "p95": 7.900000000139698,
+        "max": 12.900000000139698
+      },
+      "framesOver100ms": 0,
+      "cpuFramesOver100ms": 0,
+      "entities": {
+        "enemies": 1500,
+        "projectiles": 0,
+        "pickups": 397,
+        "particles": 600
+      },
+      "drawCalls": 2679,
+      "memory": {
+        "before": 10000000,
+        "after": 10000000
+      },
+      "density": {
+        "method": "Union of clipped approximate sprite bounding rectangles in 960x540 logical viewport; geometric proxy, not image segmentation or reference measurement.",
+        "enemyCoverage": 0.6114834104938272,
+        "projectileCoverage": 0,
+        "pickupCoverage": 0.0428858024691358,
+        "enemyBoundingAreaSum": 336000
+      },
+      "snapshot": {
+        "time": 3.02,
+        "level": 2,
+        "xp": 10,
+        "kills": 0,
+        "player_hp": 144,
+        "enemy_alive": 1500,
+        "enemy_spawned_total": 1500,
+        "projectile_count": 0,
+        "pickup_count": 397,
+        "dps": 0,
+        "damage": 1510,
+        "gold": 0,
+        "chests": 0,
+        "evolutionTime": null,
+        "seed": 1024,
+        "state": "playing",
+        "attacks": 3,
+        "hits": 151,
+        "fps": null,
+        "frame_ms": null
+      }
+    }
+  ]
+}

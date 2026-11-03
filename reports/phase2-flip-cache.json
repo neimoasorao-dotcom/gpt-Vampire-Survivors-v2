@@ -1,0 +1,90 @@
+{
+  "firstAttempt": {
+    "firstAttempt": {
+      "firstAttempt": {
+        "date": "2026-11-03T09:11:13.277Z",
+        "rendererSourceSha256": "3a69671f055de7cd542af7016967d72e81f342c90d71285bd5acae0b72a906c5",
+        "prototype": "Pre-mirrored unscaled canvas; destination left x+floor(w/2)-w",
+        "cases": 32,
+        "failures": [
+          {
+            "scale": 2.3,
+            "flash": false,
+            "flip": true,
+            "shadow": false,
+            "pixels": 542,
+            "max": 227
+          },
+          {
+            "scale": 2.3,
+            "flash": false,
+            "flip": true,
+            "shadow": true,
+            "pixels": 542,
+            "max": 227
+          },
+          {
+            "scale": 2.3,
+            "flash": true,
+            "flip": true,
+            "shadow": false,
+            "pixels": 185,
+            "max": 217
+          },
+          {
+            "scale": 2.3,
+            "flash": true,
+            "flip": true,
+            "shadow": true,
+            "pixels": 185,
+            "max": 232
+          }
+        ],
+        "cacheSize": 88,
+        "pixelsPerCase": 518400
+      },
+      "date": "2026-11-03T09:12:12.092Z",
+      "rendererSourceSha256": "3a69671f055de7cd542af7016967d72e81f342c90d71285bd5acae0b72a906c5",
+      "prototype": "Pre-rasterized mirrored sprite at exact scale with integer anchor, bounded128entries",
+      "cases": 32,
+      "failures": [
+        {
+          "scale": 2.3,
+          "flash": false,
+          "flip": true,
+          "shadow": false,
+          "pixels": 28,
+          "max": 174
+        },
+        {
+          "scale": 2.3,
+          "flash": false,
+          "flip": true,
+          "shadow": true,
+          "pixels": 28,
+          "max": 174
+        }
+      ],
+      "cacheSize": 128,
+      "pixelsPerCase": 518400
+    },
+    "date": "2026-11-03T09:14:52.657Z",
+    "rendererSourceSha256": "3a69671f055de7cd542af7016967d72e81f342c90d71285bd5acae0b72a906c5",
+    "prototype": "Conservative cache only exact scales1/1.2/2; original negative transform for all other scales",
+    "mode": "prototype",
+    "accepted": true,
+    "cases": 32,
+    "failures": [],
+    "cacheSize": 88,
+    "pixelsPerCase": 518400
+  },
+  "date": "2026-11-03T09:15:39.919Z",
+  "rendererSourceSha256": "c1bf8de2d52cbcde7a92654117d6f2d1cb1ebe6cf939e3d1257fd61b714cee9a",
+  "prototype": "Conservative cache only exact scales1/1.2/2; original negative transform for all other scales",
+  "mode": "actual-app-source",
+  "accepted": true,
+  "cases": 32,
+  "failures": [],
+  "cacheSize": 88,
+  "pixelsPerCase": 518400
+}

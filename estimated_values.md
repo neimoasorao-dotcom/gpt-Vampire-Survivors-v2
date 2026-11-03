@@ -32,3 +32,7 @@ Only actual source reading or reproducible reference measurement can upgrade an 
 Additional engine estimates include sweep range 95 units, half-height 24, extra-strike interval 0.16s, 0.5s contact immunity, Bloody Tear heal 8 with 1s local cooldown, consumable effect duration 10s, and authored chest threshold/gold formulas. These require reference verification before a fidelity release.
 
 - `pickups.clover.luckBonus = 0.1`, run-scoped local modifier, estimated. Source/lifetime not acquired. Regression prevents a return to the incorrect coin reward.
+
+## Phase 2 remaining estimates
+
+Local projectile speed/radius and camera-unit conversions, enemy HP/damage/speed/scaling/resistances, map/world coordinates and obstacle layout remain estimated. Source-supported stat tables, early chest flags and weapon unlock relationships are listed separately with pinned community attribution in evidence.json; they are not official current-PC confirmation. Bird set scheduling, Moon beam acceleration/vacuum gap, spawn replenishment interpretation and the exact chance aggregation for chest multi-rewards still require gameplay measurements. Poe pickup-range conversion is not independently measured.

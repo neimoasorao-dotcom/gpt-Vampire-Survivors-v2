@@ -20,3 +20,9 @@ Do not merge later patch-specific behaviour into this baseline silently. Once ac
 ## Unconfirmed specifications
 
 Current build ID/version; complete base/DLC roster; exact Mad Forest wave and boss tables; enemy statistics and hitboxes; movement/world-unit conversion; weapon timing/level tables; XP thresholds and gem merging; chest eligibility/probabilities/timing; current evolution exceptions; all official Japanese names; audio/visual timing; Arcana/Darkana interactions. No comparison score may be inferred from this missing material.
+
+## Phase 2 authorization and working references
+
+The user's Phase 2 instruction explicitly authorizes horizontal system/content expansion while preserving the earlier implementation as `golden-vslice-v1`. This supersedes the earlier no-expansion staging decision; it does not certify the first slice as source-faithful. Current production pools deliberately differ, while `legacy:true` preserves the original local regression pool.
+
+Working factual references now include the attributed community snapshot documented in research/phase2_sources.md and researched weapon unlocks in research/phase2_unlocks.md. These support recipe/stat/timetable observations without establishing the latest official PC version. Version, hotfix and original visual/gameplay measurement remain unresolved.

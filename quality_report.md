@@ -1,42 +1,45 @@
-# Quality report — measured engineering progress, fidelity unscored
+# Quality report — Phase 2 evidence, fidelity unscored
 
-Iteration date: 2026-11-03 (Asia/Tokyo). **Status: development baseline; final-release gate failed/open.** The single-file build exists and local automated checks exercise real gameplay paths. It must not be described as a complete or fidelity-qualified Vampire Survivors reconstruction.
+Updated 2026-11-03 (Asia/Tokyo). **Status: expanded engineering build under validation; no final-release designation.** The current code extends the preserved slice rather than replacing it. The user's Phase 2 instruction authorizes this expansion; original-reference qualification remains separate.
 
-## Score rubric and evidence
+## Requested score
 
-Requested total: **100 points**. Current comparative quality score: **unscored / 100**. Giving a numerical fidelity score without an identified target version, source captures or source-run metrics would create unsupported precision. The table retains the requested weights and identifies the evidence needed for scoring. It is not a self-awarded substitute for comparison.
+Comparative quality remains **unscored / 100**. No identified latest official PC version, original capture set or matching source-run metric baseline is available. A numerical score would imply unsupported measurement. The requested weights are retained below so later scoring can be grounded in evidence.
 
-| Category | Weight | Current evidence | Remaining scoring blocker |
+| Category | Weight | Current evidence | Remaining scoring prerequisite |
 | --- | ---: | --- | --- |
-| Gameplay fidelity | 25 | Fixed-step seed/replay tests; movement normalization; authored 30-minute waves; multiple-seed natural/assisted telemetry | Original speed/pressure/XP curve unknown; ordinary survival must not be inferred from invincibility-assisted runs |
-| Combat fidelity | 20 | Actual directional Whip sweep/opposite strike, target exclusion, upgrades, eligible evolution, lab metrics | Original reach/timing/level/crit/heal tables and TTK unverified; other weapon behaviours absent |
-| Systems | 15 | Versioned checksum/backup save, local powerups, collection, level choices, one evolution | Arcana/Darkana, substantial base unlock content, relics/modes/exception recipes absent |
-| Visual fidelity | 10 | Original pixel sprites/terrain, real run/transition screenshots and density proxy | No original capture dimensions, luminance or occupancy to compare |
-| UI/UX | 10 | Functional golden-slice menus, HUD, level/chest/pause/results; screenshot suite | Major full-game screens/content and measured original layout/timing unavailable |
-| Audio | 5 | Original WebAudio music/effects, gain buses, unlock/suspend/voice-limit tests | Original cadence/mix comparison absent; physical audibility not verified by API state alone |
-| Performance | 5 | Real browser renderer+engine stress and separate Node update timings | Windows hardware untested; average RAF FPS does not prove every dense frame meets 30 FPS; real projectile workload absent |
-| Japanese localization | 5 | Japanese/English UI and Windows fallback stack; browser switch tests | Official current terminology, native Windows font/overflow review pending |
-| Stability | 5 | Determinism, transition, invalid-save, XP conservation, input/audio tests and long-run harness | Actual current run results must be read; assisted accelerated soak is not real-time Windows/audio/listener leak proof |
+| Gameplay fidelity | 25 | Fixed-step/seed/replay checks, two stage timetables, natural multi-build simulations and dedicated real-time harness | Source movement/XP/pressure/build curves, complete unaccelerated result and matching reference runs |
+| Combat fidelity | 20 | 14 actual base behaviours, 13 evolution/union results, per-weapon damage/trajectory/timing/condition tests and selected community numeric tables | Original hitboxes, local-unit calibration, TTK/DPS and evolved exceptions at the target patch |
+| Systems | 15 | 15 passives, 16 PowerUps, 11 character definitions, purchases/unlocks, Collection, save version 2, event/modifier foundation | Complete official rule/cost verification; actual advanced Arcana/relic/mode systems belong to later scope |
+| Visual fidelity | 10 | Original pixel art, Forest/Library geometry, projectile/effect rendering and actual screenshot regression | Original scale/layout/animation/luminance/density capture measurements |
+| UI/UX | 10 | Existing Japanese/English UI retained, expanded grids, lab, HUD, real purchase and chest reveal/skip paths | Current final-artifact layout results and measured original navigation/presentation timing |
+| Audio | 5 | Original bounded synthesis, weapon-specific events, independent gain buses and unlock/resume tests | Physical listening and original cadence/mix comparison |
+| Performance | 5 | Engine pools/grid, actual projectile workload and separate update/render telemetry tools | Current stress results under recorded load; target Windows validation and frame-outlier diagnosis |
+| Japanese localization | 5 | Bilingual content/UI and Windows fallback stack; localization/layout checks | Official current names, enemy terminology and Windows font/overflow review |
+| Stability | 5 | Save migration/recovery, finite-state checks, transition/evolution regressions and long-run harnesses | Completed current-source normal-speed run and appropriately scoped leak/device/browser evidence |
 
-## Verification evidence and limits
+## Evidence hierarchy
 
-- Automated unit/integration source: `tests/engine.test.mjs`, `tests/services.test.mjs`, `tests/replay.test.mjs`. Test counts and actual pass/fail outcomes are reported by the final current run in `test_report.md`; this report does not assume unexecuted test success.
-- Final HTML browser test: `tools/browser-test.mjs` → `reports/browser-results.json`. It records actual artifact bytes, protocol, checks, errors, external requests and screenshots. The first file:// attempt was rejected by the managed browser policy; use the refreshed report for the final outcome. Do not equate that network-policy error with application boot failure over HTTP.
-- Screenshot evidence: `reports/screenshots/` contains actual rendered menus/transitions and golden run time captures; no original-game reference screenshots are currently present. Golden accelerated captures must state assistance and cannot prove ordinary survival.
-- Simulation metrics: `tools/benchmark.mjs` → `reports/benchmark.json`, per-seed telemetry, `benchmark_results.md`, `performance_report.md`. Natural and assisted runs are separated, and distributions include variance. Read run completion/outcome rather than counting requested duration as completed.
-- Render metrics: `reports/render-performance.json` / `.md` record actual entity counts, update/render duration, RAF scheduling and geometric coverage proxy. They are Linux cloud browser observations, not a Windows FPS guarantee. Synthetic projectile/particle stress does not establish real projectile behaviour.
-- Reference evidence: `research/access_log.json` records five failed requests; `evidence.json` indexes hypotheses. `reference_target.md` intentionally keeps target version unknown. Numerical original-game correctness and screenshot similarity are therefore unscored.
+1. `research/phase2_sources.md`, `research/phase2_weapon_facts.json`, `research/phase2_unlocks.md` and `evidence.json` distinguish user specifications, selected community facts and estimates. They do not turn a community commit date into a game patch version.
+2. `reports/phase2-unit-console.log` / the current unit test output record local tests. Tests establish the implementation contract, not original correctness.
+3. `reports/phase2-browser.json` records exact HTML hash/bytes, real functionality, screenshots, errors, external requests and policy-blocked checks. Source edits after that hash require affected artifact checks again.
+4. `reports/phase2-golden-full.json` must contain all seven marks through 29:00 and a completed comparison before strict legacy parity is claimed. It compares the preserved local engine with `legacy:true`, not the original game.
+5. `reports/phase2-builds.json` records five normal simulation builds and their actual completion/death outcomes. Meta-upgrade and unlock fixtures must remain explicit. Earlier pre-fix results are preserved separately instead of being silently reported as the current baseline.
+6. `reports/phase2-realtime-final.json` is completed normal-speed browser evidence only when it exists with the required duration/outcome; a `*-progress.json` file is still in progress. It is automated play, not human-perceived Game Feel or original balance proof.
+7. `reports/phase2-stress.json` / `.md` records actual projectile update/collision/render workloads. Phase 1 synthetic-projectile measurements cannot satisfy this new gate. Linux cloud scheduling and Windows target performance are distinct.
 
-## Release gate
+## Current outcome boundary
 
-The requested P0=0/P1=0 final gate is **not met**. `gap_report.md` records significant missing base content/systems and comparison blockers. The golden vertical-slice engineering build is useful for testing, but its reference gameplay gate remains open; expansion must not erase that distinction. No RC1/final badge is assigned.
+The code registry now contains 27 weapon definitions (14 base plus 13 evolution/union results), 15 passives, 11 characters, two stages and 16 PowerUps. This is useful scope evidence, not a quality score. Per-weapon damage checks prevent a hidden Whip substitute from satisfying new weapon tests; recipe tests cover missing requirements, replacement and union consumption; modifier and progression tests cover real effects/save data.
 
-## Re-measurement sequence
+No aggregate Phase 2 PASS is assigned while the current real-time run, final unlock integration/artifact regression or original-reference gates are unresolved. Read [phase2_report.md](phase2_report.md) for the recorded milestone and [gap_report.md](gap_report.md) for current P1 evidence gaps. Do not carry Phase 1's limited-content absence forward as if these additions did not exist, and do not carry Phase 1 performance passes forward as proof of all new workloads.
 
-Apply research access configuration → identify version/hotfix → acquire multiple documented reference runs/captures → compare movement/Whip/waves/XP/chests → fix measured gaps → rerun current tests, golden seeds, density stress and 60-minute soak → score each category only against cited evidence → expand content after slice gate. Any later code change invalidates affected artifact measurements until rebuilt/retested.
+## Next measured iteration
 
-## Completed local correction cycles
+Finish the current-source artifact, Golden, build, normal-speed and stress checks; diagnose failures without disabling assertions or lowering targets. Apply official research access, pin the patch, acquire several reference captures/runs, compare the new weapons/stages/progression, correct measured differences and repeat affected regressions. Score only categories with actual comparison evidence. Full base content, advanced Arcana/relic/mode systems and DLC do not become complete from extension hooks alone.
 
-[Iteration evidence](reports/iteration-log.json) records the fixed-clock, consumed-base evolution, endless cycle boundary, lab-density hang, Clover reward, options-return and audio-event defects and their regressions. Current functional outcome: 37 unit/integration passes; final HTML 20 passes, 0 failures and 1 policy-blocked file check; 60 UI layout/navigation checks. These counts are implementation evidence, not original-reference fidelity.
+## Phase 2 measured update
 
-Five natural bot runs ended at 325.85–755.90 seconds. Five invincibility-assisted runs reached 1801 seconds, and an assisted endless soak reached 3601 seconds. See benchmark_results.md; assistance is not a gameplay survival pass. Isolated Linux Chromium render stress retained all 1500 enemies and measured 58.05 FPS (CPU p95 11.4ms); detailed results and synthetic projectile limitations are in reports/render-performance.md. Windows and physical-controller validation remain outstanding.
+Current local functional checks: 118 unit/integration passes; final HTML 24 passes, 0 failures, 1 policy-blocked file protocol check; UI60/60. Full legacy Golden matched all7actual timestamps. Five natural build fixtures reached30minutes; separate real1x/no-invincibility run reached1802.18s in1870.26wallseconds. Exact artifact hashes and progression fixture limits are documented in phase2_test_report.md.
+
+Renderer profiling identified the enemy phase as the main draw cost. A bounded pre-mirrored cache is used only for scales with proven pixel parity, with the original path retained for other scales. Production32cases and a full heavy frame had0changedpixels. Isolated real-projectile stress retained1500enemies plus257projectiles/400XP/600particles at50.90FPS with0CPU/RAFstalls>100ms. The strictE p95RAF33.4ms≤33.33ms flag is false and has not been waived. Fidelity remains unscored/100 because latest official PC identity and original gameplay/visual measurements remain unavailable.

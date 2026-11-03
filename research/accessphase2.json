@@ -1,0 +1,37 @@
+[
+  {
+    "id": "steam",
+    "url": "https://store.steampowered.com/news/app/1794680",
+    "status": "blocked_or_failed",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "date": "2026-11-03"
+  },
+  {
+    "id": "poncle",
+    "url": "https://poncle.games/vampire-survivors",
+    "status": "blocked_or_failed",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "date": "2026-11-03"
+  },
+  {
+    "id": "wiki_recipes",
+    "url": "https://vampire-survivors.fandom.com/wiki/Evolution",
+    "status": "blocked_or_failed",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "date": "2026-11-03"
+  },
+  {
+    "id": "wiki_gg",
+    "url": "https://vampire-survivors.wiki.gg/wiki/Evolution",
+    "status": "blocked_or_failed",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>",
+    "date": "2026-11-03"
+  },
+  {
+    "id": "github_search",
+    "url": "https://github.com/search?q=%22Vampire+Survivors%22+%22evolution%22&type=repositories",
+    "status": 200,
+    "bytes": 195629,
+    "date": "2026-11-03"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-03",
+  "artifact": "dist/vampire_survivors.html",
+  "bytes": 213550,
+  "sha256": "1c7c62aa12966b1da99b82bd3f9e478ad9566c5993d50d0cf13d4b5f6f2e6ce8",
+  "unit": {
+    "tests": 118,
+    "pass": 118,
+    "fail": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "passed": 24,
+    "failed": 0,
+    "blocked": 1
+  },
+  "uiPassed": 60,
+  "golden": {
+    "passed": true,
+    "timestamps": [
+      30,
+      300,
+      600,
+      900,
+      1200,
+      1500,
+      1740
+    ]
+  },
+  "realtime": {
+    "completed": true,
+    "normalSpeed": true,
+    "wallSeconds": 1870.255290434,
+    "artifactSha256": "374db82b584959a3a50b90e053326eada36350cf06491e8b14332f2eb65f8c31",
+    "final": {
+      "time": 1802.18,
+      "level": 66,
+      "xp": 501.5899999999966,
+      "kills": 50017,
+      "player_hp": 156,
+      "enemy_alive": 1,
+      "enemy_spawned_total": 50505,
+      "projectile_count": 83,
+      "pickup_count": 428,
+      "dps": 9578.843999999017,
+      "damage": 4027989.159999921,
+      "gold": 769,
+      "chests": 7,
+      "evolutionTime": 862.1833333333333,
+      "seed": 271,
+      "state": "playing",
+      "attacks": 8247,
+      "hits": 128903,
+      "fps": 43,
+      "frame_ms": 23.25581395348837,
+      "cpu_frame_ms": 0.8000000007450581,
+      "weaponInventory": {
+        "peachone": 6,
+        "pentagram": 4,
+        "whip": 8,
+        "water": 8,
+        "soul": 1,
+        "thousand": 1
+      },
+      "passiveInventory": {
+        "crown": 5,
+        "bracer": 4,
+        "attractorb": 5,
+        "tome": 5,
+        "pummarola": 5,
+        "candelabrador": 5
+      },
+      "invincible": false,
+      "gameSpeed": 1,
+      "visibility": "visible",
+      "heap": 11734554,
+      "wallSeconds": 1870.255105423
+    }
+  },
+  "buildsCompleted": 5,
+  "release": false,
+  "reason": "Current-PC version, original gameplay/visual comparison and precise enemy/map figures remain unresolved; see gap_report.md."
+}

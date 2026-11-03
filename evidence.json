@@ -3,7 +3,7 @@
   "investigationDate": "2026-11-03",
   "referenceVersion": null,
   "referenceStatus": "blocked",
-  "scope": "Antonio + Whip + Mad Forest golden engineering baseline; reference comparison pending",
+  "scope": "Phase 2 representative base systems; Golden v1 retained; latest PC comparison pending",
   "statusVocabulary": [
     "confirmed",
     "measured",
@@ -11,7 +11,18 @@
     "estimated",
     "unknown"
   ],
-  "sourcesRead": [],
+  "sourcesRead": [
+    {
+      "url": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "type": "community",
+      "revision": "968eff7620f018223daa6b8f195840fb00c49d36"
+    },
+    {
+      "url": "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js",
+      "type": "community",
+      "revision": "2527cd3e61f31d4539c07406e2fbd16c54bd37ca"
+    }
+  ],
   "entries": [
     {
       "property": "reference.pcStableVersion",
@@ -4542,6 +4553,1427 @@
       "confidence": 0.35,
       "notes": "Run-scoped Luck increment persists through recomputation. Prior gold grant corrected; magnitude and lifetime require source verification.",
       "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.bloody.relationship",
+      "value": {
+        "base": "whip",
+        "passive_or_second_weapon": "heart",
+        "result": "bloody"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.bloody.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.holy.relationship",
+      "value": {
+        "base": "wand",
+        "passive_or_second_weapon": "tome",
+        "result": "holy"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.holy.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.thousand.relationship",
+      "value": {
+        "base": "knife",
+        "passive_or_second_weapon": "bracer",
+        "result": "thousand"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.thousand.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.spiral.relationship",
+      "value": {
+        "base": "axe",
+        "passive_or_second_weapon": "candelabrador",
+        "result": "spiral"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.spiral.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.heaven.relationship",
+      "value": {
+        "base": "cross",
+        "passive_or_second_weapon": "clover",
+        "result": "heaven"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.heaven.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.vespers.relationship",
+      "value": {
+        "base": "bible",
+        "passive_or_second_weapon": "spellbinder",
+        "result": "vespers"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.vespers.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.hellfire.relationship",
+      "value": {
+        "base": "fire",
+        "passive_or_second_weapon": "spinach",
+        "result": "hellfire"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.hellfire.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.soul.relationship",
+      "value": {
+        "base": "garlic",
+        "passive_or_second_weapon": "pummarola",
+        "result": "soul"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.soul.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.borra.relationship",
+      "value": {
+        "base": "water",
+        "passive_or_second_weapon": "attractorb",
+        "result": "borra"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.borra.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.future.relationship",
+      "value": {
+        "base": "runetracer",
+        "passive_or_second_weapon": "armor",
+        "result": "future"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.future.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.thunder.relationship",
+      "value": {
+        "base": "lightning",
+        "passive_or_second_weapon": "duplicator",
+        "result": "thunder"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.thunder.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.moon.relationship",
+      "value": {
+        "base": "pentagram",
+        "passive_or_second_weapon": "crown",
+        "result": "moon"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.moon.levels",
+      "value": {
+        "base": 8,
+        "other": 1
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.vandalier.relationship",
+      "value": {
+        "base": "peachone",
+        "passive_or_second_weapon": "ebony",
+        "result": "vandalier"
+      },
+      "status": "cross_checked",
+      "source": [
+        "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+        "https://github.com/SchrodingerCatBox/vampire-survivors-evolutions/blob/2527cd3e61f31d4539c07406e2fbd16c54bd37ca/scripts/evolutions-data.js"
+      ],
+      "source_type": "community_companion_documents",
+      "date": "2026-11-03",
+      "confidence": 0.75,
+      "notes": "Recipe factual relationship agrees in two community repositories; neither proves current stable PC version; shared ancestry not excluded. IDs are local identifiers, not official strings. Chest/time/stage conditions not established.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.recipe.vandalier.levels",
+      "value": {
+        "base": 8,
+        "other": 8
+      },
+      "status": "estimated",
+      "source": "https://github.com/taleek/VampireSurvivorsCompanion/blob/968eff7620f018223daa6b8f195840fb00c49d36/src/data/evolutions/baseGame.js",
+      "source_type": "single_community_reference",
+      "date": "2026-11-03",
+      "confidence": 0.65,
+      "notes": "Observed in pinned public companion data. Not official/current-PC confirmed; status estimated retained conservatively.",
+      "reference_version": null
+    },
+    {
+      "property": "phase2.weapons.wand.documentedLevelValues",
+      "value": [
+        {
+          "damage": 10.0,
+          "amount": 1.0,
+          "pierce": 1.0,
+          "cooldown": 1.2,
+          "area": 1.0,
+          "interval": 0.1,
+          "poolLimit": 60.0,
+          "knockback": 1.0
+        },
+        {
+          "amount": 2.0
+        },
+        {
+          "cooldown": 1.0
+        },
+        {
+          "amount": 3.0
+        },
+        {
+          "damage": 20.0
+        },
+        {
+          "amount": 4.0
+        },
+        {
+          "pierce": 2.0
+        },
+        {
+          "damage": 30.0,
+          "amount": 4.0,
+          "pierce": 2.0,
+          "cooldown": 1.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.magic-wand.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.knife.documentedLevelValues",
+      "value": [
+        {
+          "damage": 6.5,
+          "amount": 1.0,
+          "pierce": 1.0,
+          "cooldown": 1.0,
+          "area": 1.0,
+          "interval": 0.1,
+          "poolLimit": 70.0,
+          "knockback": 0.5
+        },
+        {
+          "amount": 2.0
+        },
+        {
+          "damage": 11.5,
+          "amount": 3.0
+        },
+        {
+          "amount": 4.0
+        },
+        {
+          "pierce": 2.0
+        },
+        {
+          "amount": 5.0
+        },
+        {
+          "damage": 16.5,
+          "amount": 6.0
+        },
+        {
+          "pierce": 3.0,
+          "damage": 16.5,
+          "amount": 6.0,
+          "interval": 0.04
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.knife.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.axe.documentedLevelValues",
+      "value": [
+        {
+          "damage": 20.0,
+          "amount": 1.0,
+          "pierce": 3.0,
+          "cooldown": 4.0,
+          "area": 1.0,
+          "interval": 0.2,
+          "poolLimit": 70.0,
+          "knockback": 1.0
+        },
+        {
+          "amount": 2.0
+        },
+        {
+          "damage": 40.0
+        },
+        {
+          "pierce": 5.0
+        },
+        {
+          "amount": 3.0
+        },
+        {
+          "damage": 60.0
+        },
+        {
+          "pierce": 7.0
+        },
+        {
+          "damage": 80.0,
+          "amount": 3.0,
+          "pierce": 7.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.axe.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.cross.documentedLevelValues",
+      "value": [
+        {
+          "damage": 5.0,
+          "amount": 1.0,
+          "cooldown": 2.0,
+          "area": 1.0,
+          "interval": 0.1,
+          "poolLimit": 100.0,
+          "knockback": 1.0
+        },
+        {
+          "damage": 15.0
+        },
+        {
+          "area": 1.1,
+          "speedMultiplier": 1.25
+        },
+        {
+          "amount": 2.0
+        },
+        {
+          "damage": 25.0
+        },
+        {
+          "area": 1.2,
+          "speedMultiplier": 1.5
+        },
+        {
+          "amount": 3.0
+        },
+        {
+          "damage": 35.0,
+          "amount": 3.0,
+          "area": 1.2
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.cross.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.bible.documentedLevelValues",
+      "value": [
+        {
+          "damage": 10.0,
+          "amount": 1.0,
+          "cooldown": 3.0,
+          "duration": 3.0,
+          "area": 1.0,
+          "interval": 0.0,
+          "poolLimit": 50.0,
+          "hitDelay": 1.7,
+          "knockback": 1.0
+        },
+        {
+          "amount": 2.0
+        },
+        {
+          "area": 1.25,
+          "speedMultiplier": 1.3
+        },
+        {
+          "damage": 20.0,
+          "duration": 3.5
+        },
+        {
+          "amount": 3.0
+        },
+        {
+          "area": 1.5,
+          "speedMultiplier": 1.6
+        },
+        {
+          "damage": 30.0,
+          "duration": 4.0
+        },
+        {
+          "amount": 4.0,
+          "damage": 30.0,
+          "duration": 4.0,
+          "area": 1.5
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.king-bible.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.fire.documentedLevelValues",
+      "value": [
+        {
+          "damage": 20.0,
+          "amount": 3.0,
+          "pierce": 1.0,
+          "cooldown": 3.0,
+          "area": 1.0,
+          "interval": 0.02,
+          "poolLimit": 30.0,
+          "knockback": 1.0
+        },
+        {
+          "damage": 30.0
+        },
+        {
+          "damage": 40.0,
+          "speedMultiplier": 1.2
+        },
+        {
+          "damage": 50.0
+        },
+        {
+          "damage": 60.0,
+          "speedMultiplier": 1.4
+        },
+        {
+          "damage": 70.0
+        },
+        {
+          "damage": 80.0,
+          "speedMultiplier": 1.6
+        },
+        {
+          "damage": 90.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.fire-wand.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.garlic.documentedLevelValues",
+      "value": [
+        {
+          "damage": 5.0,
+          "cooldown": 1.3,
+          "area": 1.0,
+          "interval": 0.0,
+          "poolLimit": 50.0,
+          "knockback": 0.0
+        },
+        {
+          "damage": 7.0,
+          "area": 1.4
+        },
+        {
+          "damage": 8.0,
+          "cooldown": 1.2
+        },
+        {
+          "damage": 9.0,
+          "area": 1.6
+        },
+        {
+          "damage": 11.0,
+          "cooldown": 1.1
+        },
+        {
+          "damage": 12.0,
+          "area": 1.8
+        },
+        {
+          "damage": 13.0,
+          "cooldown": 1.0
+        },
+        {
+          "damage": 15.0,
+          "area": 2.0,
+          "cooldown": 1.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.garlic.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.water.documentedLevelValues",
+      "value": [
+        {
+          "damage": 10.0,
+          "amount": 1.0,
+          "cooldown": 4.5,
+          "duration": 2.0,
+          "area": 1.0,
+          "interval": 0.3,
+          "poolLimit": 20.0,
+          "hitDelay": 0.5
+        },
+        {
+          "amount": 2.0,
+          "area": 1.2
+        },
+        {
+          "damage": 20.0,
+          "duration": 2.5
+        },
+        {
+          "amount": 3.0,
+          "area": 1.4
+        },
+        {
+          "damage": 30.0,
+          "duration": 2.8
+        },
+        {
+          "amount": 4.0,
+          "area": 1.6
+        },
+        {
+          "damage": 35.0,
+          "duration": 3.1
+        },
+        {
+          "damage": 40.0,
+          "area": 1.8,
+          "amount": 4.0,
+          "duration": 3.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.santa-water.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.runetracer.documentedLevelValues",
+      "value": [
+        {
+          "damage": 10.0,
+          "amount": 1.0,
+          "cooldown": 3.0,
+          "duration": 2.25,
+          "area": 1.0,
+          "interval": 0.2,
+          "poolLimit": 25.0,
+          "hitDelay": 0.5,
+          "knockback": 1.0
+        },
+        {
+          "damage": 15.0,
+          "speedMultiplier": 1.2
+        },
+        {
+          "damage": 20.0,
+          "duration": 2.55
+        },
+        {
+          "amount": 2.0
+        },
+        {
+          "damage": 25.0,
+          "speedMultiplier": 1.4
+        },
+        {
+          "damage": 30.0,
+          "duration": 2.85
+        },
+        {
+          "amount": 3.0
+        },
+        {
+          "duration": 3.25,
+          "damage": 30.0,
+          "amount": 3.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.runetracer.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.lightning.documentedLevelValues",
+      "value": [
+        {
+          "damage": 15.0,
+          "amount": 2.0,
+          "cooldown": 4.5,
+          "area": 1.0,
+          "interval": 0.05,
+          "poolLimit": 50.0,
+          "knockback": 1.0
+        },
+        {
+          "amount": 3.0
+        },
+        {
+          "damage": 25.0,
+          "area": 2.0
+        },
+        {
+          "amount": 4.0
+        },
+        {
+          "damage": 45.0,
+          "area": 3.0
+        },
+        {
+          "amount": 5.0
+        },
+        {
+          "damage": 65.0,
+          "area": 4.0
+        },
+        {
+          "amount": 6.0,
+          "damage": 65.0,
+          "area": 4.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.lightning-ring.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.pentagram.documentedLevelValues",
+      "value": [
+        {
+          "cooldown": 90.0,
+          "duration": 1.0,
+          "interval": 0.0,
+          "poolLimit": 10.0
+        },
+        {
+          "cooldown": 80.0
+        },
+        {
+          "retain": 0.25
+        },
+        {
+          "cooldown": 70.0
+        },
+        {
+          "retain": 0.45
+        },
+        {
+          "cooldown": 65.0
+        },
+        {
+          "retain": 0.65
+        },
+        {
+          "cooldown": 60.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.pentagram.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.peachone.documentedLevelValues",
+      "value": [
+        {
+          "damage": 10.0,
+          "amount": 4.0,
+          "cooldown": 1.0,
+          "duration": 4.0,
+          "area": 1.0,
+          "interval": 0.025,
+          "poolLimit": 60.0,
+          "knockback": 2.0
+        },
+        {
+          "amount": 5.0,
+          "area": 1.4
+        },
+        {
+          "damage": 20.0,
+          "amount": 6.0
+        },
+        {
+          "amount": 7.0,
+          "cooldown": 0.7
+        },
+        {
+          "amount": 8.0,
+          "area": 1.8
+        },
+        {
+          "damage": 30.0,
+          "amount": 9.0
+        },
+        {
+          "amount": 10.0,
+          "cooldown": 0.4
+        },
+        {
+          "amount": 11.0,
+          "area": 2.2,
+          "damage": 30.0,
+          "cooldown": 0.5
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.peachone.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.ebony.documentedLevelValues",
+      "value": [
+        {
+          "damage": 10.0,
+          "amount": 4.0,
+          "cooldown": 1.0,
+          "duration": 4.0,
+          "area": 1.0,
+          "interval": 0.025,
+          "poolLimit": 60.0,
+          "knockback": 2.0
+        },
+        {
+          "amount": 5.0,
+          "area": 1.4
+        },
+        {
+          "damage": 20.0,
+          "amount": 6.0
+        },
+        {
+          "amount": 7.0,
+          "cooldown": 0.7
+        },
+        {
+          "amount": 8.0,
+          "area": 1.8
+        },
+        {
+          "damage": 30.0,
+          "amount": 9.0
+        },
+        {
+          "amount": 10.0,
+          "cooldown": 0.4
+        },
+        {
+          "amount": 11.0,
+          "area": 2.2,
+          "damage": 30.0,
+          "cooldown": 0.5
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.ebony-wings.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.holy.documentedLevelValues",
+      "value": [
+        {
+          "damage": 30.0,
+          "amount": 4.0,
+          "pierce": 2.0,
+          "cooldown": 0.5,
+          "area": 1.0,
+          "interval": 0.1,
+          "poolLimit": 60.0,
+          "knockback": 1.0
+        },
+        {},
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.holy-wand.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.thousand.documentedLevelValues",
+      "value": [
+        {
+          "damage": 16.5,
+          "amount": 6.0,
+          "pierce": 3.0,
+          "cooldown": 0.35,
+          "area": 1.0,
+          "interval": 0.05,
+          "poolLimit": 70.0,
+          "knockback": 0.5
+        },
+        {},
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.thousand-edge.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.spiral.documentedLevelValues",
+      "value": [
+        {
+          "damage": 60.0,
+          "amount": 9.0,
+          "pierce": 1000.0,
+          "cooldown": 4.0,
+          "area": 1.2,
+          "interval": 0.05,
+          "poolLimit": 50.0,
+          "knockback": 1.0
+        },
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.death-spiral.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.heaven.documentedLevelValues",
+      "value": [
+        {
+          "damage": 77.0,
+          "amount": 1.0,
+          "cooldown": 3.3,
+          "area": 1.2,
+          "interval": 0.5,
+          "poolLimit": 20.0,
+          "knockback": 6.0
+        },
+        {},
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.heaven-sword.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.vespers.documentedLevelValues",
+      "value": [
+        {
+          "damage": 30.0,
+          "amount": 4.0,
+          "cooldown": 3.0,
+          "duration": 3.0,
+          "area": 1.75,
+          "interval": 0.0,
+          "poolLimit": 50.0,
+          "hitDelay": 1.7,
+          "knockback": 4.0
+        },
+        {},
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.unholy-vespers.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.hellfire.documentedLevelValues",
+      "value": [
+        {
+          "damage": 100.0,
+          "amount": 2.0,
+          "cooldown": 3.0,
+          "duration": 0.1,
+          "area": 1.0,
+          "interval": 0.2,
+          "poolLimit": 20.0,
+          "knockback": 1.0
+        },
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.hellfire.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.soul.documentedLevelValues",
+      "value": [
+        {
+          "damage": 20.0,
+          "cooldown": 1.0,
+          "duration": 1.3,
+          "area": 3.0,
+          "interval": 0.0,
+          "poolLimit": 50.0,
+          "knockback": 0.0
+        },
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.soul-eater.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.borra.documentedLevelValues",
+      "value": [
+        {
+          "damage": 40.0,
+          "amount": 4.0,
+          "cooldown": 4.0,
+          "duration": 4.0,
+          "area": 2.0,
+          "interval": 0.3,
+          "poolLimit": 30.0,
+          "hitDelay": 0.5
+        },
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.la-borra.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.nofuture.documentedLevelValues",
+      "value": [
+        {
+          "damage": 30.0,
+          "amount": 1.0,
+          "cooldown": 1.0,
+          "duration": 3.0,
+          "area": 1.0,
+          "interval": 0.0,
+          "poolLimit": 40.0,
+          "hitDelay": 0.5,
+          "knockback": 1.0
+        },
+        {},
+        {},
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.no-future.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.thunder.documentedLevelValues",
+      "value": [
+        {
+          "damage": 65.0,
+          "amount": 6.0,
+          "cooldown": 4.5,
+          "area": 4.0,
+          "interval": 0.0,
+          "poolLimit": 70.0,
+          "knockback": 1.0
+        },
+        {},
+        {}
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.thunder-loop.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.moon.documentedLevelValues",
+      "value": [
+        {
+          "amount": 1.0,
+          "cooldown": 60.0,
+          "duration": 1.0,
+          "area": 1.0,
+          "interval": 0.0,
+          "knockback": 1.0
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.gorgeous-moon.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.weapons.vandalier.documentedLevelValues",
+      "value": [
+        {
+          "damage": 28.0,
+          "amount": 20.0,
+          "cooldown": 1.0,
+          "duration": 4.0,
+          "area": 2.2,
+          "interval": 0.025,
+          "poolLimit": 100.0,
+          "knockback": 2.0
+        },
+        {
+          "area": 2.4
+        },
+        {
+          "cooldown": 0.7
+        },
+        {
+          "area": 2.6
+        },
+        {
+          "cooldown": 0.4
+        },
+        {
+          "area": 2.8
+        },
+        {
+          "cooldown": 0.1
+        },
+        {
+          "area": 3.0,
+          "cooldown": 0.25
+        }
+      ],
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.vandalier.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Numerical observations independently expressed from one community reference, not official current-PC confirmation. Local speed/range unit conversions remain separately estimated."
+    },
+    {
+      "property": "phase2.stages.forest.timetable",
+      "value": "src/data/stage-reference.js",
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/stage.mad-forest.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Minute enemy groups, minimum count, interval and per-boss chest eligibility observed. Local spawn reconstruction, enemy HP/speed/radius and world coordinates are still estimates."
+    },
+    {
+      "property": "phase2.stages.library.timetable",
+      "value": "src/data/stage-reference.js",
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/stage.inlaid-library.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Minute enemy groups, minimum count, interval and per-boss chest eligibility observed. Local spawn reconstruction, enemy HP/speed/radius and world coordinates are still estimates."
+    },
+    {
+      "property": "phase2.Bible.cooldownBasePlusDuration",
+      "value": true,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.king-bible.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
+    },
+    {
+      "property": "phase2.Bible.hitboxDelaySeconds",
+      "value": 1.7,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.king-bible.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
+    },
+    {
+      "property": "phase2.SantaWater.hitboxDelaySeconds",
+      "value": 0.5,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.santa-water.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
+    },
+    {
+      "property": "phase2.Pentagram.minimumCooldown",
+      "value": 15,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.pentagram.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
+    },
+    {
+      "property": "phase2.GorgeousMoon.generationAfterCooldown",
+      "value": 3,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.gorgeous-moon.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
+    },
+    {
+      "property": "phase2.GorgeousMoon.erasureAfterCooldown",
+      "value": 12.1,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.gorgeous-moon.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
+    },
+    {
+      "property": "phase2.birds.defaultSets",
+      "value": 4,
+      "source": "https://github.com/prabinpebam/survivors-companion/blob/5e345c547ebe39c429d99032aae8e688fa15bfd4/site/data/detail/weapon.peachone.json",
+      "source_type": "community_reference",
+      "date": "2026-11-03",
+      "status": "estimated",
+      "confidence": 0.65,
+      "notes": "Documented behavior from one attributed community source; current-PC original video verification outstanding."
     }
-  ]
+  ],
+  "phase2InvestigationDate": "2026-11-03",
+  "phase2Reference": "Community documentation snapshot 5e345c547ebe39c429d99032aae8e688fa15bfd4; latest official PC version remains unknown"
 }

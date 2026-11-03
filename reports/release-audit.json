@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-03T03:21:47.627Z",
+  "generatedAt": "2026-11-03T09:23:42.616Z",
   "artifact": "dist/vampire_survivors.html",
-  "bytes": 112912,
-  "sha256": "e2f511cd1353d568601828c00e056ba0b9849cb66f1a500e24210d1a52c354a3",
+  "bytes": 213550,
+  "sha256": "1c7c62aa12966b1da99b82bd3f9e478ad9566c5993d50d0cf13d4b5f6f2e6ce8",
   "requiredFilesMissing": [],
   "productionSourceMarkers": [],
   "referenceVersion": null,
-  "p1GapRows": 12,
-  "browserSmokeArtifactHash": "e2f511cd1353d568601828c00e056ba0b9849cb66f1a500e24210d1a52c354a3",
+  "p1GapRows": 10,
+  "browserSmokeArtifactHash": "1c7c62aa12966b1da99b82bd3f9e478ad9566c5993d50d0cf13d4b5f6f2e6ce8",
   "status": "blocked",
   "release": false,
-  "reason": "Reference target/comparison and significant full-scope systems remain unresolved. Functional test success does not waive the fidelity gate."
+  "reason": "Current-PC target/comparison and precise source enemy/map validation remain unresolved. Functional test success does not waive the fidelity gate."
 }

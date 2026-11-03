@@ -1,0 +1,718 @@
+TAP version 13
+# Subtest: distribution is one offline document with bundled script and restrictive network CSP
+ok 1 - distribution is one offline document with bundled script and restrictive network CSP
+  ---
+  duration_ms: 10.727804
+  type: 'test'
+  ...
+# Subtest: seeded simulation reproduces fixed inputs, combat, drops and menu selections
+ok 2 - seeded simulation reproduces fixed inputs, combat, drops and menu selections
+  ---
+  duration_ms: 2334.072484
+  type: 'test'
+  ...
+# Subtest: fixed tick clock, normalized diagonals and immediate movement preserve speed
+ok 3 - fixed tick clock, normalized diagonals and immediate movement preserve speed
+  ---
+  duration_ms: 1.177884
+  type: 'test'
+  ...
+# Subtest: invalid simulation dt is rejected rather than desynchronizing the fixed clock
+ok 4 - invalid simulation dt is rejected rather than desynchronizing the fixed clock
+  ---
+  duration_ms: 0.766214
+  type: 'test'
+  ...
+# Subtest: level-two whip alternates forward then rear with a measurable interval
+ok 5 - level-two whip alternates forward then rear with a measurable interval
+  ---
+  duration_ms: 0.635642
+  type: 'test'
+  ...
+# Subtest: whip pierces every eligible target but excludes rear and out-of-height targets
+ok 6 - whip pierces every eligible target but excludes rear and out-of-height targets
+  ---
+  duration_ms: 2.017756
+  type: 'test'
+  ...
+# Subtest: weapon level table accumulates sparse deltas and retains cooldown
+ok 7 - weapon level table accumulates sparse deltas and retains cooldown
+  ---
+  duration_ms: 0.210513
+  type: 'test'
+  ...
+# Subtest: stats combine character, bounded powerups and passive modifiers once
+ok 8 - stats combine character, bounded powerups and passive modifiers once
+  ---
+  duration_ms: 0.253543
+  type: 'test'
+  ...
+# Subtest: large XP grants queue every level-up and preserve remainder
+ok 9 - large XP grants queue every level-up and preserve remainder
+  ---
+  duration_ms: 6.347181
+  type: 'test'
+  ...
+# Subtest: level-up choices exclude maxed and banished items, unique weighted sampling
+ok 10 - level-up choices exclude maxed and banished items, unique weighted sampling
+  ---
+  duration_ms: 0.923672
+  type: 'test'
+  ...
+# Subtest: six passive slots block new choices while existing items remain upgradeable
+ok 11 - six passive slots block new choices while existing items remain upgradeable
+  ---
+  duration_ms: 1.906814
+  type: 'test'
+  ...
+# Subtest: chest eligibility depends on drop time, maximum weapon and passive requirement
+ok 12 - chest eligibility depends on drop time, maximum weapon and passive requirement
+  ---
+  duration_ms: 2.688219
+  type: 'test'
+  ...
+# Subtest: chest collected during level up is queued and processed after selection
+ok 13 - chest collected during level up is queued and processed after selection
+  ---
+  duration_ms: 1.859348
+  type: 'test'
+  ...
+# Subtest: contact damage respects armor and invulnerability interval, then death stops simulation
+ok 14 - contact damage respects armor and invulnerability interval, then death stops simulation
+  ---
+  duration_ms: 1.620095
+  type: 'test'
+  ...
+# Subtest: XP merges without loss at pickup cap and effect pools remain bounded
+ok 15 - XP merges without loss at pickup cap and effect pools remain bounded
+  ---
+  duration_ms: 37.590875
+  type: 'test'
+  ...
+# Subtest: enemy cap rejects extra spawns and dead objects are recycled with fresh identity
+ok 16 - enemy cap rejects extra spawns and dead objects are recycled with fresh identity
+  ---
+  duration_ms: 7.299023
+  type: 'test'
+  ...
+# Subtest: death records once and late queued rewards cannot resume the dead run
+ok 17 - death records once and late queued rewards cannot resume the dead run
+  ---
+  duration_ms: 1.302931
+  type: 'test'
+  ...
+# Subtest: spatial combat rejects NaN input and periodically checks entity coordinates
+ok 18 - spatial combat rejects NaN input and periodically checks entity coordinates
+  ---
+  duration_ms: 0.805787
+  type: 'test'
+  ...
+# Subtest: seeded weighted sampler handles skew and never selects zero-weight entries
+ok 19 - seeded weighted sampler handles skew and never selects zero-weight entries
+  ---
+  duration_ms: 5.33387
+  type: 'test'
+  ...
+# Subtest: stationary target TTK reflects whip cadence and per-hit damage
+ok 20 - stationary target TTK reflects whip cadence and per-hit damage
+  ---
+  duration_ms: 1.604427
+  type: 'test'
+  ...
+# Subtest: endless first cycle boundary schedules second-cycle bosses with local time
+ok 21 - endless first cycle boundary schedules second-cycle bosses with local time
+  ---
+  duration_ms: 1.069514
+  type: 'test'
+  ...
+# Subtest: evolution excludes consumed base weapon from subsequent reward candidates
+ok 22 - evolution excludes consumed base weapon from subsequent reward candidates
+  ---
+  duration_ms: 4.922475
+  type: 'test'
+  ...
+# Subtest: Little Clover increases run luck and persists through stat recomputation instead of granting coins
+ok 23 - Little Clover increases run luck and persists through stat recomputation instead of granting coins
+  ---
+  duration_ms: 0.441461
+  type: 'test'
+  ...
+# Subtest: weapon lab validates density and numeric fields before spawning
+ok 24 - weapon lab validates density and numeric fields before spawning
+  ---
+  duration_ms: 14.198205
+  type: 'test'
+  ...
+# Subtest: invalid weapon levels cannot propagate NaN damage into combat
+ok 25 - invalid weapon levels cannot propagate NaN damage into combat
+  ---
+  duration_ms: 1.277486
+  type: 'test'
+  ...
+# Subtest: Phase2 content registry exposes fourteen distinct base weapons and all fifteen passives
+ok 26 - Phase2 content registry exposes fourteen distinct base weapons and all fifteen passives
+  ---
+  duration_ms: 6.820724
+  type: 'test'
+  ...
+# Subtest: mixed six-weapon build invokes each weapon damage path without a hidden Whip substitute
+ok 27 - mixed six-weapon build invokes each weapon damage path without a hidden Whip substitute
+  ---
+  duration_ms: 299.32033
+  type: 'test'
+  ...
+# Subtest: six weapon slots exclude new weapons but preserve existing upgrade candidates
+ok 28 - six weapon slots exclude new weapons but preserve existing upgrade candidates
+  ---
+  duration_ms: 5.897613
+  type: 'test'
+  ...
+# Subtest: all playable character definitions create their declared weapon and finite starting statistics
+ok 29 - all playable character definitions create their declared weapon and finite starting statistics
+  ---
+  duration_ms: 10.248177
+  type: 'test'
+  ...
+# Subtest: Library corridor constrains vertical travel while Forest stays unbounded
+ok 30 - Library corridor constrains vertical travel while Forest stays unbounded
+  ---
+  duration_ms: 23.54209
+  type: 'test'
+  ...
+# Subtest: whip: actual attack damages targets through its own behavior
+ok 31 - whip: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 58.849504
+  type: 'test'
+  ...
+# Subtest: bloody: actual attack damages targets through its own behavior
+ok 32 - bloody: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 46.142014
+  type: 'test'
+  ...
+# Subtest: wand: actual attack damages targets through its own behavior
+ok 33 - wand: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 48.276416
+  type: 'test'
+  ...
+# Subtest: knife: actual attack damages targets through its own behavior
+ok 34 - knife: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 86.43468
+  type: 'test'
+  ...
+# Subtest: axe: actual attack damages targets through its own behavior
+ok 35 - axe: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 29.081601
+  type: 'test'
+  ...
+# Subtest: cross: actual attack damages targets through its own behavior
+ok 36 - cross: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 48.297258
+  type: 'test'
+  ...
+# Subtest: bible: actual attack damages targets through its own behavior
+ok 37 - bible: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 35.530768
+  type: 'test'
+  ...
+# Subtest: fire: actual attack damages targets through its own behavior
+ok 38 - fire: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 22.771884
+  type: 'test'
+  ...
+# Subtest: garlic: actual attack damages targets through its own behavior
+ok 39 - garlic: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 60.882383
+  type: 'test'
+  ...
+# Subtest: water: actual attack damages targets through its own behavior
+ok 40 - water: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 35.88082
+  type: 'test'
+  ...
+# Subtest: runetracer: actual attack damages targets through its own behavior
+ok 41 - runetracer: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 36.480641
+  type: 'test'
+  ...
+# Subtest: lightning: actual attack damages targets through its own behavior
+ok 42 - lightning: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 43.521685
+  type: 'test'
+  ...
+# Subtest: pentagram: actual attack damages targets through its own behavior
+ok 43 - pentagram: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 137.929864
+  type: 'test'
+  ...
+# Subtest: peachone: actual attack damages targets through its own behavior
+ok 44 - peachone: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 60.138349
+  type: 'test'
+  ...
+# Subtest: ebony: actual attack damages targets through its own behavior
+ok 45 - ebony: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 62.462657
+  type: 'test'
+  ...
+# Subtest: holy: actual attack damages targets through its own behavior
+ok 46 - holy: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 34.334452
+  type: 'test'
+  ...
+# Subtest: thousand: actual attack damages targets through its own behavior
+ok 47 - thousand: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 104.453757
+  type: 'test'
+  ...
+# Subtest: spiral: actual attack damages targets through its own behavior
+ok 48 - spiral: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 44.203162
+  type: 'test'
+  ...
+# Subtest: heaven: actual attack damages targets through its own behavior
+ok 49 - heaven: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 22.491536
+  type: 'test'
+  ...
+# Subtest: vespers: actual attack damages targets through its own behavior
+ok 50 - vespers: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 40.354347
+  type: 'test'
+  ...
+# Subtest: hellfire: actual attack damages targets through its own behavior
+ok 51 - hellfire: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 16.690888
+  type: 'test'
+  ...
+# Subtest: soul: actual attack damages targets through its own behavior
+ok 52 - soul: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 44.215171
+  type: 'test'
+  ...
+# Subtest: borra: actual attack damages targets through its own behavior
+ok 53 - borra: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 42.92431
+  type: 'test'
+  ...
+# Subtest: nofuture: actual attack damages targets through its own behavior
+ok 54 - nofuture: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 26.10535
+  type: 'test'
+  ...
+# Subtest: thunder: actual attack damages targets through its own behavior
+ok 55 - thunder: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 51.525152
+  type: 'test'
+  ...
+# Subtest: moon: actual attack damages targets through its own behavior
+ok 56 - moon: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 103.350983
+  type: 'test'
+  ...
+# Subtest: vandalier: actual attack damages targets through its own behavior
+ok 57 - vandalier: actual attack damages targets through its own behavior
+  ---
+  duration_ms: 82.06677
+  type: 'test'
+  ...
+# Subtest: bloody: complete requirements, missing requirement, consume and reward
+ok 58 - bloody: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 2.565173
+  type: 'test'
+  ...
+# Subtest: holy: complete requirements, missing requirement, consume and reward
+ok 59 - holy: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.962178
+  type: 'test'
+  ...
+# Subtest: thousand: complete requirements, missing requirement, consume and reward
+ok 60 - thousand: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.719115
+  type: 'test'
+  ...
+# Subtest: spiral: complete requirements, missing requirement, consume and reward
+ok 61 - spiral: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.461214
+  type: 'test'
+  ...
+# Subtest: heaven: complete requirements, missing requirement, consume and reward
+ok 62 - heaven: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.454082
+  type: 'test'
+  ...
+# Subtest: vespers: complete requirements, missing requirement, consume and reward
+ok 63 - vespers: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.670905
+  type: 'test'
+  ...
+# Subtest: hellfire: complete requirements, missing requirement, consume and reward
+ok 64 - hellfire: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.386345
+  type: 'test'
+  ...
+# Subtest: soul: complete requirements, missing requirement, consume and reward
+ok 65 - soul: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.693263
+  type: 'test'
+  ...
+# Subtest: borra: complete requirements, missing requirement, consume and reward
+ok 66 - borra: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.441728
+  type: 'test'
+  ...
+# Subtest: nofuture: complete requirements, missing requirement, consume and reward
+ok 67 - nofuture: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.87006
+  type: 'test'
+  ...
+# Subtest: thunder: complete requirements, missing requirement, consume and reward
+ok 68 - thunder: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.696215
+  type: 'test'
+  ...
+# Subtest: moon: complete requirements, missing requirement, consume and reward
+ok 69 - moon: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.741639
+  type: 'test'
+  ...
+# Subtest: vandalier: complete requirements, missing requirement, consume and reward
+ok 70 - vandalier: complete requirements, missing requirement, consume and reward
+  ---
+  duration_ms: 0.305344
+  type: 'test'
+  ...
+# Subtest: heart: each passive level applies centralized stats once
+ok 71 - heart: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.551013
+  type: 'test'
+  ...
+# Subtest: spinach: each passive level applies centralized stats once
+ok 72 - spinach: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.122473
+  type: 'test'
+  ...
+# Subtest: armor: each passive level applies centralized stats once
+ok 73 - armor: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.262292
+  type: 'test'
+  ...
+# Subtest: pummarola: each passive level applies centralized stats once
+ok 74 - pummarola: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.202355
+  type: 'test'
+  ...
+# Subtest: wings: each passive level applies centralized stats once
+ok 75 - wings: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.121982
+  type: 'test'
+  ...
+# Subtest: attractorb: each passive level applies centralized stats once
+ok 76 - attractorb: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.067839
+  type: 'test'
+  ...
+# Subtest: crown: each passive level applies centralized stats once
+ok 77 - crown: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.065387
+  type: 'test'
+  ...
+# Subtest: tome: each passive level applies centralized stats once
+ok 78 - tome: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.066001
+  type: 'test'
+  ...
+# Subtest: candelabrador: each passive level applies centralized stats once
+ok 79 - candelabrador: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.224006
+  type: 'test'
+  ...
+# Subtest: bracer: each passive level applies centralized stats once
+ok 80 - bracer: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.134753
+  type: 'test'
+  ...
+# Subtest: spellbinder: each passive level applies centralized stats once
+ok 81 - spellbinder: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.06839
+  type: 'test'
+  ...
+# Subtest: duplicator: each passive level applies centralized stats once
+ok 82 - duplicator: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.051455
+  type: 'test'
+  ...
+# Subtest: clover: each passive level applies centralized stats once
+ok 83 - clover: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.063656
+  type: 'test'
+  ...
+# Subtest: mask: each passive level applies centralized stats once
+ok 84 - mask: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.094468
+  type: 'test'
+  ...
+# Subtest: skull: each passive level applies centralized stats once
+ok 85 - skull: each passive level applies centralized stats once
+  ---
+  duration_ms: 0.079222
+  type: 'test'
+  ...
+# Subtest: Magic Wand chooses nearest target while Knife follows vertical input
+ok 86 - Magic Wand chooses nearest target while Knife follows vertical input
+  ---
+  duration_ms: 1.999894
+  type: 'test'
+  ...
+# Subtest: Axe acceleration, Cross reversal and viewport ricochet are distinct algorithms
+ok 87 - Axe acceleration, Cross reversal and viewport ricochet are distinct algorithms
+  ---
+  duration_ms: 2.776797
+  type: 'test'
+  ...
+# Subtest: Forest early eligible boss chest overrides the generic ten-minute rule
+ok 88 - Forest early eligible boss chest overrides the generic ten-minute rule
+  ---
+  duration_ms: 3.905029
+  type: 'test'
+  ...
+# Subtest: Modifier bus supports event unsubscribe and ordered multiply/add expiry
+ok 89 - Modifier bus supports event unsubscribe and ordered multiply/add expiry
+  ---
+  duration_ms: 1.159852
+  type: 'test'
+  ...
+# Subtest: Union consumes two weapons, frees a slot and remains upgradeable
+ok 90 - Union consumes two weapons, frees a slot and remains upgradeable
+  ---
+  duration_ms: 11.453828
+  type: 'test'
+  ...
+# Subtest: Stone Mask and Greed affect actual coin and bag pickups, not only chest gold
+ok 91 - Stone Mask and Greed affect actual coin and bag pickups, not only chest gold
+  ---
+  duration_ms: 0.498875
+  type: 'test'
+  ...
+# Subtest: curse survival evidence counts the actual active interval
+ok 92 - curse survival evidence counts the actual active interval
+  ---
+  duration_ms: 2.765905
+  type: 'test'
+  ...
+# Subtest: temporary modifiers expire in a running engine without requiring level-up
+ok 93 - temporary modifiers expire in a running engine without requiring level-up
+  ---
+  duration_ms: 2.915181
+  type: 'test'
+  ...
+# Subtest: Bible waits its documented base duration in addition to cooldown; Vespers recasts
+ok 94 - Bible waits its documented base duration in addition to cooldown; Vespers recasts
+  ---
+  duration_ms: 22.880175
+  type: 'test'
+  ...
+# Subtest: Garlic hits a new entering enemy immediately rather than waiting for a global pulse
+ok 95 - Garlic hits a new entering enemy immediately rather than waiting for a global pulse
+  ---
+  duration_ms: 1.52243
+  type: 'test'
+  ...
+# Subtest: post-thirty-minute Reapers follow per-stage documented intervals
+ok 96 - post-thirty-minute Reapers follow per-stage documented intervals
+  ---
+  duration_ms: 4.972992
+  type: 'test'
+  ...
+# Subtest: a normal thirty-minute stage clears its crowd and Reaper contact ends in death, never a forced win
+ok 97 - a normal thirty-minute stage clears its crowd and Reaper contact ends in death, never a forced win
+  ---
+  duration_ms: 12.478646
+  type: 'test'
+  ...
+# Subtest: version1 migration retains progression and settings while adding safe phase2 defaults
+ok 98 - version1 migration retains progression and settings while adding safe phase2 defaults
+  ---
+  duration_ms: 3.739058
+  type: 'test'
+  ...
+# Subtest: unlock rules combine all/any and reject unknown requirements
+ok 99 - unlock rules combine all/any and reject unknown requirements
+  ---
+  duration_ms: 1.834727
+  type: 'test'
+  ...
+# Subtest: run progress records stage, equipment, evolution and unlock evidence without double-counting gold/kills
+ok 100 - run progress records stage, equipment, evolution and unlock evidence without double-counting gold/kills
+  ---
+  duration_ms: 1.547302
+  type: 'test'
+  ...
+# Subtest: save reload preserves purchased characters and unlock evidence
+ok 101 - save reload preserves purchased characters and unlock evidence
+  ---
+  duration_ms: 3.069568
+  type: 'test'
+  ...
+# Subtest: base character and stage remain usable under partially missing progression
+ok 102 - base character and stage remain usable under partially missing progression
+  ---
+  duration_ms: 0.912644
+  type: 'test'
+  ...
+# Subtest: weapon unlocks use pickup/lighting/character evidence and survive save reload
+ok 103 - weapon unlocks use pickup/lighting/character evidence and survive save reload
+  ---
+  duration_ms: 0.693874
+  type: 'test'
+  ...
+# Subtest: exact tick input and menu replay reproduces combat and RNG output
+ok 104 - exact tick input and menu replay reproduces combat and RNG output
+  ---
+  duration_ms: 897.368729
+  type: 'test'
+  ...
+# Subtest: replay rejects invalid event order and nonfinite positions
+ok 105 - replay rejects invalid event order and nonfinite positions
+  ---
+  duration_ms: 2.583334
+  type: 'test'
+  ...
+# Subtest: save reload and export/import persist all supported progression
+ok 106 - save reload and export/import persist all supported progression
+  ---
+  duration_ms: 8.918784
+  type: 'test'
+  ...
+# Subtest: malformed primary and interrupted primary write recover latest checked backup
+ok 107 - malformed primary and interrupted primary write recover latest checked backup
+  ---
+  duration_ms: 1.320378
+  type: 'test'
+  ...
+# Subtest: checksum detects corruption and fallback preserves progression
+ok 108 - checksum detects corruption and fallback preserves progression
+  ---
+  duration_ms: 0.802564
+  type: 'test'
+  ...
+# Subtest: old partial save migrates, bounds numeric values and restores settings defaults
+ok 109 - old partial save migrates, bounds numeric values and restores settings defaults
+  ---
+  duration_ms: 0.613245
+  type: 'test'
+  ...
+# Subtest: invalid import rejects unsafe/future data without overwriting current save
+ok 110 - invalid import rejects unsafe/future data without overwriting current save
+  ---
+  duration_ms: 1.340068
+  type: 'test'
+  ...
+# Subtest: unavailable browser storage safely retains current-session save
+ok 111 - unavailable browser storage safely retains current-session save
+  ---
+  duration_ms: 0.514612
+  type: 'test'
+  ...
+# Subtest: keyboard movement is normalized and text editing is not intercepted
+ok 112 - keyboard movement is normalized and text editing is not intercepted
+  ---
+  duration_ms: 1.118661
+  type: 'test'
+  ...
+# Subtest: gamepad deadzone, analog movement, dpad normalization and edge-triggered buttons
+ok 113 - gamepad deadzone, analog movement, dpad normalization and edge-triggered buttons
+  ---
+  duration_ms: 0.86436
+  type: 'test'
+  ...
+# Subtest: audio degrades safely when AudioContext is unsupported
+ok 114 - audio degrades safely when AudioContext is unsupported
+  ---
+  duration_ms: 1.936888
+  type: 'test'
+  ...
+# Subtest: audio limits live voices, routes gains, resumes suspension, and frees stopped nodes
+ok 115 - audio limits live voices, routes gains, resumes suspension, and frees stopped nodes
+  ---
+  duration_ms: 4.904896
+  type: 'test'
+  ...
+# Subtest: the pinned community reference declares exactly six basic weapons available by default
+ok 116 - the pinned community reference declares exactly six basic weapons available by default
+  ---
+  duration_ms: 5.634843
+  type: 'test'
+  ...
+# Subtest: nondefault weapon rules retain source-observed thresholds and character restriction
+ok 117 - nondefault weapon rules retain source-observed thresholds and character restriction
+  ---
+  duration_ms: 1.567062
+  type: 'test'
+  ...
+# Subtest: every unlock condition retains its pinned source and does not claim official confirmation
+ok 118 - every unlock condition retains its pinned source and does not claim official confirmation
+  ---
+  duration_ms: 2.172583
+  type: 'test'
+  ...
+1..118
+# tests 118
+# suites 0
+# pass 118
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2648.839637

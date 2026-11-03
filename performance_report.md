@@ -65,3 +65,9 @@ The engine was unchanged throughout these measurements (SHA256 4fc33cac7228328cd
 - Second isolated run with process CPU instrumentation: p95 5.05 ms, max 45.02 ms, 0 above 100 ms; GC event maximum 10.93 ms. At the maximum wall-time step, process CPU was 89.28 ms including V8 background threads.
 
 The first isolated long frames were not explained by the observed GC pause duration. The second run did not reproduce >100 ms frames. Scheduling, background V8 work and VM effects remain hypotheses; no engine fix or definitive cause is claimed. Historical long-frame findings remain open. The final short browser run met the frame-rate target on this Linux host, while Windows performance and a long rendered no-freeze guarantee remain unverified.
+
+## Phase 2 final actual-projectile/browser evidence
+
+The earlier synthetic-projectile limitation is superseded for the new representative weapon system by reports/phase2-stress.json/md. After other test browsers stopped, current cached Renderer measured A50060.00FPS, B100060.00FPS, C150059.34FPS, D1000+259realprojectiles56.53FPS and E1500+257realprojectiles+400XP+600particles50.90FPS. Enemy counts were retained, actual WeaponSystem hits were exercised, finite checks passed and all five cases had0CPU/RAF intervals>100ms. CPU p95 values3.5/6.5/9.5/13.0/15.0ms. E RAFp9533.4ms fails the unchanged strict33.33ms flag; no stable-target or Windows certification is inferred.
+
+Profiling evidence: reports/phase2-render-profile.json/md and reports/phase2-flip-cache.json. Bounded pre-mirror caching uses only proven scales1/1.2/2 and the original path for unsupported scales.32production conditions and a whole dense frame are pixel-identical. Sequential traced enemy-phase mean11.089→6.768ms and total draw16.034→10.913ms are diagnostic comparisons with order/tracing caveats, not an isolated causal guarantee for every device. Prior shared-load outliers remain retained in reports.
