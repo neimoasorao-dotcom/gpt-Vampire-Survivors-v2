@@ -1,0 +1,7 @@
+import {Engine} from '../src/gameplay/engine.js';
+import {POWERUPS} from '../src/data/content.js';
+import {writeFile,readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const powerups=Object.fromEntries(Object.entries(POWERUPS).filter(([id])=>id!=='curse').map(([id,d])=>[id,d.max]));
+const results={date:new Date().toISOString(),engineHash:createHash('sha256').update(await readFile('src/gameplay/engine.js')).digest('hex'),assisted:false,fixture:'All beneficial PowerUps maxed, Curse not purchased, no invincibility or forced equipment.',runs:[],limitations:['Node simulation excludes renderer/audio/input; FPS and frame time are not inferred.','Community-researched tables are not proof of latest-PC reference fidelity.']};
+for(const[build,character,stage]of[['whip','antonio','forest'],['wand','imelda','forest'],['aoe','poe','forest'],['bible','dommario','library'],['mixed','gennaro','library']]){const e=new Engine({seed:271,character,stage,build,auto:true,powerups});const begin=performance.now(),samples=[];let next=30;for(let i=0;i<108100&&e.state!=='dead';i++){e.step();if(e.time>=next){samples.push(e.snapshot());next+=30;}}const r={build,character,stage,final:e.snapshot(),weapons:e.weapons,passives:e.passives,revivalsUsed:e.revivalsUsed,completed:e.time>=1800,wallMs:performance.now()-begin,samples};results.runs.push(r);await writeFile('reports/phase2-builds.json',JSON.stringify(results,null,2));console.log(build,stage,e.time,e.player.level,e.kills,e.state,r.wallMs);}

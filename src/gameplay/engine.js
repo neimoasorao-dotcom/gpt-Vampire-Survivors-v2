@@ -1,62 +1,1105 @@
-import {CONFIG,CHARACTERS,WEAPONS,PASSIVES,ENEMIES,STAGES,EVOLUTIONS,weaponStats} from '../data/content.js';
-import {RNG} from '../core/rng.js';
-import {SpatialHash} from '../core/spatial.js';
-import {computeStats,xpThreshold} from './stats.js';
-const bounded=(value,fallback,min,max)=>Number.isFinite(Number(value))?Math.max(min,Math.min(max,Number(value))):fallback;
-const distance2=(a,b)=>(a.x-b.x)**2+(a.y-b.y)**2;
-const remove=(a,i)=>{a[i]=a[a.length-1];a.pop();};
-export class Engine{
- constructor({seed=1,character='antonio',stage='forest',powerups={},auto=false,endless=false,lab=false,level=1,enemyHp=100,enemyDensity=100,enemySpeed=20}={}){
- this.seed=seed;this.rng=new RNG(seed);this.character=CHARACTERS[character]?character:'antonio';this.stage=STAGES[stage]?stage:'forest';this.definition=STAGES[this.stage];this.powerups=powerups;this.auto=auto;this.endless=endless;this.lab=lab;this.labConfig={enemyHp:Number.isFinite(Number(enemyHp))?Math.max(1,Math.min(1000000,Number(enemyHp))):100,enemyDensity:Number.isFinite(Number(enemyDensity))?Math.max(0,Math.min(CONFIG.enemyLimit,Math.floor(Number(enemyDensity)))):100,enemySpeed:Number.isFinite(Number(enemySpeed))?Math.max(0,Math.min(1000,Number(enemySpeed))):20};this.state='playing';this.time=0;this.tick=0;this.weapons={[CHARACTERS[this.character].startingWeapon]:lab?Math.floor(bounded(level,1,1,8)):1};this.passives={};this.runModifiers={luck:0};this.player={x:0,y:0,hp:120,maxHp:120,level:1,xp:0,nextXp:5,facing:1,stats:{}};this.recompute();this.player.hp=this.player.maxHp;
- this.enemies=[];this.pickups=[];this.projectiles=[];this.effects=[];this.texts=[];this.particles=[];this.choices=[];this.chestRewards=[];this.banned=new Set();this.chestQueue=[];this.telemetry=[];this.replay=[];this.lastInput={x:null,y:null};this.options={invincible:lab,freezeAI:false,collisions:true,hitboxes:false,grid:false};this.kills=0;this.gold=0;this.damage=0;this.nextId=1;this.spawnBudget=0;this.cooldown=.15;this.combo=[];this.hitCooldown=0;this.healCooldown=0;this.freeze=0;this.fire=0;this.bossIndex=0;this.eventIndex=0;this.cycle=0;this.chests=0;this.evolutionTime=null;this.rerolls=3;this.skips=3;this.banishes=3;this.metrics={spawned:0,attacks:0,hits:0,crit:0,queries:0,collisions:0,attackTargets:[],damageByWeapon:{},projectilesCreated:0,maxRange:0};this.grid=new SpatialHash(CONFIG.cell);this.pool={enemies:[],pickups:[],effects:[],texts:[],particles:[]};this.onEvent=()=>{};this.nextTelemetry=0;this.lastDamage=0;this.lastDamageTime=0;this.dps=0;this.lights=[];for(let i=0;i<12;i++){const a=i*Math.PI/6;this.lights.push({x:Math.cos(a)*350,y:Math.sin(a)*250,alive:true,respawn:0});}this.stagePickups=this.definition.pickups.map(x=>({...x,collected:false}));this.resultCommitted=false;
- }
- event(type,data={}){this.onEvent?.(type,data);}
- recompute(){const old=this.player.maxHp;this.player.stats=computeStats(this.character,this.player.level,this.passives,this.powerups);this.player.stats.luck+=this.runModifiers?.luck||0;this.player.maxHp=this.player.stats.maxHp;if(this.player.maxHp>old)this.player.hp+=this.player.maxHp-old;this.player.hp=Math.min(this.player.hp,this.player.maxHp);}
- alloc(kind,data){const e=this.pool[kind].pop()||{};for(const k of Object.keys(e))delete e[k];Object.assign(e,data);this[kind].push(e);return e;}
- recycle(kind,i){this.pool[kind].push(this[kind][i]);remove(this[kind],i);}
- spawn(type='bat',x,y,extra={}){if(this.enemies.length>=CONFIG.enemyLimit)return null;const def=ENEMIES[type]||ENEMIES.bat;const angle=this.rng.next()*Math.PI*2;const p=this.player;const hp=extra.hp??(this.lab?this.labConfig.enemyHp:def.hp*(extra.scale??1));const e=this.alloc('enemies',{id:this.nextId++,x:x??p.x+Math.cos(angle)*CONFIG.spawnRadius,y:y??p.y+Math.sin(angle)*CONFIG.spawnRadius*.65,type,hp,maxHp:hp,r:def.r,speed:this.lab?this.labConfig.enemySpeed:def.speed,damage:def.damage,xp:def.xp,knockback:def.knockback,boss:def.boss||false,chest:extra.chest||false,flash:0,kx:0,ky:0,hitTick:-1,...extra});this.metrics.spawned++;return e;}
- pickup(type,x,y,value=1,extra={}){if(type==='xp'&&this.pickups.filter(p=>p.type==='xp').length>=CONFIG.pickupLimit){let p=this.pickups.find(p=>p.type==='xp'&&p.value>=100);if(!p)p=this.pickups.find(p=>p.type==='xp');p.value+=value;return p;}return this.alloc('pickups',{type,x,y,value,r:type==='chest'?12:5,magnetized:false,...extra});}
- effect(type,x,y,life=.25,extra={}){if(this.effects.length<180)this.alloc('effects',{type,x,y,life,maxLife:life,...extra});}
- text(value,x,y,crit=false){if(this.texts.length<CONFIG.textLimit)this.alloc('texts',{value,x,y,life:.65,crit});}
- burst(x,y,color='#b1d4dd',count=5){for(let i=0;i<count&&this.particles.length<CONFIG.particleLimit;i++){const a=this.rng.next()*Math.PI*2,s=15+this.rng.next()*40;this.alloc('particles',{x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:.2+this.rng.next()*.3,maxLife:.5,color});}}
- damageEnemy(e,damage,dir=1,weapon='whip',crit=false){if(e.hp<=0)return;const d=Math.max(1,Math.round(damage));e.hp-=d;this.damage+=d;this.metrics.damageByWeapon[weapon]=(this.metrics.damageByWeapon[weapon]||0)+d;this.metrics.hits++;e.flash=.1;e.kx+=dir*70*e.knockback;e.ky+=(e.y-this.player.y>0?1:-1)*12*e.knockback;this.text(d,e.x,e.y-e.r,crit);this.burst(e.x,e.y,crit?'#f3b443':'#d8c7b4',2);this.event('hit');if(e.hp<=0)this.kill(e);}
- kill(e){if(e.killed)return;e.killed=true;this.kills++;if(e.xp)this.pickup('xp',e.x,e.y,e.xp);if(e.chest)this.pickup('chest',e.x,e.y,1,{eligible:this.time>=600,born:this.time});this.burst(e.x,e.y,e.type==='ghost'?'#727ead':'#793a41',4);if(this.rng.next()<.002)this.pickup('coin',e.x,e.y,1);this.event('enemyDeath');}
- give(id,level=1){if(WEAPONS[id]){if(id==='bloody')delete this.weapons.whip;this.weapons[id]=Math.floor(bounded(level,1,1,WEAPONS[id].maxLevel));}else if(PASSIVES[id]){if(!this.passives[id]&&Object.keys(this.passives).length>=6)return false;this.passives[id]=Math.floor(bounded(level,1,1,PASSIVES[id].maxLevel));}else return false;this.recompute();return true;}
- attack(){const p=this.player,s=p.stats,id=this.weapons.bloody?'bloody':'whip',w=weaponStats(id,this.weapons[id]||1);this.cooldown=w.cooldown*s.cooldown;const amount=w.amount+s.amount;for(let i=0;i<amount;i++)this.combo.push({delay:i*.16,dir:i%2?-p.facing:p.facing,offset:-Math.floor(i/2)*10,id,w:{...w}});this.metrics.attacks++;this.event('attack');}
- sweep(c){const p=this.player,s=p.stats,range=95*c.w.area*s.area,height=24*c.w.area*s.area,y=p.y-5+c.offset;this.effect(c.id==='bloody'?'bloody':'whip',p.x,y,.25,{dir:c.dir,range,level:this.weapons[c.id],height});this.metrics.maxRange=Math.max(this.metrics.maxRange,range);let targets=0;this.grid.query(p.x+c.dir*range*.48,y,range*.65+height,e=>{if(e.hp<=0)return;const dx=(e.x-p.x)*c.dir;if(dx>=-16-e.r&&dx<=range+e.r&&Math.abs(e.y-y)<height+e.r){const crit=c.id==='bloody'&&this.rng.next()<.1*s.luck;this.damageEnemy(e,c.w.damage*s.might*(crit?2:1),c.dir,c.id,crit);if(crit)this.metrics.crit++;if(c.id==='bloody'&&this.healCooldown<=0){this.heal(8);this.healCooldown=1;}targets++;}});this.metrics.attackTargets.push(targets);if(this.metrics.attackTargets.length>300)this.metrics.attackTargets.shift();for(const l of this.lights){if(l.alive&&(l.x-p.x)*c.dir>=-16&&(l.x-p.x)*c.dir<range&&Math.abs(l.y-y)<height+10){l.alive=false;l.respawn=this.time+60;this.dropLight(l);}}}
- dropLight(l){const table=[['coin',40],['bag',12],['chicken',10],['vacuum',4],['clock',4],['rosary',3],['clover',2],['nft',2],['richBag',1]];const t=this.rng.weighted(table.map(([id,weight])=>({id,weight}))).id;this.pickup(t,l.x,l.y,t==='chicken'?30:t==='richBag'?100:t==='bag'?10:1);}
- heal(n){this.player.hp=Math.min(this.player.maxHp,this.player.hp+n);}
- xp(n){this.player.xp+=n*this.player.stats.growth;this.checkLevel();}
- checkLevel(){if(this.state!=='playing')return;if(this.player.xp>=this.player.nextXp){this.player.xp-=this.player.nextXp;this.player.level++;this.player.nextXp=xpThreshold(this.player.level);this.recompute();this.makeChoices();this.state='levelup';this.event('levelup');}}
- makeChoices(){const pool=[];for(const[id,d]of Object.entries({...WEAPONS,...PASSIVES})){const level=this.weapons[id]||this.passives[id]||0;if(this.banned.has(id)||level>=d.maxLevel||!d.rarity||EVOLUTIONS.some(r=>this.weapons[r.id]&&r.consume.includes(id)))continue;const kind=WEAPONS[id]?'weapon':'passive';if(kind==='weapon'&&!level&&Object.keys(this.weapons).length>=6)continue;if(kind==='passive'&&!level&&Object.keys(this.passives).length>=6)continue;pool.push({id,kind,level:level+1,weight:d.rarity*(level?2:1)});}this.choices=[];const count=this.rng.next()<.05*this.player.stats.luck?4:3;while(pool.length&&this.choices.length<count){const c=this.rng.weighted(pool);this.choices.push({id:c.id,kind:c.kind,level:c.level});pool.splice(pool.indexOf(c),1);}if(!this.choices.length)this.choices=[{id:'gold',kind:'bonus',level:1},{id:'chicken',kind:'bonus',level:1}];}
- choose(id){if(this.state!=='levelup')return false;const c=this.choices.find(c=>c.id===id);if(!c)return false;if(id==='gold')this.gold+=25;else if(id==='chicken')this.heal(30);else this.give(c.id,c.level);this.recordEvent({tick:this.tick,type:'choice',id});this.choices=[];this.state='playing';this.checkLevel();return true;}
- evolution(chest){return EVOLUTIONS.find(r=>this.weapons[r.base]>=r.baseLevel&&(this.passives[r.passive]||0)>=r.passiveLevel&&(!r.chest||chest.eligible)&&chest.born>=r.chestMinTime&&r.stage.includes(this.stage)&&!r.blacklist.includes(this.character));}
- openChest(chest){if(this.state!=='playing'){if(chest)this.chestQueue.push({...chest});return false;}chest=chest||this.chestQueue.shift()||{eligible:this.time>=600,born:this.time};this.chests++;this.chestRewards=[];const evo=this.evolution(chest);if(evo){this.give(evo.id,1);this.evolutionTime??=this.time;this.chestRewards.push({id:evo.id,kind:'evolution',level:1});this.event('evolution');}else{const roll=this.rng.next(),n=roll<.01*this.player.stats.luck?5:roll<.1*this.player.stats.luck?3:1;for(let i=0;i<n;i++){const eligible=Object.entries({...this.weapons,...this.passives}).filter(([id,l])=>l<({...WEAPONS,...PASSIVES})[id].maxLevel);if(eligible.length){const[id,l]=this.rng.pick(eligible);this.give(id,l+1);this.chestRewards.push({id,kind:WEAPONS[id]?'weapon':'passive',level:l+1});}else{this.gold+=25;this.chestRewards.push({id:'gold',kind:'bonus',level:1});}}}this.gold+=Math.round((50+this.rng.next()*30)*this.player.stats.greed);this.state='chest';this.event('chest');return true;}
- closeChest(){if(this.state!=='chest')return;this.recordEvent({tick:this.tick,type:'chestContinue'});this.state='playing';this.checkLevel();}
- collect(p){switch(p.type){case'xp':this.xp(p.value);this.event('xp');break;case'chest':this.openChest(p);break;case'chicken':this.heal(p.value);this.event('heal');break;case'vacuum':for(const g of this.pickups)if(g.type==='xp')g.magnetized=true;this.event('pickup');break;case'clock':this.freeze=10;this.event('pickup');break;case'rosary':for(const e of this.enemies)if(e.type!=='reaper')this.damageEnemy(e,e.hp,1,'rosary');this.effect('rosary',this.player.x,this.player.y,1);break;case'clover':this.runModifiers.luck+=.1;this.recompute();this.event('pickup');break;case'nft':this.fire=10;this.event('pickup');break;default:this.gold+=p.value;this.event('coin');}}
- bot(){const p=this.player;let tx=0,ty=0;let nearest=null,best=Infinity;for(const g of this.pickups){const d=distance2(g,p)*(g.type==='chest'?.25:g.type==='chicken'&&p.hp<p.maxHp*.6?.15:1);if(d<best){best=d;nearest=g;}}if(nearest){const d=Math.hypot(nearest.x-p.x,nearest.y-p.y)||1;tx=(nearest.x-p.x)/d*.8;ty=(nearest.y-p.y)/d*.8;}else{tx=Math.cos(this.time*.17)*.4;ty=Math.sin(this.time*.17)*.4;}for(const e of this.enemies){const dx=p.x-e.x,dy=p.y-e.y,d=Math.hypot(dx,dy);if(d<65&&d>0){const k=(65-d)/65;tx+=dx/d*k*1.8;ty+=dy/d*k*1.8;}}const m=Math.hypot(tx,ty)||1;return{x:tx/m,y:ty/m};}
- autoMenu(){if(this.state==='levelup'){const priority=['whip','heart','tome','spinach','candelabrador','pummarola','armor','crown','attractorb','wings','gold','chicken'];const c=[...this.choices].sort((a,b)=>priority.indexOf(a.id)-priority.indexOf(b.id))[0];if(c)this.choose(c.id);}else if(this.state==='chest')this.closeChest();}
- step(dt=1/60,input={x:0,y:0}){if(!Number.isFinite(dt)||Math.abs(dt-1/60)>1e-10)throw new RangeError('Simulation step must equal 1/60');if(this.auto)this.autoMenu();if(this.state!=='playing')return;this.tick++;this.time=this.tick/CONFIG.hz;const p=this.player;if(this.auto)input=this.bot();let x=Number.isFinite(input.x)?input.x:0,y=Number.isFinite(input.y)?input.y:0;const m=Math.hypot(x,y);if(m>1){x/=m;y/=m;}p.x+=x*CONFIG.moveSpeed*p.stats.moveSpeed*dt;p.y+=y*CONFIG.moveSpeed*p.stats.moveSpeed*dt;if(Math.abs(x)>.01)p.facing=x>0?1:-1;if(x!==this.lastInput.x||y!==this.lastInput.y){this.recordEvent({tick:this.tick-1,type:'move',x,y});this.lastInput={x,y};}
- this.hitCooldown-=dt;this.healCooldown-=dt;this.freeze=Math.max(0,this.freeze-dt);this.fire=Math.max(0,this.fire-dt);this.heal(p.stats.recovery*dt);this.spawnTick(dt);this.grid.clear();for(const e of this.enemies)if(e.hp>0)this.grid.insert(e);
- for(let i=this.enemies.length-1;i>=0;i--){const e=this.enemies[i];if(e.hp<=0){this.recycle('enemies',i);continue;}e.flash=Math.max(0,e.flash-dt);if(!this.options.freezeAI&&this.freeze<=0){let dx=p.x-e.x,dy=p.y-e.y,d=Math.hypot(dx,dy)||1;let vx=dx/d*e.speed,vy=dy/d*e.speed; // Local soft separation: allows overlapping crowd silhouettes.
- if(this.tick%6===e.id%6){let sx=0,sy=0,n=0;this.grid.query(e.x,e.y,e.r*1.5,o=>{if(o===e||n>5)return;const xx=e.x-o.x,yy=e.y-o.y,dd=xx*xx+yy*yy;if(dd>0&&dd<(e.r+o.r)**2*.4){const d=Math.sqrt(dd);sx+=xx/d*3;sy+=yy/d*3;n++;}});e.sx=sx;e.sy=sy;}vx+=e.sx||0;vy+=e.sy||0;e.x+=(vx+e.kx)*dt;e.y+=(vy+e.ky)*dt;e.kx*=.85;e.ky*=.85;
- if(d>1000&&!e.boss&&e.type!=='plant'){const a=this.rng.next()*Math.PI*2;e.x=p.x+Math.cos(a)*570;e.y=p.y+Math.sin(a)*340;}}
- if(this.options.collisions&&this.hitCooldown<=0&&distance2(e,p)<(e.r+CONFIG.playerRadius)**2){if(!this.options.invincible){p.hp-=Math.max(1,e.damage-p.stats.armor);this.hitCooldown=.5;this.event('playerHit');this.effect('playerHit',p.x,p.y,.2);if(p.hp<=0){p.hp=0;this.finish(false);break;}}}}
- this.cooldown-=dt;if(this.cooldown<=0)this.attack();for(let i=this.combo.length-1;i>=0;i--){this.combo[i].delay-=dt;if(this.combo[i].delay<=0){this.sweep(this.combo[i]);remove(this.combo,i);}}
- if(this.fire>0&&this.tick%10===0){this.effect('fire',p.x+p.facing*55,p.y,.2,{dir:p.facing,range:130});this.grid.query(p.x+p.facing*70,p.y,80,e=>{if((e.x-p.x)*p.facing>0&&Math.abs(e.y-p.y)<35)this.damageEnemy(e,30,p.facing,'nft');});}
- for(let i=this.pickups.length-1;i>=0;i--){const g=this.pickups[i],d=Math.hypot(g.x-p.x,g.y-p.y);if(d<p.stats.magnet)g.magnetized=true;if(g.magnetized&&g.type==='xp'&&d>0){const speed=180+Math.min(700,d*3);g.x+=(p.x-g.x)/d*speed*dt;g.y+=(p.y-g.y)/d*speed*dt;}if(d<(g.type==='xp'?12:17)){const copy={...g};this.recycle('pickups',i);this.collect(copy);if(this.state!=='playing')break;}}
- for(const g of this.stagePickups)if(!g.collected&&Math.hypot(g.x-p.x,g.y-p.y)<18){if(this.passives[g.id]||Object.keys(this.passives).length<6){this.give(g.id,Math.min(5,(this.passives[g.id]||0)+1));g.collected=true;this.event('pickup');}}
- for(const l of this.lights)if(!l.alive&&this.time>l.respawn){l.alive=true;if(Math.hypot(l.x-p.x,l.y-p.y)>700){l.x=p.x+(this.rng.next()-.5)*900;l.y=p.y+(this.rng.next()-.5)*500;}}
- for(const kind of ['effects','texts','particles'])for(let i=this[kind].length-1;i>=0;i--){const e=this[kind][i];e.life-=dt;if(kind==='texts')e.y-=18*dt;if(kind==='particles'){e.x+=e.vx*dt;e.y+=e.vy*dt;}if(e.life<=0)this.recycle(kind,i);}
- if(this.state==='playing'&&this.chestQueue.length)this.openChest();if(this.tick%60===0)this.assertFinite();if(this.time>=this.nextTelemetry){this.dps=(this.damage-this.lastDamage)/Math.max(1,this.time-this.lastDamageTime);this.lastDamage=this.damage;this.lastDamageTime=this.time;this.telemetry.push(this.snapshot());this.nextTelemetry+=30;}this.metrics.queries=this.grid.queries;this.metrics.collisions=this.grid.checks;
- }
- spawnTick(dt){if(this.lab){while(this.enemies.length<this.labConfig.enemyDensity)this.spawn('skeleton');return;}
- const cycle=this.endless?Math.floor(this.time/1800):0;if(cycle>this.cycle){this.cycle=cycle;this.bossIndex=0;this.eventIndex=0;}const local=this.endless?this.time%1800:this.time;const wave=this.definition.waves[Math.min(29,Math.floor(local/60))];if(this.time<1800||this.endless){this.spawnBudget+=wave.spawnRate*dt;while(this.spawnBudget>=1){this.spawnBudget--;if(this.enemies.length<wave.maxAlive)this.spawn(wave.enemy,undefined,undefined,{scale:wave.hpScale});}while(this.bossIndex<this.definition.bosses.length&&local>=this.definition.bosses[this.bossIndex].time){const boss=this.definition.bosses[this.bossIndex++];this.spawn(boss.enemy,undefined,undefined,{scale:1+boss.time/75,chest:true});}while(this.eventIndex<this.definition.events.length&&local>=this.definition.events[this.eventIndex].time){this.eventIndex++;for(let i=0;i<45;i++){const a=i/45*Math.PI*2;this.spawn('plant',this.player.x+Math.cos(a)*250,this.player.y+Math.sin(a)*250);}}}else if(this.enemies.every(e=>e.type!=='reaper')){this.spawn('reaper',this.player.x+470,this.player.y);this.event('reaper');}
- }
- finish(won=false){if(this.state==='dead'||this.state==='won')return;this.state=won?'won':'dead';this.event(won?'results':'gameover');}
- snapshot(){return{time:Math.round(this.time*100)/100,level:this.player.level,xp:this.player.xp,kills:this.kills,player_hp:this.player.hp,enemy_alive:this.enemies.length,enemy_spawned_total:this.metrics.spawned,projectile_count:this.projectiles.length,pickup_count:this.pickups.length,dps:this.dps||0,damage:this.damage,gold:this.gold,chests:this.chests,evolutionTime:this.evolutionTime,seed:this.seed,state:this.state,attacks:this.metrics.attacks,hits:this.metrics.hits,fps:null,frame_ms:null};}
- recordEvent(event){if(this.replay.length<260000)this.replay.push(event);else this.replayTruncated=true;}
- exportReplay(){return{version:1,truncated:!!this.replayTruncated,seed:this.seed,character:this.character,stage:this.stage,powerups:{...this.powerups},events:this.replay.map(e=>({...e}))};}
- assertFinite(){for(const key of ['x','y','hp','maxHp','xp','level'])if(!Number.isFinite(this.player[key]))throw new Error('Nonfinite player '+key);for(const e of this.enemies)if(!Number.isFinite(e.x+e.y+e.hp))throw new Error('Nonfinite enemy');}
- debug(action,value){switch(action){case'invincible':case'freezeAI':case'collisions':case'hitboxes':case'grid':this.options[action]=value??!this.options[action];break;case'xp':case'addXP':this.xp(Number(value)||100);break;case'gold':case'addGold':this.gold+=Number(value)||100;break;case'level':case'setLevel':this.player.level=Math.floor(bounded(value,1,1,10000));this.player.nextXp=xpThreshold(this.player.level);this.recompute();break;case'time':case'setTime':this.tick=Math.floor(bounded(value,0,0,86400)*60);this.time=this.tick/60;this.bossIndex=this.definition.bosses.filter(b=>b.time<this.time).length;this.eventIndex=this.definition.events.filter(e=>e.time<this.time).length;break;case'warp':for(let i=0;i<bounded(value,60,0,3600)*60;i++)this.step();break;case'weapon':case'giveWeapon':if(typeof value==='string')this.give(value,8);else this.give(value?.id||'whip',value?.level||8);break;case'passive':case'givePassive':this.give(typeof value==='string'?value:'heart',1);break;case'spawnEnemy':case'enemy':for(let i=0;i<bounded(value,1,0,CONFIG.enemyLimit);i++)this.spawn('skeleton');break;case'spawnBoss':case'boss':this.spawn('mantis',this.player.x+100,this.player.y,{chest:true});break;case'spawnChest':case'chest':this.pickup('chest',this.player.x,this.player.y,1,{eligible:this.time>=600,born:this.time});break;case'killAll':for(const e of this.enemies)this.damageEnemy(e,e.hp);break;case'spawnXP':for(let i=0;i<bounded(value,50,0,2000);i++)this.pickup('xp',this.player.x+(this.rng.next()-.5)*200,this.player.y+(this.rng.next()-.5)*200,1);break;case'reroll':if(this.state==='levelup'&&this.rerolls>0){this.rerolls--;this.makeChoices();}break;case'skip':if(this.state==='levelup'&&this.skips>0){this.skips--;this.state='playing';this.player.xp+=this.player.nextXp*.2;this.checkLevel();}break;case'banish':if(this.state==='levelup'&&this.banishes>0&&this.choices.some(c=>c.id===value)){this.banishes--;this.banned.add(value);this.state='playing';this.checkLevel();}break;case'stats':if(value&&typeof value==='object')for(const[k,v]of Object.entries(value))if(k in this.player.stats&&Number.isFinite(v))this.player.stats[k]=v;break;case'death':this.player.hp=0;this.finish(false);break;default:return false;}return true;}
+import {
+  CONFIG,
+  CHARACTERS,
+  WEAPONS,
+  PASSIVES,
+  ENEMIES,
+  STAGES,
+  EVOLUTIONS,
+  weaponStats,
+  LEGACY_ITEM_IDS,
+} from "../data/content.js";
+import {Autoplay} from "./autoplay.js";
+import { RNG } from "../core/rng.js";
+import { SpatialHash } from "../core/spatial.js";
+import { computeStats, xpThreshold } from "./stats.js";
+import { WeaponSystem } from "./weapon-system.js";
+import { WorldSystem } from "./world-system.js";
+import { ModifierBus } from "../core/modifiers.js";
+import { canEvolve, applyEvolution } from "./evolution.js";
+const bounded = (value, fallback, min, max) =>
+  Number.isFinite(Number(value))
+    ? Math.max(min, Math.min(max, Number(value)))
+    : fallback;
+const distance2 = (a, b) => (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
+const remove = (a, i) => {
+  a[i] = a[a.length - 1];
+  a.pop();
+};
+export class Engine {
+  constructor({
+    seed = 1,
+    character = "antonio",
+    stage = "forest",
+    powerups = {},
+    auto = false,
+    endless = false,
+    lab = false,
+    level = 1,
+    enemyHp = 100,
+    enemyDensity = 100,
+    enemySpeed = 20,
+    enemyType = "skeleton",
+    legacy = false,
+    build = "whip",
+    weapon = null,
+    stats = {},
+    sealed = [],
+    weaponUnlocks = {},
+  } = {}) {
+    this.legacy = legacy;
+    this.build = build;
+    this.sealed = new Set(sealed);
+    this.weaponUnlocks = weaponUnlocks;
+    this.modifiers = new ModifierBus();
+    this.statOverrides = lab ? stats : {};
+    this.revivalsUsed = 0;
+    this.healing = 0;
+    this.pickupCounts = {};
+    this.breakables = 0;
+    this.curseTime = 0;
+    this.bossKills = 0;
+    this.weaponLevels = {};
+    this.lastDirection = {x:1,y:0};
+    this.seed = seed;
+    this.rng = new RNG(seed);
+    this.character = CHARACTERS[character] ? character : "antonio";
+    this.stage = STAGES[stage] ? stage : "forest";
+    this.definition = STAGES[this.stage];
+    this.powerups = powerups;
+    this.auto = auto;
+    this.endless = endless;
+    this.lab = lab;
+    this.labConfig = {
+      enemyType: ENEMIES[enemyType] ? enemyType : "skeleton",
+      enemyHp: Number.isFinite(Number(enemyHp))
+        ? Math.max(1, Math.min(1000000, Number(enemyHp)))
+        : 100,
+      enemyDensity: Number.isFinite(Number(enemyDensity))
+        ? Math.max(
+            0,
+            Math.min(CONFIG.enemyLimit, Math.floor(Number(enemyDensity))),
+          )
+        : 100,
+      enemySpeed: Number.isFinite(Number(enemySpeed))
+        ? Math.max(0, Math.min(1000, Number(enemySpeed)))
+        : 20,
+    };
+    this.state = "playing";
+    this.time = 0;
+    this.tick = 0;
+    this.weapons = {
+      [lab && WEAPONS[weapon] ? weapon : CHARACTERS[this.character].startingWeapon]: lab
+        ? Math.floor(bounded(level, 1, 1, 8))
+        : 1,
+    };
+    this.passives = {};
+    this.runModifiers = { luck: 0 };
+    this.player = {
+      x: 0,
+      y: 0,
+      hp: 120,
+      maxHp: 120,
+      level: 1,
+      xp: 0,
+      nextXp: 5,
+      facing: 1,
+      stats: {},
+    };
+    this.recompute();
+    this.player.hp = this.player.maxHp;
+    this.enemies = [];
+    this.pickups = [];
+    this.projectiles = [];
+    this.effects = [];
+    this.texts = [];
+    this.particles = [];
+    this.choices = [];
+    this.chestRewards = [];
+    this.banned = new Set();
+    this.chestQueue = [];
+    this.telemetry = [];
+    this.replay = [];
+    this.lastInput = { x: null, y: null };
+    this.options = {
+      invincible: lab,
+      freezeAI: false,
+      collisions: true,
+      hitboxes: false,
+      grid: false,
+    };
+    this.kills = 0;
+    this.gold = 0;
+    this.damage = 0;
+    this.nextId = 1;
+    this.spawnBudget = 0;
+    this.cooldown = 0.15;
+    this.combo = [];
+    this.hitCooldown = 0;
+    this.healCooldown = 0;
+    this.freeze = 0;
+    this.fire = 0;
+    this.bossIndex = 0;
+    this.eventIndex = 0;
+    this.cycle = 0;
+    this.chests = 0;
+    this.evolutionTime = null;
+    this.rerolls = 3;
+    this.skips = 3;
+    this.banishes = 3;
+    this.metrics = {
+      spawned: 0,
+      attacks: 0,
+      hits: 0,
+      crit: 0,
+      queries: 0,
+      collisions: 0,
+      attackTargets: [],
+      damageByWeapon: {},
+      projectilesCreated: 0,
+      maxRange: 0,
+    };
+    this.grid = new SpatialHash(CONFIG.cell);
+    this.pool = {
+      enemies: [],
+      pickups: [],
+      effects: [],
+      texts: [],
+      particles: [],
+    };
+    this.onEvent = () => {};
+    this.nextTelemetry = 0;
+    this.lastDamage = 0;
+    this.lastDamageTime = 0;
+    this.dps = 0;
+    this.lights = [];
+    for (let i = 0; i < 12; i++) {
+      const a = (i * Math.PI) / 6;
+      this.lights.push({
+        x: Math.cos(a) * 350,
+        y: Math.sin(a) * 250,
+        alive: true,
+        respawn: 0,
+      });
+    }
+    this.stagePickups = this.definition.pickups.map((x) => ({
+      ...x,
+      collected: false,
+    }));
+    this.autoplay = new Autoplay(this);
+    this.weaponSystem = new WeaponSystem(this);
+    this.worldSystem = new WorldSystem(this);
+    this.weaponLevels = {...this.weapons};
+    this.resultCommitted = false;
+  }
+  event(type, data = {}) {
+    this.onEvent?.(type, data);
+    const aliases={attack:'onAttack',weapon:'onAttack',projectile:'onProjectileSpawn',hit:'onHit',crit:'onCrit',enemyDeath:'onEnemyDeath',heal:'onHeal',pickup:'onPickup',playerHit:'onDamageTaken',levelup:'onLevelUp'};
+    this.modifiers?.emit(aliases[type]||type,data);
+  }
+  recompute() {
+    const old = this.player.maxHp;
+    this.player.stats = computeStats(
+      this.character,
+      this.player.level,
+      this.passives,
+      this.powerups,
+      {stage: Array.isArray(this.definition.modifiers) ? this.definition.modifiers : [],arcana:this.modifiers?.active(this.time||0)||[]},
+    );
+    for(const[k,v]of Object.entries(this.statOverrides||{}))if(k in this.player.stats&&Number.isFinite(v))this.player.stats[k]=v;
+    this.player.stats.luck += this.runModifiers?.luck || 0;
+    this.player.maxHp = this.player.stats.maxHp;
+    if (this.player.maxHp > old) this.player.hp += this.player.maxHp - old;
+    this.player.hp = Math.min(this.player.hp, this.player.maxHp);
+  }
+  alloc(kind, data) {
+    const e = this.pool[kind].pop() || {};
+    for (const k of Object.keys(e)) delete e[k];
+    Object.assign(e, data);
+    this[kind].push(e);
+    return e;
+  }
+  recycle(kind, i) {
+    this.pool[kind].push(this[kind][i]);
+    remove(this[kind], i);
+  }
+  spawn(type = "bat", x, y, extra = {}) {
+    if (this.enemies.length >= CONFIG.enemyLimit) return null;
+    const def = ENEMIES[type] || ENEMIES.bat;
+    const angle = this.rng.next() * Math.PI * 2;
+    const p = this.player;
+    const hp =
+      extra.hp ??
+      (this.lab ? this.labConfig.enemyHp : def.hp * (extra.scale ?? 1) * (!this.legacy?this.player.stats.curse:1));
+    const e = this.alloc("enemies", {
+      id: this.nextId++,
+      x: x ?? p.x + Math.cos(angle) * CONFIG.spawnRadius,
+      y: y ?? p.y + Math.sin(angle) * CONFIG.spawnRadius * 0.65,
+      type,
+      hp,
+      maxHp: hp,
+      r: def.r,
+      speed: this.lab ? this.labConfig.enemySpeed : def.speed * (!this.legacy ? this.player.stats.curse : 1),
+      damage: def.damage,
+      xp: def.xp,
+      knockback: def.knockback,
+      boss: def.boss || false,
+      chest: extra.chest || false,
+      flash: 0,
+      kx: 0,
+      ky: 0,
+      hitTick: -1,
+      ...extra,
+    });
+    if(!this.legacy){e.movementBehavior=def.movementBehavior||'chase';e.freezeResistance=extra.freezeResistance??def.freezeResistance??0;e.visualScale=extra.visualScale??def.visualScale??1;e.renderAs=def.renderAs;}
+    this.metrics.spawned++;
+    return e;
+  }
+  pickup(type, x, y, value = 1, extra = {}) {
+    if (
+      type === "xp" &&
+      this.pickups.filter((p) => p.type === "xp").length >= CONFIG.pickupLimit
+    ) {
+      let p = this.pickups.find((p) => p.type === "xp" && p.value >= 100);
+      if (!p) p = this.pickups.find((p) => p.type === "xp");
+      p.value += value;
+      return p;
+    }
+    return this.alloc("pickups", {
+      type,
+      x,
+      y,
+      value,
+      r: type === "chest" ? 12 : 5,
+      magnetized: false,
+      ...extra,
+    });
+  }
+  effect(type, x, y, life = 0.25, extra = {}) {
+    if (this.effects.length < 180)
+      this.alloc("effects", { type, x, y, life, maxLife: life, ...extra });
+  }
+  text(value, x, y, crit = false) {
+    if (this.texts.length < CONFIG.textLimit)
+      this.alloc("texts", { value, x, y, life: 0.65, crit });
+  }
+  burst(x, y, color = "#b1d4dd", count = 5) {
+    for (
+      let i = 0;
+      i < count && this.particles.length < CONFIG.particleLimit;
+      i++
+    ) {
+      const a = this.rng.next() * Math.PI * 2,
+        s = 15 + this.rng.next() * 40;
+      this.alloc("particles", {
+        x,
+        y,
+        vx: Math.cos(a) * s,
+        vy: Math.sin(a) * s,
+        life: 0.2 + this.rng.next() * 0.3,
+        maxLife: 0.5,
+        color,
+      });
+    }
+  }
+  damageEnemy(e, damage, dir = 1, weapon = "whip", crit = false) {
+    if (e.hp <= 0) return;
+    const d = Math.max(1, Math.round(damage));
+    e.hp -= d;
+    this.damage += d;
+    this.metrics.damageByWeapon[weapon] =
+      (this.metrics.damageByWeapon[weapon] || 0) + d;
+    this.metrics.hits++;
+    e.flash = 0.1;
+    e.kx += dir * 70 * e.knockback * (1+(e.knockbackVulnerability||0));
+    e.ky += (e.y - this.player.y > 0 ? 1 : -1) * 12 * e.knockback;
+    this.text(d, e.x, e.y - e.r, crit);
+    this.burst(e.x, e.y, crit ? "#f3b443" : "#d8c7b4", 2);
+    this.event("hit",{enemy:e,damage:d,weapon,crit});
+    if(crit)this.event("crit",{enemy:e,damage:d,weapon});
+    if (e.hp <= 0) this.kill(e);
+  }
+  kill(e) {
+    if (e.killed) return;
+    e.killed = true;
+    this.kills++;
+    if(e.boss)this.bossKills++;
+    this.modifiers.emit("onKill",{enemy:e});
+    if (e.xp) this.pickup("xp", e.x, e.y, e.xp);
+    if (e.chest && (this.legacy||!e.chestProbabilities||this.rng.next()<(e.chestProbabilities[2]??1)))
+      this.pickup("chest", e.x, e.y, 1, {
+        eligible: e.evolutionEligible ?? this.time >= 600,
+        eligibilityOverride: e.evolutionEligible===true,
+        probabilities:e.chestProbabilities,
+        born: this.time,
+      });
+    this.burst(e.x, e.y, e.type === "ghost" ? "#727ead" : "#793a41", 4);
+    if (this.rng.next() < 0.002) this.pickup("coin", e.x, e.y, 1);
+    this.event("enemyDeath",{enemy:e});
+  }
+  give(id, level = 1, {ground=false}={}) {
+    if (WEAPONS[id]) {
+      const rule=EVOLUTIONS.find(r=>r.id===id);
+      if(rule)for(const base of rule.consume||[])delete this.weapons[base];
+      this.weapons[id] = Math.floor(bounded(level, 1, 1, WEAPONS[id].maxLevel));
+    } else if (PASSIVES[id]) {
+      if (!ground && !this.passives[id] && Object.keys(this.passives).length >= 6)
+        return false;
+      this.passives[id] = Math.floor(
+        bounded(level, 1, 1, PASSIVES[id].maxLevel),
+      );
+    } else return false;
+    this.weaponLevels??={};
+    if(WEAPONS[id])this.weaponLevels[id]=Math.max(this.weaponLevels[id]||0,this.weapons[id]);
+    this.recompute();
+    return true;
+  }
+  attack() {
+    if(!this.weapons.whip&&!this.weapons.bloody)return;
+    const p = this.player,
+      s = p.stats,
+      id = this.weapons.bloody ? "bloody" : "whip",
+      w = weaponStats(id, this.weapons[id] || 1);
+    this.cooldown = w.cooldown * s.cooldown;
+    const amount = w.amount + s.amount;
+    for (let i = 0; i < amount; i++)
+      this.combo.push({
+        delay: i * 0.16,
+        dir: i % 2 ? -p.facing : p.facing,
+        offset: -Math.floor(i / 2) * 10,
+        id,
+        w: { ...w },
+      });
+    this.metrics.attacks++;
+    this.event("attack");
+  }
+  sweep(c) {
+    const p = this.player,
+      s = p.stats,
+      range = 95 * c.w.area * s.area,
+      height = 24 * c.w.area * s.area,
+      y = p.y - 5 + c.offset;
+    this.effect(c.id === "bloody" ? "bloody" : "whip", p.x, y, 0.25, {
+      dir: c.dir,
+      range,
+      level: this.weapons[c.id],
+      height,
+    });
+    this.metrics.maxRange = Math.max(this.metrics.maxRange, range);
+    let targets = 0;
+    this.grid.query(
+      p.x + c.dir * range * 0.48,
+      y,
+      range * 0.65 + height,
+      (e) => {
+        if (e.hp <= 0) return;
+        const dx = (e.x - p.x) * c.dir;
+        if (
+          dx >= -16 - e.r &&
+          dx <= range + e.r &&
+          Math.abs(e.y - y) < height + e.r
+        ) {
+          const crit = c.id === "bloody" && this.rng.next() < 0.1 * s.luck;
+          this.damageEnemy(
+            e,
+            c.w.damage * s.might * (crit ? 2 : 1),
+            c.dir,
+            c.id,
+            crit,
+          );
+          if (crit) this.metrics.crit++;
+          if (c.id === "bloody" && this.healCooldown <= 0) {
+            this.heal(8);
+            this.healCooldown = 1;
+          }
+          targets++;
+        }
+      },
+    );
+    this.metrics.attackTargets.push(targets);
+    if (this.metrics.attackTargets.length > 300)
+      this.metrics.attackTargets.shift();
+    for (const l of this.lights) {
+      if (
+        l.alive &&
+        (l.x - p.x) * c.dir >= -16 &&
+        (l.x - p.x) * c.dir < range &&
+        Math.abs(l.y - y) < height + 10
+      ) {
+        l.alive = false;
+        l.respawn = this.time + 60;
+        this.dropLight(l);
+      }
+    }
+  }
+  dropLight(l) {
+    this.breakables++;
+    const table = [
+      ["coin", 40],
+      ["bag", 12],
+      ["chicken", 10],
+      ["vacuum", 4],
+      ["clock", 4],
+      ["rosary", 3],
+      ["clover", 2],
+      ["nft", 2],
+      ["richBag", 1],
+    ];
+    const t = this.rng.weighted(
+      table.map(([id, weight]) => ({ id, weight })),
+    ).id;
+    this.pickup(
+      t,
+      l.x,
+      l.y,
+      t === "chicken" ? 30 : t === "richBag" ? 100 : t === "bag" ? 10 : 1,
+    );
+  }
+  heal(n) {
+    const before=this.player.hp;
+    this.player.hp = Math.min(this.player.maxHp, this.player.hp + n);
+    if(n>0)this.healing+=Math.max(0,this.player.hp-before);
+  }
+  xp(n) {
+    this.player.xp += n * this.player.stats.growth;
+    this.checkLevel();
+  }
+  checkLevel() {
+    if (this.state !== "playing") return;
+    if (this.player.xp >= this.player.nextXp) {
+      this.player.xp -= this.player.nextXp;
+      this.player.level++;
+      this.player.nextXp = xpThreshold(this.player.level);
+      this.recompute();
+      this.makeChoices();
+      this.state = "levelup";
+      this.event("levelup");
+    }
+  }
+  makeChoices() {
+    const pool = [];
+    for (const [id, d] of Object.entries({ ...WEAPONS, ...PASSIVES })) {
+      const level = this.weapons[id] || this.passives[id] || 0;
+      if (
+        (this.legacy && !LEGACY_ITEM_IDS.has(id)) ||
+        this.sealed.has(id) ||
+        (!level && this.weaponUnlocks[id]===false) ||
+        this.banned.has(id) ||
+        level >= d.maxLevel ||
+        (!d.rarity && !(id==="vandalier" && level>0)) ||
+        EVOLUTIONS.some((r) => this.weapons[r.id] && r.consume.includes(id))
+      )
+        continue;
+      const kind = WEAPONS[id] ? "weapon" : "passive";
+      if (kind === "weapon" && !level && Object.keys(this.weapons).length >= 6)
+        continue;
+      if (
+        kind === "passive" &&
+        !level &&
+        Object.keys(this.passives).length >= 6
+      )
+        continue;
+      pool.push({
+        id,
+        kind,
+        level: level + 1,
+        weight: (d.rarity||100) * (level ? 2 : 1),
+      });
+    }
+    this.choices = [];
+    const count = this.rng.next() < 0.05 * this.player.stats.luck ? 4 : 3;
+    while (pool.length && this.choices.length < count) {
+      const c = this.rng.weighted(pool);
+      this.choices.push({ id: c.id, kind: c.kind, level: c.level });
+      pool.splice(pool.indexOf(c), 1);
+    }
+    if (!this.choices.length)
+      this.choices = [
+        { id: "gold", kind: "bonus", level: 1 },
+        { id: "chicken", kind: "bonus", level: 1 },
+      ];
+  }
+  choose(id) {
+    if (this.state !== "levelup") return false;
+    const c = this.choices.find((c) => c.id === id);
+    if (!c) return false;
+    if (id === "gold") this.gold += Math.round(25*(this.legacy?1:this.player.stats.greed));
+    else if (id === "chicken") this.heal(30);
+    else this.give(c.id, c.level);
+    this.recordEvent({ tick: this.tick, type: "choice", id });
+    this.choices = [];
+    this.state = "playing";
+    this.checkLevel();
+    return true;
+  }
+  evolution(chest) {
+    return EVOLUTIONS.find(r=>(!this.legacy||r.id==='bloody')&&canEvolve(r,this,chest));
+  }
+  openChest(chest) {
+    if (this.state !== "playing") {
+      if (chest) this.chestQueue.push({ ...chest });
+      return false;
+    }
+    chest = chest ||
+      this.chestQueue.shift() || {
+        eligible: this.time >= 600,
+        born: this.time,
+      };
+    this.chestElapsed=0;
+    this.chestPhase="opening";
+    this.chests++;
+    this.chestRewards = [];
+    const evo = this.evolution(chest);
+    if (evo) {
+      applyEvolution(evo,this);
+      this.evolutionTime ??= this.time;
+      this.chestRewards.push({ id: evo.id, kind: "evolution", level: 1 });
+      this.event("evolution");
+    } else {
+      const roll = this.rng.next(),
+        n =
+          roll < (chest.probabilities?.[0]??0.01) * this.player.stats.luck
+            ? 5
+            : roll < (chest.probabilities?.[1]??0.1) * this.player.stats.luck
+              ? 3
+              : 1;
+      for (let i = 0; i < n; i++) {
+        const eligible = Object.entries({
+          ...this.weapons,
+          ...this.passives,
+        }).filter(([id, l]) => l < { ...WEAPONS, ...PASSIVES }[id].maxLevel);
+        if (eligible.length) {
+          const [id, l] = this.rng.pick(eligible);
+          this.give(id, l + 1);
+          this.chestRewards.push({
+            id,
+            kind: WEAPONS[id] ? "weapon" : "passive",
+            level: l + 1,
+          });
+        } else {
+          this.gold += 25;
+          this.chestRewards.push({ id: "gold", kind: "bonus", level: 1 });
+        }
+      }
+    }
+    this.gold += Math.round(
+      (50 + this.rng.next() * 30) * this.player.stats.greed,
+    );
+    this.state = "chest";
+    this.event("chest");
+    return true;
+  }
+  chestTick(dt){if(this.state!=='chest')return;this.chestElapsed+=dt;this.chestPhase=this.chestElapsed<.6?'opening':this.chestElapsed<1.5?'reveal':'ready';}
+  closeChest() {
+    if (this.state !== "chest") return;
+    this.recordEvent({ tick: this.tick, type: "chestContinue" });
+    this.state = "playing";
+    this.checkLevel();
+  }
+  collect(p) {
+    if(p.type!=="xp")this.pickupCounts[p.type]=(this.pickupCounts[p.type]||0)+1;
+    switch (p.type) {
+      case "xp":
+        this.xp(p.value);
+        this.event("xp");
+        break;
+      case "chest":
+        this.openChest(p);
+        break;
+      case "chicken":
+        this.heal(p.value);
+        this.event("heal");
+        break;
+      case "vacuum":
+        for (const g of this.pickups) if (g.type === "xp") g.magnetized = true;
+        this.event("pickup");
+        break;
+      case "clock":
+        this.freeze = 10;
+        this.event("pickup");
+        break;
+      case "rosary":
+        for (const e of this.enemies)
+          if (e.type !== "reaper") this.damageEnemy(e, e.hp, 1, "rosary");
+        this.effect("rosary", this.player.x, this.player.y, 1);
+        break;
+      case "clover":
+        this.runModifiers.luck += 0.1;
+        this.recompute();
+        this.event("pickup");
+        break;
+      case "nft":
+        this.fire = 10;
+        this.event("pickup");
+        break;
+      default:
+        this.gold += Math.round(p.value*(this.legacy?1:this.player.stats.greed));
+        this.event("coin");
+    }
+  }
+  bot() {
+    if(!this.legacy)return this.autoplay.direction();
+    const p = this.player;
+    let tx = 0,
+      ty = 0;
+    let nearest = null,
+      best = Infinity;
+    for (const g of this.pickups) {
+      const d =
+        distance2(g, p) *
+        (g.type === "chest"
+          ? 0.25
+          : g.type === "chicken" && p.hp < p.maxHp * 0.6
+            ? 0.15
+            : 1);
+      if (d < best) {
+        best = d;
+        nearest = g;
+      }
+    }
+    if (nearest) {
+      const d = Math.hypot(nearest.x - p.x, nearest.y - p.y) || 1;
+      tx = ((nearest.x - p.x) / d) * 0.8;
+      ty = ((nearest.y - p.y) / d) * 0.8;
+    } else {
+      tx = Math.cos(this.time * 0.17) * 0.4;
+      ty = Math.sin(this.time * 0.17) * 0.4;
+    }
+    for (const e of this.enemies) {
+      const dx = p.x - e.x,
+        dy = p.y - e.y,
+        d = Math.hypot(dx, dy);
+      if (d < 65 && d > 0) {
+        const k = (65 - d) / 65;
+        tx += (dx / d) * k * 1.8;
+        ty += (dy / d) * k * 1.8;
+      }
+    }
+    const m = Math.hypot(tx, ty) || 1;
+    return { x: tx / m, y: ty / m };
+  }
+  autoMenu() {
+    if (this.state === "levelup") {
+      const priority = [
+        "whip",
+        "heart",
+        "tome",
+        "spinach",
+        "candelabrador",
+        "pummarola",
+        "armor",
+        "crown",
+        "attractorb",
+        "wings",
+        "gold",
+        "chicken",
+      ];
+      const builds={wand:['wand','tome','bracer','duplicator','runetracer','fire'],aoe:['garlic','pummarola','water','attractorb','candelabrador','tome'],bible:['bible','spellbinder','tome','duplicator','spinach'],mixed:['whip','wand','bible','water','heart','tome','spellbinder','attractorb']};
+      const strategy=this.legacy?priority:[...(builds[this.build]||[CHARACTERS[this.character].startingWeapon,...priority]),...priority];
+      const rank=id=>{const n=strategy.indexOf(id);return n<0?100:n;};
+      const c = [...this.choices].sort(
+        (a, b) => rank(a.id) - rank(b.id),
+      )[0];
+      if (c) this.choose(c.id);
+    } else if (this.state === "chest") this.closeChest();
+  }
+  step(dt = 1 / 60, input = { x: 0, y: 0 }) {
+    if (!Number.isFinite(dt) || Math.abs(dt - 1 / 60) > 1e-10)
+      throw new RangeError("Simulation step must equal 1/60");
+    if (this.auto) this.autoMenu();
+    if (this.state !== "playing") return;
+    this.tick++;
+    this.time = this.tick / CONFIG.hz;
+    if(this.modifiers.modifiers.length)this.modifiers.prune(this.time);
+    if(this.modifierRevision!==this.modifiers.revision){this.modifierRevision=this.modifiers.revision;this.recompute();}
+    const p = this.player;
+    if(p.stats.curse>=1.1)this.curseTime+=dt;
+    if (this.auto) input = this.bot();
+    let x = Number.isFinite(input.x) ? input.x : 0,
+      y = Number.isFinite(input.y) ? input.y : 0;
+    const m = Math.hypot(x, y);
+    if (m > 1) {
+      x /= m;
+      y /= m;
+    }
+    p.x += x * CONFIG.moveSpeed * p.stats.moveSpeed * dt;
+    p.y += y * CONFIG.moveSpeed * p.stats.moveSpeed * dt;
+    if(x||y)this.lastDirection={x,y};
+    this.worldSystem?.constrainPlayer();
+    if (Math.abs(x) > 0.01) p.facing = x > 0 ? 1 : -1;
+    if (x !== this.lastInput.x || y !== this.lastInput.y) {
+      this.recordEvent({ tick: this.tick - 1, type: "move", x, y });
+      this.lastInput = { x, y };
+    }
+    this.hitCooldown -= dt;
+    this.healCooldown -= dt;
+    this.freeze = Math.max(0, this.freeze - dt);
+    this.fire = Math.max(0, this.fire - dt);
+    this.heal(p.stats.recovery * dt);
+    this.spawnTick(dt);
+    this.grid.clear();
+    for (const e of this.enemies) if (e.hp > 0) this.grid.insert(e);
+    for (let i = this.enemies.length - 1; i >= 0; i--) {
+      const e = this.enemies[i];
+      if(e.expires&&this.time>=e.expires)e.hp=0;
+      if (e.hp <= 0) {
+        this.recycle("enemies", i);
+        continue;
+      }
+      e.flash = Math.max(0, e.flash - dt);
+      if (!this.options.freezeAI && (this.freeze <= 0 || (!this.legacy && e.freezeResistance>=1))) {
+        let dx = p.x - e.x,
+          dy = p.y - e.y,
+          d = Math.hypot(dx, dy) || 1;
+        let vx = (dx / d) * e.speed,
+          vy = (dy / d) * e.speed; // Local soft separation: allows overlapping crowd silhouettes.
+        if (this.tick % 6 === e.id % 6) {
+          let sx = 0,
+            sy = 0,
+            n = 0;
+          this.grid.query(e.x, e.y, e.r * 1.5, (o) => {
+            if (o === e || n > 5) return;
+            const xx = e.x - o.x,
+              yy = e.y - o.y,
+              dd = xx * xx + yy * yy;
+            if (dd > 0 && dd < (e.r + o.r) ** 2 * 0.4) {
+              const d = Math.sqrt(dd);
+              sx += (xx / d) * 3;
+              sy += (yy / d) * 3;
+              n++;
+            }
+          });
+          e.sx = sx;
+          e.sy = sy;
+        }
+        const steering=this.legacy?null:this.worldSystem?.steer(e,dt);
+        if(steering){vx=steering.x;vy=steering.y;}
+        vx += e.sx || 0;
+        vy += e.sy || 0;
+        e.x += (vx + e.kx) * dt;
+        e.y += (vy + e.ky) * dt;
+        e.kx *= 0.85;
+        e.ky *= 0.85;
+        if (d > 1000 && !e.boss && e.type !== "plant") {
+          const a = this.rng.next() * Math.PI * 2;
+          e.x = p.x + Math.cos(a) * 570;
+          e.y = p.y + Math.sin(a) * 340;
+        }
+      }
+      if (
+        this.options.collisions &&
+        this.hitCooldown <= 0 &&
+        distance2(e, p) < (e.r + CONFIG.playerRadius) ** 2
+      ) {
+        if (!this.options.invincible) {
+          p.hp -= Math.max(1, e.damage - p.stats.armor);
+          this.hitCooldown = 0.5;
+          this.event("playerHit");
+          this.effect("playerHit", p.x, p.y, 0.2);
+          if (p.hp <= 0) {
+            if(p.stats.revival>this.revivalsUsed){this.revivalsUsed++;p.hp=p.maxHp;this.hitCooldown=3;this.event('revive');continue;}
+            p.hp = 0;
+            this.finish(false);
+            break;
+          }
+        }
+      }
+    }
+    this.cooldown -= dt;
+    if (this.cooldown <= 0) this.attack();
+    this.weaponSystem.tick(dt);
+    for (let i = this.combo.length - 1; i >= 0; i--) {
+      this.combo[i].delay -= dt;
+      if (this.combo[i].delay <= 0) {
+        this.sweep(this.combo[i]);
+        remove(this.combo, i);
+      }
+    }
+    if (this.fire > 0 && this.tick % 10 === 0) {
+      this.effect("fire", p.x + p.facing * 55, p.y, 0.2, {
+        dir: p.facing,
+        range: 130,
+      });
+      this.grid.query(p.x + p.facing * 70, p.y, 80, (e) => {
+        if ((e.x - p.x) * p.facing > 0 && Math.abs(e.y - p.y) < 35)
+          this.damageEnemy(e, 30, p.facing, "nft");
+      });
+    }
+    for (let i = this.pickups.length - 1; i >= 0; i--) {
+      const g = this.pickups[i],
+        d = Math.hypot(g.x - p.x, g.y - p.y);
+      if (d < p.stats.magnet) g.magnetized = true;
+      if (g.magnetized && g.type === "xp" && d > 0) {
+        const speed = 180 + Math.min(700, d * 3);
+        g.x += ((p.x - g.x) / d) * speed * dt;
+        g.y += ((p.y - g.y) / d) * speed * dt;
+      }
+      if (d < (g.type === "xp" ? 12 : 17)) {
+        const copy = { ...g };
+        this.recycle("pickups", i);
+        this.collect(copy);
+        if (this.state !== "playing") break;
+      }
+    }
+    for (const g of this.stagePickups)
+      if (!g.collected && Math.hypot(g.x - p.x, g.y - p.y) < 18) {
+        if (!this.legacy || this.passives[g.id] || Object.keys(this.passives).length < 6) {
+          this.give(g.id, Math.min(PASSIVES[g.id]?.maxLevel||5, (this.passives[g.id] || 0) + 1),{ground:!this.legacy});
+          g.collected = true;
+          this.event("pickup");
+        }
+      }
+    for (const l of this.lights)
+      if (!l.alive && this.time > l.respawn) {
+        l.alive = true;
+        if (Math.hypot(l.x - p.x, l.y - p.y) > 700) {
+          l.x = p.x + (this.rng.next() - 0.5) * 900;
+          l.y = p.y + (this.rng.next() - 0.5) * 500;
+        }
+      }
+    for (const kind of ["effects", "texts", "particles"])
+      for (let i = this[kind].length - 1; i >= 0; i--) {
+        const e = this[kind][i];
+        e.life -= dt;
+        if (kind === "texts") e.y -= 18 * dt;
+        if (kind === "particles") {
+          e.x += e.vx * dt;
+          e.y += e.vy * dt;
+        }
+        if (e.life <= 0) this.recycle(kind, i);
+      }
+    if (this.state === "playing" && this.chestQueue.length) this.openChest();
+    if (this.tick % 60 === 0) this.assertFinite();
+    if (this.time >= this.nextTelemetry) {
+      this.dps =
+        (this.damage - this.lastDamage) /
+        Math.max(1, this.time - this.lastDamageTime);
+      this.lastDamage = this.damage;
+      this.lastDamageTime = this.time;
+      this.telemetry.push(this.snapshot());
+      this.nextTelemetry += 30;
+    }
+    this.metrics.queries = this.grid.queries;
+    this.metrics.collisions = this.grid.checks;
+  }
+  spawnTick(dt) {
+    if (this.lab) {
+      while (this.enemies.length < this.labConfig.enemyDensity)
+        this.spawn(this.labConfig.enemyType);
+      return;
+    }
+    if(this.worldSystem?.spawnTick(dt))return;
+    const cycle = this.endless ? Math.floor(this.time / 1800) : 0;
+    if (cycle > this.cycle) {
+      this.cycle = cycle;
+      this.bossIndex = 0;
+      this.eventIndex = 0;
+    }
+    const local = this.endless ? this.time % 1800 : this.time;
+    const wave = this.definition.waves[Math.min(29, Math.floor(local / 60))];
+    if (this.time < 1800 || this.endless) {
+      this.spawnBudget += wave.spawnRate * dt;
+      while (this.spawnBudget >= 1) {
+        this.spawnBudget--;
+        if (this.enemies.length < wave.maxAlive)
+          this.spawn(wave.enemy, undefined, undefined, { scale: wave.hpScale });
+      }
+      while (
+        this.bossIndex < this.definition.bosses.length &&
+        local >= this.definition.bosses[this.bossIndex].time
+      ) {
+        const boss = this.definition.bosses[this.bossIndex++];
+        this.spawn(boss.enemy, undefined, undefined, {
+          scale: 1 + boss.time / 75,
+          chest: true,
+        });
+      }
+      while (
+        this.eventIndex < this.definition.events.length &&
+        local >= this.definition.events[this.eventIndex].time
+      ) {
+        this.eventIndex++;
+        for (let i = 0; i < 45; i++) {
+          const a = (i / 45) * Math.PI * 2;
+          this.spawn(
+            "plant",
+            this.player.x + Math.cos(a) * 250,
+            this.player.y + Math.sin(a) * 250,
+          );
+        }
+      }
+    } else if (this.enemies.every((e) => e.type !== "reaper")) {
+      this.spawn("reaper", this.player.x + 470, this.player.y);
+      this.event("reaper");
+    }
+  }
+  finish(won = false) {
+    if (this.state === "dead" || this.state === "won") return;
+    this.state = won ? "won" : "dead";
+    this.event(won ? "results" : "gameover");
+  }
+  snapshot() {
+    return {
+      time: Math.round(this.time * 100) / 100,
+      level: this.player.level,
+      xp: this.player.xp,
+      kills: this.kills,
+      player_hp: this.player.hp,
+      enemy_alive: this.enemies.length,
+      enemy_spawned_total: this.metrics.spawned,
+      projectile_count: this.projectiles.length,
+      pickup_count: this.pickups.length,
+      dps: this.dps || 0,
+      damage: this.damage,
+      gold: this.gold,
+      chests: this.chests,
+      evolutionTime: this.evolutionTime,
+      seed: this.seed,
+      state: this.state,
+      attacks: this.metrics.attacks,
+      hits: this.metrics.hits,
+      fps: null,
+      frame_ms: null,
+    };
+  }
+  recordEvent(event) {
+    if (this.replay.length < 260000) this.replay.push(event);
+    else this.replayTruncated = true;
+  }
+  exportReplay() {
+    return {
+      version: 1,
+      truncated: !!this.replayTruncated,
+      seed: this.seed,
+      character: this.character,
+      stage: this.stage,
+      powerups: { ...this.powerups },
+      events: this.replay.map((e) => ({ ...e })),
+    };
+  }
+  assertFinite() {
+    for (const key of ["x", "y", "hp", "maxHp", "xp", "level"])
+      if (!Number.isFinite(this.player[key]))
+        throw new Error("Nonfinite player " + key);
+    for (const e of this.enemies)
+      if (!Number.isFinite(e.x + e.y + e.hp))
+        throw new Error("Nonfinite enemy");
+  }
+  debug(action, value) {
+    switch (action) {
+      case "invincible":
+      case "freezeAI":
+      case "collisions":
+      case "hitboxes":
+      case "grid":
+        this.options[action] = value ?? !this.options[action];
+        break;
+      case "xp":
+      case "addXP":
+        this.xp(Number(value) || 100);
+        break;
+      case "gold":
+      case "addGold":
+        this.gold += Number(value) || 100;
+        break;
+      case "level":
+      case "setLevel":
+        this.player.level = Math.floor(bounded(value, 1, 1, 10000));
+        this.player.nextXp = xpThreshold(this.player.level);
+        this.recompute();
+        break;
+      case "time":
+      case "setTime":
+        this.tick = Math.floor(bounded(value, 0, 0, 86400) * 60);
+        this.time = this.tick / 60;
+        this.bossIndex = this.definition.bosses.filter(
+          (b) => b.time < this.time,
+        ).length;
+        this.eventIndex = this.definition.events.filter(
+          (e) => e.time < this.time,
+        ).length;
+        break;
+      case "warp":
+        for (let i = 0; i < bounded(value, 60, 0, 3600) * 60; i++) this.step();
+        break;
+      case "weapon":
+      case "giveWeapon":
+        if (typeof value === "string") this.give(value, 8);
+        else this.give(value?.id || "whip", value?.level || 8);
+        break;
+      case "passive":
+      case "givePassive":
+        this.give(typeof value === "string" ? value : "heart", 1);
+        break;
+      case "spawnEnemy":
+      case "enemy":
+        for (let i = 0; i < bounded(value, 1, 0, CONFIG.enemyLimit); i++)
+          this.spawn(this.labConfig.enemyType);
+        break;
+      case "spawnBoss":
+      case "boss":
+        this.spawn("mantis", this.player.x + 100, this.player.y, {
+          chest: true,
+        });
+        break;
+      case "spawnChest":
+      case "chest":
+        this.pickup("chest", this.player.x, this.player.y, 1, {
+          eligible: this.time >= 600,
+          born: this.time,
+        });
+        break;
+      case "killAll":
+        for (const e of this.enemies) this.damageEnemy(e, e.hp);
+        break;
+      case "spawnXP":
+        for (let i = 0; i < bounded(value, 50, 0, 2000); i++)
+          this.pickup(
+            "xp",
+            this.player.x + (this.rng.next() - 0.5) * 200,
+            this.player.y + (this.rng.next() - 0.5) * 200,
+            1,
+          );
+        break;
+      case "reroll":
+        if (this.state === "levelup" && this.rerolls > 0) {
+          this.rerolls--;
+          this.makeChoices();
+        }
+        break;
+      case "skip":
+        if (this.state === "levelup" && this.skips > 0) {
+          this.skips--;
+          this.state = "playing";
+          this.player.xp += this.player.nextXp * 0.2;
+          this.checkLevel();
+        }
+        break;
+      case "banish":
+        if (
+          this.state === "levelup" &&
+          this.banishes > 0 &&
+          this.choices.some((c) => c.id === value)
+        ) {
+          this.banishes--;
+          this.banned.add(value);
+          this.state = "playing";
+          this.checkLevel();
+        }
+        break;
+      case "stats":
+        if (value && typeof value === "object")
+          for (const [k, v] of Object.entries(value))
+            if (k in this.player.stats && Number.isFinite(v))
+              this.player.stats[k] = v;
+        break;
+      case "death":
+        this.player.hp = 0;
+        this.finish(false);
+        break;
+      default:
+        return false;
+    }
+    return true;
+  }
 }

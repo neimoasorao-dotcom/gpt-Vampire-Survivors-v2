@@ -1,4 +1,4 @@
-const VERSION = 1;
+const VERSION = 2;
 const SAFE_ID = /^[a-zA-Z0-9_-]{1,64}$/;
 const own = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
 const record = o => o !== null && typeof o === 'object' && !Array.isArray(o);
@@ -7,7 +7,7 @@ const number = (value, fallback, min, max) => typeof value === 'number' && Numbe
 export function defaultSave() {
   return {
     saveVersion: VERSION, gold: 0, totalKills: 0, runs: 0, bestTime: 0,
-    powerups: {}, unlocks: {}, collection: [],
+    powerups: {}, unlocks: {}, collection: [], characters: { antonio: true }, stages: { forest: true }, weaponUnlocks: {}, sealed: [], stats: { pickupCounts:{},characterTimes:{},breakables:0,maxLevel: 1, bossKills: 0, evolutions: 0, stageLevels: {}, stageTimes: {}, weaponLevels: {}, totalHealing: 0, bestRunGold: 0, curseSurvival: 0 },
     settings: { language: 'ja', master: .6, music: .35, sfx: .6, damageNumbers: true, shake: true, flashes: true, performance: false, gamepad: true }
   };
 }
@@ -38,6 +38,17 @@ export function normalizeSave(input, strict = false) {
   for (const [key, value] of Object.entries(record(input.unlocks) ? input.unlocks : {}).slice(0, 1024)) {
     if (SAFE_ID.test(key) && typeof value === 'boolean') data.unlocks[key] = value;
   }
+  for (const field of ['characters', 'stages', 'weaponUnlocks']) {
+    for (const [key, value] of Object.entries(record(input[field]) ? input[field] : {}).slice(0, 1024)) if (SAFE_ID.test(key) && typeof value === 'boolean') data[field][key] = value;
+  }
+  data.characters.antonio = true; data.stages.forest = true;
+  if (Array.isArray(input.sealed)) data.sealed = [...new Set(input.sealed.filter(id => typeof id === 'string' && SAFE_ID.test(id)))].slice(0, 1024);
+  if (record(input.stats)) {
+    for (const key of ['maxLevel', 'bossKills', 'evolutions', 'totalHealing', 'bestRunGold', 'curseSurvival','breakables']) data.stats[key] = Math.floor(number(input.stats[key], data.stats[key], 0, 1e12));
+    for (const field of ['stageLevels', 'stageTimes', 'weaponLevels','pickupCounts','characterTimes']) for (const [id, value] of Object.entries(record(input.stats[field]) ? input.stats[field] : {}).slice(0, 256)) if (SAFE_ID.test(id)) data.stats[field][id] = number(value, 0, 0, 1e9);
+  }
+  // Legacy saves already have aggregate progress, retain useful unlock evidence.
+  if (version < 2) { data.stats.maxLevel = input.unlocks?.level20 ? 20 : 1; if (input.unlocks?.level20) data.stats.stageLevels.forest = 20; data.stats.stageTimes.forest = data.bestTime; if (input.unlocks?.bloody) data.stats.evolutions = 1; }
   if (Array.isArray(input.collection)) data.collection = [...new Set(input.collection.filter(x => typeof x === 'string' && SAFE_ID.test(x)))].slice(0, 1024);
   if (record(input.settings)) {
     const settings = input.settings;

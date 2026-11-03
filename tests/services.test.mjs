@@ -39,7 +39,7 @@ test('old partial save migrates, bounds numeric values and restores settings def
   const storage = new MemoryStorage();
   storage.setItem('old', JSON.stringify({ gold: -99, totalKills: 500, powerups: { might: 999 }, settings: { language: 'en', music: 4 } }));
   const data = new SaveService(storage, 'old').load();
-  assert.equal(data.saveVersion, 1); assert.equal(data.gold, 0); assert.equal(data.powerups.might, 100);
+  assert.equal(data.saveVersion, 2); assert.equal(data.gold, 0); assert.equal(data.powerups.might, 100);
   assert.equal(data.settings.music, 1); assert.equal(data.settings.sfx, .6); assert.equal(data.totalKills, 500);
 });
 test('invalid import rejects unsafe/future data without overwriting current save', () => {

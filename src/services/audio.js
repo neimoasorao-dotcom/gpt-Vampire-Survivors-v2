@@ -68,15 +68,35 @@ export class AudioService {
     oscillator.start(when); oscillator.stop(when + duration + .01);
     return true;
   }
-  event(type) {
+  event(type, data = {}) {
     const ctx = this.context;
     if (!ctx || ctx.state !== 'running') return;
     const limits = { xp: .045, hit: .07, death: .1, enemyDeath: .1, attack: .08, coin: .06, crit: .06 };
-    const now = ctx.currentTime;
-    if (now - (this.cooldowns.get(type) ?? -Infinity) < (limits[type] || .02)) return;
-    this.cooldowns.set(type, now);
+    const now=ctx.currentTime,key=type==='weapon'?'weapon:'+data.id:type;
+    if(now-(this.cooldowns.get(key)??-Infinity)<(type==='weapon'?.09:limits[type]||.02))return;
+    this.cooldowns.set(key,now);
     const note = (f, d, options) => this.tone(f, d, options);
     switch (type) {
+      case 'weapon': {
+        const id={holy:'wand',thousand:'knife',spiral:'axe',heaven:'cross',vespers:'bible',hellfire:'fire',soul:'garlic',borra:'water',nofuture:'runetracer',thunder:'lightning',moon:'pentagram',vandalier:'peachone'}[data.id]||data.id;
+        switch(id){
+          case 'wand':note(740,.09,{gain:.075,wave:'triangle',end:1200});break;
+          case 'knife':note(1900,.035,{gain:.045,wave:'triangle',end:500});break;
+          case 'axe':note(180,.12,{gain:.085,wave:'sawtooth',end:65});break;
+          case 'cross':note(440,.12,{gain:.065,wave:'triangle',end:660});note(220,.09,{gain:.04,wave:'sine',delay:.03});break;
+          case 'bible':note(196,.2,{gain:.06,wave:'triangle'});note(294,.15,{gain:.04,wave:'sine',delay:.03});break;
+          case 'fire':note(85,.2,{gain:.07,wave:'sawtooth',end:38});note(220,.05,{gain:.045,wave:'triangle'});break;
+          case 'garlic':note(97,.12,{gain:.035,wave:'sine',end:73});break;
+          case 'water':note(1200,.11,{gain:.045,wave:'sine',end:250});note(870,.14,{gain:.035,wave:'sine',end:300,delay:.04});break;
+          case 'runetracer':note(650,.08,{gain:.045,wave:'square',end:1450});break;
+          case 'lightning':note(62,.16,{gain:.12,wave:'sawtooth',end:28});note(1600,.035,{gain:.06,wave:'triangle',end:260});break;
+          case 'pentagram':[40,47,52,59].forEach((m,i)=>note(NOTE(m),.5,{gain:.07,wave:'triangle',delay:i*.07}));break;
+          case 'peachone':note(1047,.08,{gain:.045,wave:'sine',end:784});break;
+          case 'ebony':note(622,.09,{gain:.045,wave:'sine',end:466});break;
+          default:break;
+        }
+        break;
+      }
       case 'menu': note(180, .045, { gain: .08, wave: 'triangle', end: 240 }); break;
       case 'confirm': note(392, .09, { gain: .12 }); note(587, .14, { gain: .09, delay: .06 }); break;
       case 'cancel': note(220, .09, { gain: .08, wave: 'triangle', end: 110 }); break;
